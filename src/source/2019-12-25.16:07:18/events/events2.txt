@@ -1,0 +1,3650 @@
+,thread,time,event
+,7,3250,connect to server success
+,1,3261,dispatcher run
+,3,3261,map controller run
+,5,3261,server run
+,5,3261,server is closed
+,3,3273,task 26 pass to 0
+,0,3283,worker is executing own tasks
+,0,3283,worker is executing another tasks
+,0,3283,worker try execute another tasks from 1 rank
+,0,3284,rank 1 haven't tasks
+,0,3284,worker try execute another tasks from 0 rank
+,0,3295,rank 0 haven't tasks
+,0,3295,worker finished job
+,6,3296,tasks.size = 0
+,0,3303,worker is executing own tasks
+,0,3303,worker is executing another tasks
+,0,3303,worker try execute another tasks from 1 rank
+,3,3311,task 3 pass to 2
+,0,3314,worker executed 3 task
+,0,3314,worker try execute another tasks from 1 rank
+,3,3315,task 9 pass to 2
+,0,3317,worker executed 9 task
+,0,3317,worker try execute another tasks from 1 rank
+,3,3318,task 13 pass to 2
+,0,3320,worker executed 13 task
+,0,3320,worker try execute another tasks from 1 rank
+,3,3321,task 19 pass to 2
+,0,3324,worker executed 19 task
+,0,3324,worker try execute another tasks from 1 rank
+,3,3332,task 31 pass to 2
+,0,3333,worker executed 31 task
+,0,3333,worker try execute another tasks from 1 rank
+,0,3333,rank 1 haven't tasks
+,0,3333,worker try execute another tasks from 0 rank
+,3,3336,task 28 pass to 1
+,3,3337,task 24 pass to 2
+,3,3338,task 26 pass to 1
+,0,3339,worker executed 24 task
+,0,3339,worker try execute another tasks from 0 rank
+,0,3339,rank 0 haven't tasks
+,0,3339,worker finished job
+,6,3352,tasks.size = 6
+,0,3354,worker is executing own tasks
+,0,3367,worker is executing another tasks
+,0,3367,worker try execute another tasks from 1 rank
+,3,3367,task 23 pass to 2
+,0,3369,worker executed 23 task
+,0,3369,worker try execute another tasks from 1 rank
+,3,3370,task 27 pass to 2
+,0,3372,worker executed 27 task
+,0,3372,worker try execute another tasks from 1 rank
+,3,3372,task 28 pass to 2
+,0,3375,worker executed 28 task
+,0,3375,worker try execute another tasks from 1 rank
+,0,3375,rank 1 haven't tasks
+,0,3375,worker try execute another tasks from 0 rank
+,3,3385,task 30 pass to 2
+,0,3386,worker executed 30 task
+,0,3386,worker try execute another tasks from 0 rank
+,0,3391,rank 0 haven't tasks
+,0,3391,worker finished job
+,6,3392,tasks.size = 10
+,0,3395,worker is executing own tasks
+,0,3414,worker is executing another tasks
+,0,3414,worker try execute another tasks from 1 rank
+,3,3415,task 26 pass to 2
+,3,3415,task 18 pass to 1
+,0,3418,worker executed 26 task
+,0,3418,worker try execute another tasks from 1 rank
+,0,3418,rank 1 haven't tasks
+,0,3418,worker try execute another tasks from 0 rank
+,0,3418,rank 0 haven't tasks
+,0,3418,worker finished job
+,6,3420,tasks.size = 11
+,0,3430,worker is executing own tasks
+,0,3451,worker is executing another tasks
+,0,3451,worker try execute another tasks from 1 rank
+,0,3451,rank 1 haven't tasks
+,0,3451,worker try execute another tasks from 0 rank
+,0,3452,rank 0 haven't tasks
+,0,3452,worker finished job
+,6,3455,tasks.size = 11
+,0,3457,worker is executing own tasks
+,0,3479,worker is executing another tasks
+,0,3479,worker try execute another tasks from 1 rank
+,0,3479,rank 1 haven't tasks
+,0,3479,worker try execute another tasks from 0 rank
+,0,3480,rank 0 haven't tasks
+,0,3480,worker finished job
+,6,3482,tasks.size = 11
+,0,3486,worker is executing own tasks
+,0,3508,worker is executing another tasks
+,0,3508,worker try execute another tasks from 1 rank
+,0,3523,rank 1 haven't tasks
+,0,3523,worker try execute another tasks from 0 rank
+,0,3524,rank 0 haven't tasks
+,0,3524,worker finished job
+,6,3532,tasks.size = 11
+,0,3535,worker is executing own tasks
+,0,3557,worker is executing another tasks
+,0,3557,worker try execute another tasks from 1 rank
+,0,3557,rank 1 haven't tasks
+,0,3557,worker try execute another tasks from 0 rank
+,0,3558,rank 0 haven't tasks
+,0,3558,worker finished job
+,6,3561,tasks.size = 11
+,0,3563,worker is executing own tasks
+,0,3585,worker is executing another tasks
+,0,3585,worker try execute another tasks from 1 rank
+,3,3586,task 25 pass to 2
+,0,3588,worker executed 25 task
+,3,3588,task 29 pass to 0
+,0,3588,worker try execute another tasks from 1 rank
+,0,3591,worker executed 22 task
+,0,3591,worker try execute another tasks from 1 rank
+,0,3591,rank 1 haven't tasks
+,0,3591,worker try execute another tasks from 0 rank
+,0,3591,rank 0 haven't tasks
+,0,3592,worker finished job
+,3,3592,task 22 pass to 2
+,3,3592,task 18 pass to 0
+,6,3596,tasks.size = 13
+,0,3599,worker is executing own tasks
+,3,3623,task 29 pass to 1
+,0,3624,worker is executing another tasks
+,0,3624,worker try execute another tasks from 1 rank
+,0,3624,rank 1 haven't tasks
+,0,3624,worker try execute another tasks from 0 rank
+,0,3624,rank 0 haven't tasks
+,0,3624,worker finished job
+,6,3632,tasks.size = 13
+,0,3639,worker is executing own tasks
+,3,3660,task 20 pass to 1
+,0,3664,worker is executing another tasks
+,0,3664,worker try execute another tasks from 1 rank
+,0,3664,rank 1 haven't tasks
+,0,3664,worker try execute another tasks from 0 rank
+,0,3664,rank 0 haven't tasks
+,0,3664,worker finished job
+,6,3666,tasks.size = 13
+,0,3669,worker is executing own tasks
+,0,3694,worker is executing another tasks
+,0,3694,worker try execute another tasks from 1 rank
+,0,3695,rank 1 haven't tasks
+,0,3695,worker try execute another tasks from 0 rank
+,0,3695,rank 0 haven't tasks
+,0,3695,worker finished job
+,6,3695,tasks.size = 13
+,0,3698,worker is executing own tasks
+,3,3719,task 18 pass to 1
+,3,3720,change location in 0 for task 25 counter was 1
+,0,3722,worker is executing another tasks
+,3,3722,change location in 1 for task 25 counter was 0
+,3,3722,map changed for task 25; sendedTaskCounter.size = 0
+,0,3722,worker try execute another tasks from 1 rank
+,3,3722,delete task 25
+,0,3722,rank 1 haven't tasks
+,0,3722,worker try execute another tasks from 0 rank
+,0,3722,rank 0 haven't tasks
+,0,3722,worker finished job
+,6,3723,tasks.size = 12
+,0,3725,worker is executing own tasks
+,3,3749,task 29 pass to 0
+,0,3749,worker is executing another tasks
+,0,3749,worker try execute another tasks from 1 rank
+,3,3750,task 20 pass to 2
+,3,3751,task 18 pass to 0
+,0,3753,worker executed 20 task
+,0,3753,worker try execute another tasks from 1 rank
+,0,3753,rank 1 haven't tasks
+,0,3753,worker try execute another tasks from 0 rank
+,0,3753,rank 0 haven't tasks
+,0,3753,worker finished job
+,6,3766,tasks.size = 13
+,0,3775,worker is executing own tasks
+,3,3790,task 14 pass to 1
+,3,3792,task 16 pass to 1
+,0,3798,worker is executing another tasks
+,0,3798,worker try execute another tasks from 1 rank
+,3,3800,delete task 20
+,3,3801,change location in 0 for task 20 counter was 1
+,3,3801,change location in 1 for task 20 counter was 0
+,3,3801,map changed for task 20; sendedTaskCounter.size = 0
+,0,3801,rank 1 haven't tasks
+,0,3801,worker try execute another tasks from 0 rank
+,0,3801,rank 0 haven't tasks
+,0,3801,worker finished job
+,6,3824,tasks.size = 12
+,0,3837,worker is executing own tasks
+,0,3859,worker is executing another tasks
+,0,3859,worker try execute another tasks from 1 rank
+,3,3860,task 14 pass to 2
+,0,3862,worker executed 14 task
+,0,3862,worker try execute another tasks from 1 rank
+,3,3865,task 25 pass to 1
+,0,3865,rank 1 haven't tasks
+,0,3865,worker try execute another tasks from 0 rank
+,3,3866,task 29 pass to 2
+,3,3867,task 20 pass to 1
+,0,3868,worker executed 29 task
+,0,3868,worker try execute another tasks from 0 rank
+,0,3868,rank 0 haven't tasks
+,0,3868,worker finished job
+,6,3883,tasks.size = 14
+,0,3891,worker is executing own tasks
+,3,3914,task 18 pass to 1
+,3,3915,change location in 0 for task 29 counter was 1
+,0,3915,worker is executing another tasks
+,3,3916,delete task 29
+,0,3916,worker try execute another tasks from 1 rank
+,0,3927,rank 1 haven't tasks
+,3,3927,change location in 1 for task 29 counter was 0
+,0,3927,worker try execute another tasks from 0 rank
+,3,3927,map changed for task 29; sendedTaskCounter.size = 0
+,0,3928,rank 0 haven't tasks
+,0,3928,worker finished job
+,6,3928,tasks.size = 13
+,0,3957,worker is executing own tasks
+,0,3981,worker is executing another tasks
+,0,3982,worker try execute another tasks from 1 rank
+,0,4003,rank 1 haven't tasks
+,0,4003,worker try execute another tasks from 0 rank
+,0,4004,rank 0 haven't tasks
+,0,4004,worker finished job
+,6,4006,tasks.size = 13
+,0,4011,worker is executing own tasks
+,0,4036,worker is executing another tasks
+,0,4036,worker try execute another tasks from 1 rank
+,0,4036,rank 1 haven't tasks
+,0,4036,worker try execute another tasks from 0 rank
+,0,4037,rank 0 haven't tasks
+,0,4037,worker finished job
+,6,4038,tasks.size = 13
+,0,4041,worker is executing own tasks
+,0,4067,worker is executing another tasks
+,0,4067,worker try execute another tasks from 1 rank
+,0,4068,rank 1 haven't tasks
+,0,4068,worker try execute another tasks from 0 rank
+,0,4068,rank 0 haven't tasks
+,0,4068,worker finished job
+,6,4068,tasks.size = 13
+,0,4073,worker is executing own tasks
+,0,4096,worker is executing another tasks
+,0,4097,worker try execute another tasks from 1 rank
+,3,4097,change location in 0 for task 14 counter was 1
+,3,4097,change location in 1 for task 14 counter was 0
+,3,4097,map changed for task 14; sendedTaskCounter.size = 0
+,3,4097,delete task 14
+,0,4098,rank 1 haven't tasks
+,0,4098,worker try execute another tasks from 0 rank
+,0,4098,rank 0 haven't tasks
+,0,4098,worker finished job
+,6,4107,tasks.size = 12
+,0,4124,worker is executing own tasks
+,0,4148,worker is executing another tasks
+,0,4148,worker try execute another tasks from 1 rank
+,0,4148,rank 1 haven't tasks
+,0,4148,worker try execute another tasks from 0 rank
+,0,4148,rank 0 haven't tasks
+,0,4148,worker finished job
+,6,4151,tasks.size = 12
+,0,4154,worker is executing own tasks
+,0,4177,worker is executing another tasks
+,0,4177,worker try execute another tasks from 1 rank
+,0,4178,rank 1 haven't tasks
+,0,4178,worker try execute another tasks from 0 rank
+,0,4178,rank 0 haven't tasks
+,0,4178,worker finished job
+,6,4181,tasks.size = 12
+,0,4183,worker is executing own tasks
+,0,4207,worker is executing another tasks
+,0,4207,worker try execute another tasks from 1 rank
+,0,4207,rank 1 haven't tasks
+,0,4207,worker try execute another tasks from 0 rank
+,0,4208,rank 0 haven't tasks
+,0,4208,worker finished job
+,6,4211,tasks.size = 12
+,0,4213,worker is executing own tasks
+,0,4237,worker is executing another tasks
+,0,4237,worker try execute another tasks from 1 rank
+,0,4237,rank 1 haven't tasks
+,0,4237,worker try execute another tasks from 0 rank
+,0,4237,rank 0 haven't tasks
+,0,4237,worker finished job
+,6,4240,tasks.size = 12
+,0,4242,worker is executing own tasks
+,0,4266,worker is executing another tasks
+,0,4266,worker try execute another tasks from 1 rank
+,3,4278,task 21 pass to 2
+,0,4283,worker executed 21 task
+,0,4283,worker try execute another tasks from 1 rank
+,0,4284,rank 1 haven't tasks
+,0,4284,worker try execute another tasks from 0 rank
+,0,4287,rank 0 haven't tasks
+,0,4287,worker finished job
+,6,4292,tasks.size = 13
+,0,4297,worker is executing own tasks
+,3,4323,task 14 pass to 1
+,3,4333,change location in 1 for task 21 counter was 1
+,0,4334,worker is executing another tasks
+,0,4334,worker try execute another tasks from 1 rank
+,0,4339,rank 1 haven't tasks
+,3,4339,change location in 0 for task 21 counter was 0
+,3,4339,map changed for task 21; sendedTaskCounter.size = 0
+,3,4340,delete task 21
+,0,4343,worker try execute another tasks from 0 rank
+,0,4359,rank 0 haven't tasks
+,0,4359,worker finished job
+,6,4375,tasks.size = 12
+,0,4404,worker is executing own tasks
+,3,4419,delete task 23
+,3,4419,change location in 0 for task 23 counter was 1
+,3,4422,change location in 1 for task 23 counter was 0
+,3,4422,map changed for task 23; sendedTaskCounter.size = 1
+,3,4422,change location in 1 for task 28 counter was 1
+,3,4422,delete task 28
+,3,4422,change location in 0 for task 28 counter was 0
+,3,4422,map changed for task 28; sendedTaskCounter.size = 0
+,3,4426,delete task 22
+,3,4426,change location in 1 for task 22 counter was 1
+,3,4426,change location in 0 for task 22 counter was 0
+,3,4426,map changed for task 22; sendedTaskCounter.size = 0
+,0,4426,worker is executing another tasks
+,0,4426,worker try execute another tasks from 1 rank
+,3,4427,task 15 pass to 2
+,0,4429,worker executed 15 task
+,0,4429,worker try execute another tasks from 1 rank
+,3,4431,task 25 pass to 2
+,3,4431,task 20 pass to 0
+,0,4433,worker executed 25 task
+,0,4433,worker try execute another tasks from 1 rank
+,3,4434,task 14 pass to 2
+,0,4437,worker executed 14 task
+,0,4438,worker try execute another tasks from 1 rank
+,0,4448,rank 1 haven't tasks
+,0,4448,worker try execute another tasks from 0 rank
+,0,4448,rank 0 haven't tasks
+,0,4448,worker finished job
+,6,4458,tasks.size = 12
+,0,4473,worker is executing own tasks
+,3,4490,task 12 pass to 1
+,3,4494,task 29 pass to 1
+,3,4496,task 21 pass to 1
+,3,4499,task 23 pass to 1
+,0,4502,worker is executing another tasks
+,0,4502,worker try execute another tasks from 1 rank
+,0,4502,rank 1 haven't tasks
+,0,4502,worker try execute another tasks from 0 rank
+,3,4504,task 20 pass to 1
+,0,4504,rank 0 haven't tasks
+,0,4504,worker finished job
+,6,4520,tasks.size = 12
+,0,4560,worker is executing own tasks
+,3,4579,change location in 1 for task 26 counter was 1
+,3,4580,delete task 26
+,3,4580,change location in 0 for task 26 counter was 0
+,3,4580,map changed for task 26; sendedTaskCounter.size = 0
+,3,4582,change location in 1 for task 25 counter was 1
+,3,4582,change location in 0 for task 25 counter was 0
+,3,4582,map changed for task 25; sendedTaskCounter.size = 0
+,3,4582,delete task 25
+,3,4584,task 21 pass to 0
+,0,4585,worker is executing another tasks
+,0,4585,worker try execute another tasks from 1 rank
+,3,4586,task 20 pass to 2
+,0,4590,worker executed 20 task
+,0,4590,worker try execute another tasks from 1 rank
+,0,4590,rank 1 haven't tasks
+,0,4590,worker try execute another tasks from 0 rank
+,0,4590,rank 0 haven't tasks
+,0,4590,worker finished job
+,6,4591,tasks.size = 11
+,0,4594,worker is executing own tasks
+,3,4619,change location in 1 for task 20 counter was 1
+,3,4619,change location in 0 for task 20 counter was 0
+,3,4619,map changed for task 20; sendedTaskCounter.size = 0
+,0,4619,worker is executing another tasks
+,0,4619,worker try execute another tasks from 1 rank
+,3,4619,delete task 20
+,0,4619,rank 1 haven't tasks
+,0,4619,worker try execute another tasks from 0 rank
+,0,4621,rank 0 haven't tasks
+,0,4621,worker finished job
+,6,4635,tasks.size = 10
+,0,4637,worker is executing own tasks
+,0,4662,worker is executing another tasks
+,0,4662,worker try execute another tasks from 1 rank
+,3,4663,task 12 pass to 2
+,3,4663,task 29 pass to 0
+,3,4666,task 20 pass to 0
+,0,4667,worker executed 12 task
+,0,4667,worker try execute another tasks from 1 rank
+,0,4667,rank 1 haven't tasks
+,0,4667,worker try execute another tasks from 0 rank
+,0,4667,rank 0 haven't tasks
+,0,4667,worker finished job
+,6,4672,tasks.size = 11
+,0,4689,worker is executing own tasks
+,0,4717,worker is executing another tasks
+,0,4717,worker try execute another tasks from 1 rank
+,3,4717,task 17 pass to 2
+,0,4721,worker executed 17 task
+,0,4721,worker try execute another tasks from 1 rank
+,3,4721,task 23 pass to 2
+,0,4724,worker executed 23 task
+,0,4727,worker try execute another tasks from 1 rank
+,0,4728,rank 1 haven't tasks
+,0,4728,worker try execute another tasks from 0 rank
+,0,4738,rank 0 haven't tasks
+,0,4738,worker finished job
+,6,4743,tasks.size = 13
+,0,4747,worker is executing own tasks
+,3,4761,task 28 pass to 1
+,3,4764,task 25 pass to 1
+,3,4774,delete task 17
+,3,4774,change location in 1 for task 17 counter was 1
+,3,4774,delete task 23
+,0,4775,worker is executing another tasks
+,0,4775,worker try execute another tasks from 1 rank
+,0,4775,rank 1 haven't tasks
+,0,4775,worker try execute another tasks from 0 rank
+,3,4776,change location in 0 for task 17 counter was 0
+,3,4776,map changed for task 17; sendedTaskCounter.size = 1
+,3,4776,change location in 0 for task 23 counter was 1
+,0,4776,rank 0 haven't tasks
+,0,4776,worker finished job
+,3,4776,change location in 1 for task 23 counter was 0
+,3,4776,map changed for task 23; sendedTaskCounter.size = 0
+,6,4777,tasks.size = 11
+,0,4789,worker is executing own tasks
+,0,4818,worker is executing another tasks
+,0,4818,worker try execute another tasks from 1 rank
+,3,4818,task 25 pass to 2
+,3,4818,task 23 pass to 0
+,0,4820,worker executed 25 task
+,0,4820,worker try execute another tasks from 1 rank
+,0,4821,rank 1 haven't tasks
+,0,4821,worker try execute another tasks from 0 rank
+,0,4821,rank 0 haven't tasks
+,0,4821,worker finished job
+,6,4822,tasks.size = 12
+,0,4827,worker is executing own tasks
+,3,4843,task 26 pass to 1
+,3,4845,task 29 pass to 1
+,3,4847,task 17 pass to 1
+,3,4851,delete task 12
+,3,4851,change location in 0 for task 12 counter was 1
+,3,4851,change location in 1 for task 12 counter was 0
+,3,4851,map changed for task 12; sendedTaskCounter.size = 0
+,0,4853,worker is executing another tasks
+,0,4853,worker try execute another tasks from 1 rank
+,0,4854,rank 1 haven't tasks
+,0,4854,worker try execute another tasks from 0 rank
+,0,4854,rank 0 haven't tasks
+,0,4854,worker finished job
+,6,4855,tasks.size = 11
+,0,4865,worker is executing own tasks
+,3,4889,change location in 0 for task 25 counter was 1
+,3,4889,delete task 25
+,3,4889,change location in 1 for task 25 counter was 0
+,3,4889,map changed for task 25; sendedTaskCounter.size = 0
+,0,4890,worker is executing another tasks
+,0,4890,worker try execute another tasks from 1 rank
+,0,4890,rank 1 haven't tasks
+,0,4890,worker try execute another tasks from 0 rank
+,0,4890,rank 0 haven't tasks
+,0,4890,worker finished job
+,6,4901,tasks.size = 10
+,0,4907,worker is executing own tasks
+,0,4931,worker is executing another tasks
+,0,4931,worker try execute another tasks from 1 rank
+,0,4932,rank 1 haven't tasks
+,0,4932,worker try execute another tasks from 0 rank
+,0,4932,rank 0 haven't tasks
+,0,4932,worker finished job
+,6,4934,tasks.size = 10
+,0,4940,worker is executing own tasks
+,0,4964,worker is executing another tasks
+,0,4964,worker try execute another tasks from 1 rank
+,0,4964,rank 1 haven't tasks
+,0,4964,worker try execute another tasks from 0 rank
+,0,4965,rank 0 haven't tasks
+,0,4965,worker finished job
+,6,4970,tasks.size = 10
+,0,4982,worker is executing own tasks
+,0,5003,worker is executing another tasks
+,0,5003,worker try execute another tasks from 1 rank
+,3,5005,task 12 pass to 2
+,0,5009,worker executed 12 task
+,0,5009,worker try execute another tasks from 1 rank
+,0,5009,rank 1 haven't tasks
+,0,5009,worker try execute another tasks from 0 rank
+,3,5023,task 25 pass to 1
+,0,5024,rank 0 haven't tasks
+,0,5024,worker finished job
+,6,5047,tasks.size = 11
+,0,5050,worker is executing own tasks
+,0,5074,worker is executing another tasks
+,0,5074,worker try execute another tasks from 1 rank
+,3,5075,task 16 pass to 2
+,3,5076,task 18 pass to 0
+,0,5078,worker executed 16 task
+,0,5078,worker try execute another tasks from 1 rank
+,0,5087,rank 1 haven't tasks
+,0,5087,worker try execute another tasks from 0 rank
+,0,5090,rank 0 haven't tasks
+,0,5090,worker finished job
+,6,5091,tasks.size = 12
+,0,5113,worker is executing own tasks
+,3,5132,task 23 pass to 1
+,0,5138,worker is executing another tasks
+,0,5138,worker try execute another tasks from 1 rank
+,0,5138,rank 1 haven't tasks
+,0,5139,worker try execute another tasks from 0 rank
+,3,5143,task 18 pass to 1
+,0,5143,rank 0 haven't tasks
+,0,5143,worker finished job
+,6,5167,tasks.size = 12
+,0,5170,worker is executing own tasks
+,3,5194,task 22 pass to 1
+,0,5196,worker is executing another tasks
+,0,5196,worker try execute another tasks from 1 rank
+,3,5196,task 21 pass to 1
+,0,5211,rank 1 haven't tasks
+,0,5211,worker try execute another tasks from 0 rank
+,0,5212,rank 0 haven't tasks
+,0,5212,worker finished job
+,6,5243,tasks.size = 12
+,0,5247,worker is executing own tasks
+,3,5265,change location in 1 for task 24 counter was 1
+,3,5268,change location in 0 for task 24 counter was 0
+,3,5268,map changed for task 24; sendedTaskCounter.size = 0
+,3,5276,delete task 24
+,3,5279,change location in 0 for task 12 counter was 1
+,0,5280,worker is executing another tasks
+,0,5280,worker try execute another tasks from 1 rank
+,0,5280,rank 1 haven't tasks
+,0,5280,worker try execute another tasks from 0 rank
+,3,5281,delete task 12
+,3,5281,change location in 1 for task 12 counter was 0
+,3,5281,map changed for task 12; sendedTaskCounter.size = 0
+,0,5291,rank 0 haven't tasks
+,0,5291,worker finished job
+,6,5319,tasks.size = 10
+,0,5340,worker is executing own tasks
+,0,5360,worker is executing another tasks
+,0,5360,worker try execute another tasks from 1 rank
+,3,5372,task 24 pass to 1
+,3,5372,task 18 pass to 2
+,0,5375,worker executed 18 task
+,0,5375,worker try execute another tasks from 1 rank
+,0,5375,rank 1 haven't tasks
+,0,5375,worker try execute another tasks from 0 rank
+,0,5375,rank 0 haven't tasks
+,0,5375,worker finished job
+,6,5376,tasks.size = 11
+,0,5382,worker is executing own tasks
+,3,5404,task 22 pass to 0
+,0,5406,worker is executing another tasks
+,3,5407,task 24 pass to 0
+,0,5407,worker try execute another tasks from 1 rank
+,0,5407,rank 1 haven't tasks
+,0,5407,worker try execute another tasks from 0 rank
+,0,5423,rank 0 haven't tasks
+,0,5423,worker finished job
+,6,5437,tasks.size = 11
+,0,5453,worker is executing own tasks
+,0,5476,worker is executing another tasks
+,0,5476,worker try execute another tasks from 1 rank
+,3,5477,task 17 pass to 2
+,0,5480,worker executed 17 task
+,0,5480,worker try execute another tasks from 1 rank
+,3,5481,task 23 pass to 2
+,0,5483,worker executed 23 task
+,0,5483,worker try execute another tasks from 1 rank
+,3,5486,task 12 pass to 2
+,0,5489,worker executed 12 task
+,0,5489,worker try execute another tasks from 1 rank
+,0,5489,rank 1 haven't tasks
+,0,5489,worker try execute another tasks from 0 rank
+,0,5489,rank 0 haven't tasks
+,0,5489,worker finished job
+,6,5504,tasks.size = 14
+,0,5515,worker is executing own tasks
+,3,5537,change location in 0 for task 17 counter was 1
+,0,5544,worker is executing another tasks
+,0,5544,worker try execute another tasks from 1 rank
+,3,5544,change location in 1 for task 17 counter was 0
+,3,5544,map changed for task 17; sendedTaskCounter.size = 0
+,3,5545,task 21 pass to 2
+,3,5545,delete task 17
+,0,5548,worker executed 21 task
+,0,5548,worker try execute another tasks from 1 rank
+,0,5550,rank 1 haven't tasks
+,0,5550,worker try execute another tasks from 0 rank
+,0,5557,rank 0 haven't tasks
+,0,5557,worker finished job
+,6,5580,tasks.size = 14
+,0,5607,worker is executing own tasks
+,3,5608,task 2 pass to 1
+,3,5611,task 6 pass to 1
+,3,5613,task 8 pass to 1
+,3,5630,change location in 0 for task 23 counter was 1
+,3,5630,delete task 23
+,3,5633,change location in 1 for task 23 counter was 0
+,3,5633,map changed for task 23; sendedTaskCounter.size = 1
+,0,5634,worker is executing another tasks
+,0,5635,worker try execute another tasks from 1 rank
+,0,5635,rank 1 haven't tasks
+,0,5635,worker try execute another tasks from 0 rank
+,0,5635,rank 0 haven't tasks
+,0,5635,worker finished job
+,3,5637,change location in 1 for task 21 counter was 1
+,3,5637,change location in 0 for task 21 counter was 0
+,3,5637,map changed for task 21; sendedTaskCounter.size = 0
+,3,5637,delete task 21
+,6,5638,tasks.size = 12
+,0,5655,worker is executing own tasks
+,3,5667,task 22 pass to 1
+,3,5670,task 17 pass to 1
+,3,5672,task 21 pass to 1
+,3,5673,change location in 0 for task 16 counter was 1
+,3,5673,delete task 16
+,3,5673,change location in 1 for task 16 counter was 0
+,3,5673,map changed for task 16; sendedTaskCounter.size = 0
+,0,5676,worker is executing another tasks
+,0,5676,worker try execute another tasks from 1 rank
+,3,5677,change location in 1 for task 12 counter was 1
+,3,5677,delete task 12
+,3,5677,change location in 0 for task 12 counter was 0
+,3,5677,map changed for task 12; sendedTaskCounter.size = 0
+,0,5677,rank 1 haven't tasks
+,0,5677,worker try execute another tasks from 0 rank
+,0,5677,rank 0 haven't tasks
+,0,5677,worker finished job
+,6,5692,tasks.size = 10
+,0,5695,worker is executing own tasks
+,0,5716,worker is executing another tasks
+,0,5716,worker try execute another tasks from 1 rank
+,3,5717,task 22 pass to 2
+,3,5719,task 21 pass to 0
+,0,5719,worker executed 22 task
+,0,5719,worker try execute another tasks from 1 rank
+,0,5719,rank 1 haven't tasks
+,0,5719,worker try execute another tasks from 0 rank
+,0,5719,rank 0 haven't tasks
+,0,5719,worker finished job
+,6,5728,tasks.size = 11
+,0,5737,worker is executing own tasks
+,0,5760,worker is executing another tasks
+,0,5760,worker try execute another tasks from 1 rank
+,0,5761,rank 1 haven't tasks
+,0,5761,worker try execute another tasks from 0 rank
+,0,5761,rank 0 haven't tasks
+,0,5761,worker finished job
+,6,5765,tasks.size = 11
+,0,5769,worker is executing own tasks
+,0,5793,worker is executing another tasks
+,0,5793,worker try execute another tasks from 1 rank
+,0,5793,rank 1 haven't tasks
+,0,5793,worker try execute another tasks from 0 rank
+,0,5793,rank 0 haven't tasks
+,0,5793,worker finished job
+,6,5802,tasks.size = 11
+,0,5805,worker is executing own tasks
+,0,5828,worker is executing another tasks
+,0,5828,worker try execute another tasks from 1 rank
+,3,5829,task 17 pass to 2
+,0,5832,worker executed 17 task
+,0,5832,worker try execute another tasks from 1 rank
+,0,5840,rank 1 haven't tasks
+,0,5840,worker try execute another tasks from 0 rank
+,0,5841,rank 0 haven't tasks
+,0,5841,worker finished job
+,6,5853,tasks.size = 12
+,0,5864,worker is executing own tasks
+,0,5890,worker is executing another tasks
+,0,5890,worker try execute another tasks from 1 rank
+,3,5891,task 8 pass to 2
+,3,5892,task 12 pass to 1
+,0,5893,worker executed 8 task
+,0,5893,worker try execute another tasks from 1 rank
+,0,5894,rank 1 haven't tasks
+,0,5894,worker try execute another tasks from 0 rank
+,3,5895,task 21 pass to 2
+,0,5898,worker executed 21 task
+,0,5898,worker try execute another tasks from 0 rank
+,0,5911,rank 0 haven't tasks
+,0,5911,worker finished job
+,6,5940,tasks.size = 14
+,0,5944,worker is executing own tasks
+,3,5968,change location in 0 for task 8 counter was 1
+,3,5968,change location in 1 for task 8 counter was 0
+,3,5968,map changed for task 8; sendedTaskCounter.size = 0
+,3,5968,delete task 8
+,0,5972,worker is executing another tasks
+,0,5972,worker try execute another tasks from 1 rank
+,0,5973,rank 1 haven't tasks
+,0,5973,worker try execute another tasks from 0 rank
+,0,5973,rank 0 haven't tasks
+,0,5973,worker finished job
+,6,6020,tasks.size = 13
+,0,6033,worker is executing own tasks
+,3,6054,change location in 0 for task 22 counter was 1
+,3,6054,delete task 22
+,3,6054,change location in 1 for task 22 counter was 0
+,3,6054,map changed for task 22; sendedTaskCounter.size = 1
+,3,6054,change location in 1 for task 17 counter was 1
+,3,6055,delete task 17
+,3,6055,change location in 0 for task 17 counter was 0
+,3,6055,map changed for task 17; sendedTaskCounter.size = 0
+,0,6057,worker is executing another tasks
+,0,6057,worker try execute another tasks from 1 rank
+,0,6075,rank 1 haven't tasks
+,0,6075,worker try execute another tasks from 0 rank
+,0,6075,rank 0 haven't tasks
+,0,6076,worker finished job
+,6,6080,tasks.size = 11
+,0,6084,worker is executing own tasks
+,0,6107,worker is executing another tasks
+,0,6107,worker try execute another tasks from 1 rank
+,3,6110,task 8 pass to 2
+,0,6112,worker executed 8 task
+,0,6112,worker try execute another tasks from 1 rank
+,0,6127,rank 1 haven't tasks
+,0,6127,worker try execute another tasks from 0 rank
+,0,6127,rank 0 haven't tasks
+,0,6128,worker finished job
+,6,6128,tasks.size = 12
+,0,6138,worker is executing own tasks
+,0,6163,worker is executing another tasks
+,0,6163,worker try execute another tasks from 1 rank
+,0,6164,rank 1 haven't tasks
+,0,6164,worker try execute another tasks from 0 rank
+,0,6164,rank 0 haven't tasks
+,0,6164,worker finished job
+,6,6164,tasks.size = 12
+,0,6172,worker is executing own tasks
+,0,6195,worker is executing another tasks
+,0,6195,worker try execute another tasks from 1 rank
+,3,6196,change location in 1 for task 8 counter was 1
+,0,6196,rank 1 haven't tasks
+,0,6196,worker try execute another tasks from 0 rank
+,3,6196,change location in 0 for task 8 counter was 0
+,3,6196,map changed for task 8; sendedTaskCounter.size = 0
+,0,6196,rank 0 haven't tasks
+,0,6196,worker finished job
+,3,6196,delete task 8
+,6,6204,tasks.size = 11
+,0,6208,worker is executing own tasks
+,0,6232,worker is executing another tasks
+,0,6232,worker try execute another tasks from 1 rank
+,0,6232,rank 1 haven't tasks
+,0,6232,worker try execute another tasks from 0 rank
+,0,6232,rank 0 haven't tasks
+,0,6232,worker finished job
+,6,6236,tasks.size = 11
+,0,6239,worker is executing own tasks
+,0,6262,worker is executing another tasks
+,0,6262,worker try execute another tasks from 1 rank
+,0,6262,rank 1 haven't tasks
+,0,6262,worker try execute another tasks from 0 rank
+,0,6263,rank 0 haven't tasks
+,0,6263,worker finished job
+,6,6266,tasks.size = 11
+,0,6269,worker is executing own tasks
+,0,6293,worker is executing another tasks
+,0,6293,worker try execute another tasks from 1 rank
+,0,6293,rank 1 haven't tasks
+,0,6293,worker try execute another tasks from 0 rank
+,0,6293,rank 0 haven't tasks
+,0,6293,worker finished job
+,6,6297,tasks.size = 11
+,0,6300,worker is executing own tasks
+,0,6324,worker is executing another tasks
+,0,6324,worker try execute another tasks from 1 rank
+,0,6324,rank 1 haven't tasks
+,0,6324,worker try execute another tasks from 0 rank
+,0,6324,rank 0 haven't tasks
+,0,6324,worker finished job
+,6,6327,tasks.size = 11
+,0,6330,worker is executing own tasks
+,0,6354,worker is executing another tasks
+,0,6354,worker try execute another tasks from 1 rank
+,0,6355,rank 1 haven't tasks
+,0,6355,worker try execute another tasks from 0 rank
+,0,6355,rank 0 haven't tasks
+,0,6355,worker finished job
+,6,6358,tasks.size = 11
+,0,6361,worker is executing own tasks
+,0,6385,worker is executing another tasks
+,0,6385,worker try execute another tasks from 1 rank
+,0,6386,rank 1 haven't tasks
+,0,6386,worker try execute another tasks from 0 rank
+,0,6386,rank 0 haven't tasks
+,0,6386,worker finished job
+,6,6389,tasks.size = 11
+,0,6392,worker is executing own tasks
+,0,6416,worker is executing another tasks
+,0,6416,worker try execute another tasks from 1 rank
+,0,6416,rank 1 haven't tasks
+,0,6416,worker try execute another tasks from 0 rank
+,0,6416,rank 0 haven't tasks
+,0,6416,worker finished job
+,6,6419,tasks.size = 11
+,0,6422,worker is executing own tasks
+,0,6446,worker is executing another tasks
+,0,6446,worker try execute another tasks from 1 rank
+,0,6447,rank 1 haven't tasks
+,0,6447,worker try execute another tasks from 0 rank
+,0,6447,rank 0 haven't tasks
+,0,6447,worker finished job
+,6,6450,tasks.size = 11
+,0,6453,worker is executing own tasks
+,0,6477,worker is executing another tasks
+,0,6477,worker try execute another tasks from 1 rank
+,0,6477,rank 1 haven't tasks
+,0,6477,worker try execute another tasks from 0 rank
+,0,6478,rank 0 haven't tasks
+,0,6478,worker finished job
+,6,6481,tasks.size = 11
+,0,6484,worker is executing own tasks
+,0,6508,worker is executing another tasks
+,0,6508,worker try execute another tasks from 1 rank
+,0,6508,rank 1 haven't tasks
+,0,6508,worker try execute another tasks from 0 rank
+,0,6508,rank 0 haven't tasks
+,0,6508,worker finished job
+,6,6511,tasks.size = 11
+,0,6515,worker is executing own tasks
+,0,6539,worker is executing another tasks
+,0,6539,worker try execute another tasks from 1 rank
+,0,6539,rank 1 haven't tasks
+,0,6539,worker try execute another tasks from 0 rank
+,0,6540,rank 0 haven't tasks
+,0,6540,worker finished job
+,6,6552,tasks.size = 11
+,0,6557,worker is executing own tasks
+,3,6579,task 22 pass to 0
+,0,6581,worker is executing another tasks
+,0,6581,worker try execute another tasks from 1 rank
+,0,6581,rank 1 haven't tasks
+,0,6581,worker try execute another tasks from 0 rank
+,0,6599,rank 0 haven't tasks
+,0,6599,worker finished job
+,6,6602,tasks.size = 11
+,0,6607,worker is executing own tasks
+,3,6631,task 17 pass to 1
+,0,6632,worker is executing another tasks
+,0,6632,worker try execute another tasks from 1 rank
+,0,6633,rank 1 haven't tasks
+,0,6633,worker try execute another tasks from 0 rank
+,3,6633,task 8 pass to 2
+,3,6634,task 22 pass to 1
+,0,6636,worker executed 8 task
+,0,6636,worker try execute another tasks from 0 rank
+,0,6636,rank 0 haven't tasks
+,0,6636,worker finished job
+,6,6644,tasks.size = 12
+,0,6661,worker is executing own tasks
+,0,6688,worker is executing another tasks
+,0,6688,worker try execute another tasks from 1 rank
+,0,6688,rank 1 haven't tasks
+,0,6688,worker try execute another tasks from 0 rank
+,3,6688,task 16 pass to 2
+,0,6691,worker executed 16 task
+,0,6691,worker try execute another tasks from 0 rank
+,0,6697,rank 0 haven't tasks
+,0,6697,worker finished job
+,6,6697,tasks.size = 13
+,0,6702,worker is executing own tasks
+,0,6730,worker is executing another tasks
+,0,6730,worker try execute another tasks from 1 rank
+,0,6731,rank 1 haven't tasks
+,0,6731,worker try execute another tasks from 0 rank
+,0,6731,rank 0 haven't tasks
+,0,6731,worker finished job
+,6,6744,tasks.size = 13
+,0,6749,worker is executing own tasks
+,0,6778,worker is executing another tasks
+,0,6778,worker try execute another tasks from 1 rank
+,0,6778,rank 1 haven't tasks
+,0,6778,worker try execute another tasks from 0 rank
+,0,6778,rank 0 haven't tasks
+,0,6778,worker finished job
+,6,6808,tasks.size = 13
+,0,6812,worker is executing own tasks
+,3,6827,change location in 1 for task 14 counter was 1
+,3,6827,change location in 0 for task 14 counter was 0
+,3,6827,map changed for task 14; sendedTaskCounter.size = 0
+,0,6839,worker is executing another tasks
+,0,6839,worker try execute another tasks from 1 rank
+,0,6840,rank 1 haven't tasks
+,0,6840,worker try execute another tasks from 0 rank
+,3,6840,delete task 14
+,0,6842,rank 0 haven't tasks
+,0,6842,worker finished job
+,6,6859,tasks.size = 12
+,0,6871,worker is executing own tasks
+,3,6884,delete task 30
+,3,6884,change location in 0 for task 30 counter was 1
+,0,6896,worker is executing another tasks
+,0,6896,worker try execute another tasks from 1 rank
+,3,6903,change location in 1 for task 30 counter was 0
+,3,6903,map changed for task 30; sendedTaskCounter.size = 0
+,3,6911,task 22 pass to 2
+,0,6913,worker executed 22 task
+,0,6913,worker try execute another tasks from 1 rank
+,0,6913,rank 1 haven't tasks
+,0,6913,worker try execute another tasks from 0 rank
+,0,6914,rank 0 haven't tasks
+,0,6914,worker finished job
+,6,6923,tasks.size = 12
+,0,6927,worker is executing own tasks
+,3,6953,task 14 pass to 1
+,0,6954,worker is executing another tasks
+,0,6954,worker try execute another tasks from 1 rank
+,0,6954,rank 1 haven't tasks
+,0,6954,worker try execute another tasks from 0 rank
+,0,6954,rank 0 haven't tasks
+,0,6954,worker finished job
+,6,6957,tasks.size = 12
+,0,6959,worker is executing own tasks
+,3,6975,change location in 0 for task 21 counter was 1
+,3,6975,change location in 1 for task 21 counter was 0
+,3,6975,map changed for task 21; sendedTaskCounter.size = 0
+,3,6976,delete task 21
+,3,6979,change location in 0 for task 16 counter was 1
+,3,6979,change location in 1 for task 16 counter was 0
+,3,6979,map changed for task 16; sendedTaskCounter.size = 0
+,3,6979,delete task 16
+,3,6982,task 17 pass to 0
+,0,6982,worker is executing another tasks
+,0,6982,worker try execute another tasks from 1 rank
+,0,6983,rank 1 haven't tasks
+,0,6983,worker try execute another tasks from 0 rank
+,0,6983,rank 0 haven't tasks
+,0,6983,worker finished job
+,6,7000,tasks.size = 10
+,0,7007,worker is executing own tasks
+,0,7029,worker is executing another tasks
+,0,7029,worker try execute another tasks from 1 rank
+,3,7040,task 14 pass to 2
+,0,7044,worker executed 14 task
+,0,7045,worker try execute another tasks from 1 rank
+,0,7045,rank 1 haven't tasks
+,0,7045,worker try execute another tasks from 0 rank
+,0,7063,rank 0 haven't tasks
+,0,7063,worker finished job
+,6,7064,tasks.size = 11
+,0,7066,worker is executing own tasks
+,3,7090,change location in 0 for task 15 counter was 1
+,3,7090,change location in 0 for task 18 counter was 1
+,3,7091,delete task 15
+,3,7092,delete task 18
+,3,7092,change location in 1 for task 15 counter was 0
+,3,7092,map changed for task 15; sendedTaskCounter.size = 1
+,3,7092,change location in 1 for task 18 counter was 0
+,3,7092,map changed for task 18; sendedTaskCounter.size = 0
+,3,7093,change location in 1 for task 22 counter was 1
+,3,7095,delete task 22
+,3,7096,change location in 0 for task 22 counter was 0
+,3,7096,map changed for task 22; sendedTaskCounter.size = 0
+,0,7098,worker is executing another tasks
+,0,7113,worker try execute another tasks from 1 rank
+,0,7115,rank 1 haven't tasks
+,0,7115,worker try execute another tasks from 0 rank
+,0,7115,rank 0 haven't tasks
+,0,7115,worker finished job
+,6,7115,tasks.size = 8
+,0,7118,worker is executing own tasks
+,0,7151,worker is executing another tasks
+,0,7151,worker try execute another tasks from 1 rank
+,0,7152,rank 1 haven't tasks
+,0,7152,worker try execute another tasks from 0 rank
+,0,7152,rank 0 haven't tasks
+,0,7152,worker finished job
+,6,7163,tasks.size = 8
+,0,7179,worker is executing own tasks
+,3,7194,change location in 0 for task 31 counter was 1
+,3,7194,change location in 1 for task 31 counter was 0
+,3,7194,map changed for task 31; sendedTaskCounter.size = 0
+,3,7194,delete task 31
+,3,7196,change location in 0 for task 8 counter was 1
+,3,7196,change location in 1 for task 8 counter was 0
+,3,7196,map changed for task 8; sendedTaskCounter.size = 1
+,3,7196,delete task 8
+,0,7196,worker is executing another tasks
+,0,7196,worker try execute another tasks from 1 rank
+,3,7197,change location in 1 for task 14 counter was 1
+,0,7197,rank 1 haven't tasks
+,0,7197,worker try execute another tasks from 0 rank
+,3,7197,delete task 14
+,0,7197,rank 0 haven't tasks
+,0,7197,worker finished job
+,3,7198,change location in 0 for task 14 counter was 0
+,3,7198,map changed for task 14; sendedTaskCounter.size = 0
+,6,7208,tasks.size = 5
+,0,7213,worker is executing own tasks
+,0,7228,worker is executing another tasks
+,0,7228,worker try execute another tasks from 1 rank
+,3,7228,task 5 pass to 2
+,0,7231,worker executed 5 task
+,0,7231,worker try execute another tasks from 1 rank
+,3,7232,task 28 pass to 2
+,0,7234,worker executed 28 task
+,0,7234,worker try execute another tasks from 1 rank
+,3,7235,task 29 pass to 2
+,0,7237,worker executed 29 task
+,0,7237,worker try execute another tasks from 1 rank
+,3,7238,task 2 pass to 2
+,0,7241,worker executed 2 task
+,0,7241,worker try execute another tasks from 1 rank
+,3,7242,task 18 pass to 2
+,0,7245,worker executed 18 task
+,0,7245,worker try execute another tasks from 1 rank
+,0,7245,rank 1 haven't tasks
+,0,7245,worker try execute another tasks from 0 rank
+,3,7246,task 15 pass to 2
+,3,7246,task 22 pass to 1
+,0,7248,worker executed 15 task
+,0,7248,worker try execute another tasks from 0 rank
+,3,7248,task 14 pass to 2
+,0,7251,worker executed 14 task
+,0,7251,worker try execute another tasks from 0 rank
+,0,7251,rank 0 haven't tasks
+,0,7251,worker finished job
+,6,7251,tasks.size = 12
+,0,7254,worker is executing own tasks
+,3,7275,task 17 pass to 1
+,3,7277,change location in 1 for task 15 counter was 1
+,0,7280,worker is executing another tasks
+,0,7280,worker try execute another tasks from 1 rank
+,0,7280,rank 1 haven't tasks
+,0,7280,worker try execute another tasks from 0 rank
+,3,7296,change location in 0 for task 15 counter was 0
+,3,7296,map changed for task 15; sendedTaskCounter.size = 0
+,3,7296,delete task 15
+,0,7296,rank 0 haven't tasks
+,0,7296,worker finished job
+,6,7305,tasks.size = 11
+,0,7309,worker is executing own tasks
+,3,7332,task 30 pass to 1
+,3,7334,task 16 pass to 1
+,3,7336,task 15 pass to 1
+,3,7343,change location in 0 for task 29 counter was 1
+,3,7343,change location in 1 for task 29 counter was 0
+,3,7343,map changed for task 29; sendedTaskCounter.size = 0
+,3,7344,delete task 29
+,3,7344,change location in 0 for task 14 counter was 1
+,3,7344,change location in 1 for task 14 counter was 0
+,3,7344,map changed for task 14; sendedTaskCounter.size = 0
+,3,7344,delete task 14
+,0,7348,worker is executing another tasks
+,0,7348,worker try execute another tasks from 1 rank
+,0,7348,rank 1 haven't tasks
+,0,7348,worker try execute another tasks from 0 rank
+,0,7350,rank 0 haven't tasks
+,0,7350,worker finished job
+,6,7354,tasks.size = 9
+,0,7364,worker is executing own tasks
+,0,7394,worker is executing another tasks
+,0,7394,worker try execute another tasks from 1 rank
+,0,7394,rank 1 haven't tasks
+,0,7394,worker try execute another tasks from 0 rank
+,3,7396,task 29 pass to 2
+,0,7398,worker executed 29 task
+,0,7398,worker try execute another tasks from 0 rank
+,0,7398,rank 0 haven't tasks
+,0,7398,worker finished job
+,6,7408,tasks.size = 10
+,0,7416,worker is executing own tasks
+,3,7434,change location in 1 for task 18 counter was 1
+,0,7437,worker is executing another tasks
+,0,7437,worker try execute another tasks from 1 rank
+,3,7438,task 30 pass to 2
+,0,7439,worker executed 30 task
+,0,7439,worker try execute another tasks from 1 rank
+,3,7440,task 15 pass to 2
+,0,7442,worker executed 15 task
+,0,7442,worker try execute another tasks from 1 rank
+,0,7442,rank 1 haven't tasks
+,0,7442,worker try execute another tasks from 0 rank
+,3,7455,change location in 0 for task 18 counter was 0
+,3,7455,map changed for task 18; sendedTaskCounter.size = 0
+,0,7456,rank 0 haven't tasks
+,0,7456,worker finished job
+,3,7467,delete task 18
+,6,7480,tasks.size = 11
+,0,7496,worker is executing own tasks
+,3,7516,change location in 0 for task 30 counter was 1
+,3,7516,delete task 30
+,3,7516,change location in 1 for task 30 counter was 0
+,3,7516,map changed for task 30; sendedTaskCounter.size = 0
+,3,7518,task 31 pass to 0
+,0,7519,worker is executing another tasks
+,0,7519,worker try execute another tasks from 1 rank
+,0,7539,rank 1 haven't tasks
+,0,7539,worker try execute another tasks from 0 rank
+,0,7541,rank 0 haven't tasks
+,0,7542,worker finished job
+,6,7543,tasks.size = 10
+,0,7545,worker is executing own tasks
+,3,7577,change location in 0 for task 2 counter was 1
+,3,7577,delete task 2
+,3,7577,change location in 1 for task 2 counter was 0
+,3,7577,map changed for task 2; sendedTaskCounter.size = 0
+,3,7580,change location in 1 for task 29 counter was 1
+,0,7582,worker is executing another tasks
+,0,7582,worker try execute another tasks from 1 rank
+,3,7582,change location in 0 for task 29 counter was 0
+,3,7582,map changed for task 29; sendedTaskCounter.size = 0
+,0,7582,rank 1 haven't tasks
+,0,7582,worker try execute another tasks from 0 rank
+,3,7584,delete task 29
+,0,7584,rank 0 haven't tasks
+,0,7584,worker finished job
+,6,7585,tasks.size = 8
+,0,7588,worker is executing own tasks
+,0,7606,worker is executing another tasks
+,0,7606,worker try execute another tasks from 1 rank
+,3,7607,task 17 pass to 2
+,0,7609,worker executed 17 task
+,0,7609,worker try execute another tasks from 1 rank
+,3,7613,task 29 pass to 1
+,3,7627,task 14 pass to 2
+,0,7630,worker executed 14 task
+,0,7630,worker try execute another tasks from 1 rank
+,0,7630,rank 1 haven't tasks
+,0,7630,worker try execute another tasks from 0 rank
+,0,7630,rank 0 haven't tasks
+,0,7630,worker finished job
+,6,7641,tasks.size = 10
+,0,7653,worker is executing own tasks
+,0,7676,worker is executing another tasks
+,0,7676,worker try execute another tasks from 1 rank
+,0,7676,rank 1 haven't tasks
+,0,7676,worker try execute another tasks from 0 rank
+,0,7677,rank 0 haven't tasks
+,0,7677,worker finished job
+,6,7678,tasks.size = 10
+,0,7681,worker is executing own tasks
+,0,7704,worker is executing another tasks
+,0,7704,worker try execute another tasks from 1 rank
+,0,7704,rank 1 haven't tasks
+,0,7704,worker try execute another tasks from 0 rank
+,0,7704,rank 0 haven't tasks
+,0,7704,worker finished job
+,6,7707,tasks.size = 10
+,0,7709,worker is executing own tasks
+,0,7732,worker is executing another tasks
+,0,7732,worker try execute another tasks from 1 rank
+,0,7732,rank 1 haven't tasks
+,0,7732,worker try execute another tasks from 0 rank
+,0,7733,rank 0 haven't tasks
+,0,7733,worker finished job
+,6,7736,tasks.size = 10
+,0,7738,worker is executing own tasks
+,0,7761,worker is executing another tasks
+,0,7761,worker try execute another tasks from 1 rank
+,0,7761,rank 1 haven't tasks
+,0,7761,worker try execute another tasks from 0 rank
+,0,7761,rank 0 haven't tasks
+,0,7761,worker finished job
+,6,7764,tasks.size = 10
+,0,7766,worker is executing own tasks
+,0,7789,worker is executing another tasks
+,0,7789,worker try execute another tasks from 1 rank
+,0,7789,rank 1 haven't tasks
+,0,7789,worker try execute another tasks from 0 rank
+,0,7789,rank 0 haven't tasks
+,0,7789,worker finished job
+,6,7792,tasks.size = 10
+,0,7795,worker is executing own tasks
+,0,7818,worker is executing another tasks
+,0,7818,worker try execute another tasks from 1 rank
+,0,7818,rank 1 haven't tasks
+,0,7818,worker try execute another tasks from 0 rank
+,0,7818,rank 0 haven't tasks
+,0,7818,worker finished job
+,6,7821,tasks.size = 10
+,0,7824,worker is executing own tasks
+,0,7846,worker is executing another tasks
+,0,7846,worker try execute another tasks from 1 rank
+,0,7847,rank 1 haven't tasks
+,0,7847,worker try execute another tasks from 0 rank
+,0,7847,rank 0 haven't tasks
+,0,7847,worker finished job
+,6,7850,tasks.size = 10
+,0,7852,worker is executing own tasks
+,0,7875,worker is executing another tasks
+,0,7875,worker try execute another tasks from 1 rank
+,0,7875,rank 1 haven't tasks
+,0,7875,worker try execute another tasks from 0 rank
+,0,7875,rank 0 haven't tasks
+,0,7875,worker finished job
+,6,7878,tasks.size = 10
+,0,7881,worker is executing own tasks
+,0,7904,worker is executing another tasks
+,0,7904,worker try execute another tasks from 1 rank
+,0,7904,rank 1 haven't tasks
+,0,7904,worker try execute another tasks from 0 rank
+,3,7904,task 2 pass to 2
+,0,7908,worker executed 2 task
+,0,7908,worker try execute another tasks from 0 rank
+,0,7908,rank 0 haven't tasks
+,0,7908,worker finished job
+,6,7924,tasks.size = 11
+,0,7926,worker is executing own tasks
+,3,7949,change location in 1 for task 5 counter was 1
+,3,7949,delete task 5
+,3,7949,change location in 0 for task 5 counter was 0
+,3,7949,map changed for task 5; sendedTaskCounter.size = 0
+,3,7952,change location in 1 for task 15 counter was 1
+,3,7952,change location in 0 for task 15 counter was 0
+,3,7952,map changed for task 15; sendedTaskCounter.size = 0
+,3,7952,delete task 15
+,3,7955,change location in 1 for task 14 counter was 1
+,3,7955,change location in 0 for task 14 counter was 0
+,3,7955,map changed for task 14; sendedTaskCounter.size = 0
+,3,7955,delete task 14
+,3,7958,change location in 1 for task 2 counter was 1
+,3,7958,change location in 0 for task 2 counter was 0
+,3,7958,map changed for task 2; sendedTaskCounter.size = 0
+,3,7958,delete task 2
+,0,7958,worker is executing another tasks
+,0,7958,worker try execute another tasks from 1 rank
+,3,7959,task 22 pass to 2
+,0,7963,worker executed 22 task
+,0,7963,worker try execute another tasks from 1 rank
+,3,7979,task 29 pass to 2
+,0,7982,worker executed 29 task
+,0,7982,worker try execute another tasks from 1 rank
+,0,7982,rank 1 haven't tasks
+,0,7982,worker try execute another tasks from 0 rank
+,0,7983,rank 0 haven't tasks
+,0,7983,worker finished job
+,6,7983,tasks.size = 9
+,0,7986,worker is executing own tasks
+,0,8015,worker is executing another tasks
+,0,8015,worker try execute another tasks from 1 rank
+,0,8015,rank 1 haven't tasks
+,0,8015,worker try execute another tasks from 0 rank
+,3,8016,task 2 pass to 2
+,0,8019,worker executed 2 task
+,0,8019,worker try execute another tasks from 0 rank
+,0,8019,rank 0 haven't tasks
+,0,8019,worker finished job
+,6,8021,tasks.size = 10
+,0,8024,worker is executing own tasks
+,3,8049,task 14 pass to 1
+,0,8050,worker is executing another tasks
+,0,8050,worker try execute another tasks from 1 rank
+,0,8050,rank 1 haven't tasks
+,0,8050,worker try execute another tasks from 0 rank
+,0,8050,rank 0 haven't tasks
+,0,8050,worker finished job
+,6,8053,tasks.size = 10
+,0,8056,worker is executing own tasks
+,3,8078,task 5 pass to 1
+,0,8079,worker is executing another tasks
+,0,8079,worker try execute another tasks from 1 rank
+,0,8079,rank 1 haven't tasks
+,0,8079,worker try execute another tasks from 0 rank
+,0,8079,rank 0 haven't tasks
+,0,8079,worker finished job
+,6,8081,tasks.size = 10
+,0,8084,worker is executing own tasks
+,0,8107,worker is executing another tasks
+,0,8107,worker try execute another tasks from 1 rank
+,0,8108,rank 1 haven't tasks
+,0,8108,worker try execute another tasks from 0 rank
+,0,8108,rank 0 haven't tasks
+,0,8108,worker finished job
+,6,8110,tasks.size = 10
+,0,8113,worker is executing own tasks
+,0,8136,worker is executing another tasks
+,0,8136,worker try execute another tasks from 1 rank
+,0,8136,rank 1 haven't tasks
+,0,8136,worker try execute another tasks from 0 rank
+,0,8136,rank 0 haven't tasks
+,0,8136,worker finished job
+,6,8160,tasks.size = 10
+,0,8164,worker is executing own tasks
+,0,8188,worker is executing another tasks
+,0,8188,worker try execute another tasks from 1 rank
+,0,8189,rank 1 haven't tasks
+,0,8189,worker try execute another tasks from 0 rank
+,0,8189,rank 0 haven't tasks
+,0,8189,worker finished job
+,6,8190,tasks.size = 10
+,0,8193,worker is executing own tasks
+,0,8217,worker is executing another tasks
+,0,8218,worker try execute another tasks from 1 rank
+,0,8218,rank 1 haven't tasks
+,0,8218,worker try execute another tasks from 0 rank
+,0,8218,rank 0 haven't tasks
+,0,8218,worker finished job
+,6,8219,tasks.size = 10
+,0,8223,worker is executing own tasks
+,0,8248,worker is executing another tasks
+,0,8248,worker try execute another tasks from 1 rank
+,0,8248,rank 1 haven't tasks
+,0,8248,worker try execute another tasks from 0 rank
+,0,8248,rank 0 haven't tasks
+,0,8248,worker finished job
+,6,8248,tasks.size = 10
+,0,8252,worker is executing own tasks
+,0,8275,worker is executing another tasks
+,0,8275,worker try execute another tasks from 1 rank
+,0,8276,rank 1 haven't tasks
+,0,8276,worker try execute another tasks from 0 rank
+,0,8276,rank 0 haven't tasks
+,0,8276,worker finished job
+,6,8277,tasks.size = 10
+,0,8280,worker is executing own tasks
+,0,8304,worker is executing another tasks
+,0,8304,worker try execute another tasks from 1 rank
+,0,8305,rank 1 haven't tasks
+,0,8305,worker try execute another tasks from 0 rank
+,0,8305,rank 0 haven't tasks
+,0,8305,worker finished job
+,6,8306,tasks.size = 10
+,0,8309,worker is executing own tasks
+,0,8334,worker is executing another tasks
+,0,8334,worker try execute another tasks from 1 rank
+,0,8334,rank 1 haven't tasks
+,0,8334,worker try execute another tasks from 0 rank
+,0,8335,rank 0 haven't tasks
+,0,8335,worker finished job
+,6,8336,tasks.size = 10
+,0,8340,worker is executing own tasks
+,0,8365,worker is executing another tasks
+,0,8365,worker try execute another tasks from 1 rank
+,0,8365,rank 1 haven't tasks
+,0,8365,worker try execute another tasks from 0 rank
+,0,8365,rank 0 haven't tasks
+,0,8365,worker finished job
+,6,8366,tasks.size = 10
+,0,8370,worker is executing own tasks
+,0,8393,worker is executing another tasks
+,0,8393,worker try execute another tasks from 1 rank
+,0,8394,rank 1 haven't tasks
+,0,8394,worker try execute another tasks from 0 rank
+,0,8394,rank 0 haven't tasks
+,0,8394,worker finished job
+,6,8395,tasks.size = 10
+,0,8398,worker is executing own tasks
+,0,8423,worker is executing another tasks
+,0,8423,worker try execute another tasks from 1 rank
+,0,8423,rank 1 haven't tasks
+,0,8423,worker try execute another tasks from 0 rank
+,0,8423,rank 0 haven't tasks
+,0,8423,worker finished job
+,6,8424,tasks.size = 10
+,0,8429,worker is executing own tasks
+,0,8454,worker is executing another tasks
+,0,8454,worker try execute another tasks from 1 rank
+,0,8455,rank 1 haven't tasks
+,0,8455,worker try execute another tasks from 0 rank
+,0,8455,rank 0 haven't tasks
+,0,8455,worker finished job
+,6,8455,tasks.size = 10
+,0,8460,worker is executing own tasks
+,0,8484,worker is executing another tasks
+,0,8484,worker try execute another tasks from 1 rank
+,0,8485,rank 1 haven't tasks
+,0,8485,worker try execute another tasks from 0 rank
+,0,8485,rank 0 haven't tasks
+,0,8485,worker finished job
+,6,8485,tasks.size = 10
+,0,8490,worker is executing own tasks
+,0,8514,worker is executing another tasks
+,0,8514,worker try execute another tasks from 1 rank
+,3,8514,task 30 pass to 1
+,0,8515,rank 1 haven't tasks
+,0,8515,worker try execute another tasks from 0 rank
+,3,8516,task 31 pass to 2
+,0,8517,worker executed 31 task
+,0,8517,worker try execute another tasks from 0 rank
+,0,8531,rank 0 haven't tasks
+,0,8531,worker finished job
+,6,8532,tasks.size = 11
+,0,8567,worker is executing own tasks
+,0,8592,worker is executing another tasks
+,0,8592,worker try execute another tasks from 1 rank
+,3,8603,task 16 pass to 2
+,0,8606,worker executed 16 task
+,0,8606,worker try execute another tasks from 1 rank
+,0,8634,rank 1 haven't tasks
+,0,8634,worker try execute another tasks from 0 rank
+,0,8643,rank 0 haven't tasks
+,0,8643,worker finished job
+,6,8661,tasks.size = 12
+,0,8680,worker is executing own tasks
+,3,8707,change location in 0 for task 17 counter was 1
+,3,8707,delete task 17
+,3,8711,change location in 1 for task 17 counter was 0
+,3,8711,map changed for task 17; sendedTaskCounter.size = 1
+,3,8711,change location in 0 for task 29 counter was 1
+,3,8711,delete task 29
+,3,8714,change location in 1 for task 29 counter was 0
+,3,8714,map changed for task 29; sendedTaskCounter.size = 1
+,3,8715,delete task 31
+,3,8715,change location in 0 for task 31 counter was 1
+,3,8715,change location in 1 for task 31 counter was 0
+,3,8715,map changed for task 31; sendedTaskCounter.size = 0
+,3,8717,change location in 0 for task 16 counter was 1
+,3,8717,delete task 16
+,3,8720,change location in 1 for task 16 counter was 0
+,3,8720,map changed for task 16; sendedTaskCounter.size = 0
+,0,8736,worker is executing another tasks
+,0,8736,worker try execute another tasks from 1 rank
+,0,8736,rank 1 haven't tasks
+,0,8736,worker try execute another tasks from 0 rank
+,0,8736,rank 0 haven't tasks
+,0,8736,worker finished job
+,6,8737,tasks.size = 8
+,0,8758,worker is executing own tasks
+,3,8782,task 15 pass to 1
+,3,8785,task 29 pass to 1
+,3,8789,delete task 22
+,3,8789,change location in 1 for task 22 counter was 1
+,0,8794,worker is executing another tasks
+,0,8794,worker try execute another tasks from 1 rank
+,3,8795,change location in 0 for task 22 counter was 0
+,3,8795,map changed for task 22; sendedTaskCounter.size = 0
+,0,8807,rank 1 haven't tasks
+,0,8807,worker try execute another tasks from 0 rank
+,0,8811,rank 0 haven't tasks
+,0,8811,worker finished job
+,6,8812,tasks.size = 7
+,0,8820,worker is executing own tasks
+,0,8844,worker is executing another tasks
+,0,8844,worker try execute another tasks from 1 rank
+,3,8845,task 22 pass to 2
+,0,8848,worker executed 22 task
+,0,8848,worker try execute another tasks from 1 rank
+,0,8875,rank 1 haven't tasks
+,0,8875,worker try execute another tasks from 0 rank
+,0,8876,rank 0 haven't tasks
+,0,8876,worker finished job
+,6,8924,tasks.size = 8
+,0,8936,worker is executing own tasks
+,0,8967,worker is executing another tasks
+,0,8967,worker try execute another tasks from 1 rank
+,3,8967,task 30 pass to 2
+,3,8971,task 29 pass to 0
+,0,8974,worker executed 30 task
+,0,8974,worker try execute another tasks from 1 rank
+,0,8975,rank 1 haven't tasks
+,0,8975,worker try execute another tasks from 0 rank
+,0,8975,rank 0 haven't tasks
+,0,8975,worker finished job
+,6,8976,tasks.size = 9
+,0,8979,worker is executing own tasks
+,3,9011,task 29 pass to 1
+,3,9011,change location in 0 for task 30 counter was 1
+,3,9011,change location in 1 for task 30 counter was 0
+,3,9011,map changed for task 30; sendedTaskCounter.size = 0
+,0,9013,worker is executing another tasks
+,0,9013,worker try execute another tasks from 1 rank
+,3,9013,delete task 30
+,0,9023,rank 1 haven't tasks
+,0,9023,worker try execute another tasks from 0 rank
+,0,9024,rank 0 haven't tasks
+,0,9024,worker finished job
+,6,9024,tasks.size = 8
+,0,9048,worker is executing own tasks
+,0,9073,worker is executing another tasks
+,0,9073,worker try execute another tasks from 1 rank
+,3,9076,task 15 pass to 2
+,0,9079,worker executed 15 task
+,0,9079,worker try execute another tasks from 1 rank
+,0,9079,rank 1 haven't tasks
+,0,9079,worker try execute another tasks from 0 rank
+,3,9079,task 30 pass to 1
+,0,9079,rank 0 haven't tasks
+,0,9079,worker finished job
+,6,9085,tasks.size = 9
+,0,9088,worker is executing own tasks
+,0,9113,worker is executing another tasks
+,0,9113,worker try execute another tasks from 1 rank
+,3,9114,task 29 pass to 2
+,3,9116,task 16 pass to 1
+,0,9119,worker executed 29 task
+,0,9119,worker try execute another tasks from 1 rank
+,0,9120,rank 1 haven't tasks
+,0,9120,worker try execute another tasks from 0 rank
+,0,9120,rank 0 haven't tasks
+,0,9120,worker finished job
+,6,9124,tasks.size = 10
+,0,9127,worker is executing own tasks
+,0,9164,worker is executing another tasks
+,0,9164,worker try execute another tasks from 1 rank
+,0,9165,rank 1 haven't tasks
+,0,9165,worker try execute another tasks from 0 rank
+,3,9165,change location in 1 for task 22 counter was 1
+,3,9165,delete task 22
+,0,9165,rank 0 haven't tasks
+,0,9165,worker finished job
+,3,9165,change location in 0 for task 22 counter was 0
+,3,9165,map changed for task 22; sendedTaskCounter.size = 0
+,6,9195,tasks.size = 9
+,0,9235,worker is executing own tasks
+,3,9239,task 21 pass to 1
+,3,9244,task 17 pass to 1
+,3,9248,change location in 1 for task 27 counter was 1
+,3,9248,change location in 0 for task 27 counter was 0
+,3,9248,map changed for task 27; sendedTaskCounter.size = 0
+,3,9248,delete task 27
+,3,9249,change location in 1 for task 28 counter was 1
+,3,9249,delete task 28
+,3,9250,change location in 0 for task 28 counter was 0
+,3,9250,map changed for task 28; sendedTaskCounter.size = 0
+,3,9251,change location in 0 for task 15 counter was 1
+,3,9251,change location in 1 for task 15 counter was 0
+,3,9251,map changed for task 15; sendedTaskCounter.size = 0
+,3,9251,delete task 15
+,3,9253,change location in 1 for task 29 counter was 1
+,0,9253,worker is executing another tasks
+,0,9253,worker try execute another tasks from 1 rank
+,3,9253,delete task 29
+,0,9253,rank 1 haven't tasks
+,3,9253,change location in 0 for task 29 counter was 0
+,3,9253,map changed for task 29; sendedTaskCounter.size = 0
+,0,9253,worker try execute another tasks from 0 rank
+,0,9254,rank 0 haven't tasks
+,0,9254,worker finished job
+,6,9256,tasks.size = 5
+,0,9275,worker is executing own tasks
+,0,9291,worker is executing another tasks
+,3,9298,task 21 pass to 0
+,0,9298,worker try execute another tasks from 1 rank
+,0,9299,rank 1 haven't tasks
+,0,9299,worker try execute another tasks from 0 rank
+,0,9299,rank 0 haven't tasks
+,0,9299,worker finished job
+,6,9299,tasks.size = 5
+,0,9302,worker is executing own tasks
+,0,9317,worker is executing another tasks
+,0,9317,worker try execute another tasks from 1 rank
+,3,9331,task 8 pass to 2
+,0,9335,worker executed 8 task
+,0,9335,worker try execute another tasks from 1 rank
+,3,9336,task 15 pass to 2
+,0,9338,worker executed 15 task
+,0,9338,worker try execute another tasks from 1 rank
+,0,9338,rank 1 haven't tasks
+,0,9339,worker try execute another tasks from 0 rank
+,0,9339,rank 0 haven't tasks
+,0,9339,worker finished job
+,6,9345,tasks.size = 7
+,0,9366,worker is executing own tasks
+,0,9387,worker is executing another tasks
+,0,9387,worker try execute another tasks from 1 rank
+,3,9388,task 30 pass to 2
+,0,9389,worker executed 30 task
+,0,9389,worker try execute another tasks from 1 rank
+,3,9390,task 17 pass to 2
+,0,9393,worker executed 17 task
+,0,9393,worker try execute another tasks from 1 rank
+,0,9395,rank 1 haven't tasks
+,0,9395,worker try execute another tasks from 0 rank
+,3,9395,task 21 pass to 1
+,0,9395,rank 0 haven't tasks
+,0,9395,worker finished job
+,6,9411,tasks.size = 9
+,0,9439,worker is executing own tasks
+,0,9465,worker is executing another tasks
+,0,9465,worker try execute another tasks from 1 rank
+,3,9465,task 27 pass to 2
+,0,9468,worker executed 27 task
+,0,9468,worker try execute another tasks from 1 rank
+,0,9468,rank 1 haven't tasks
+,0,9468,worker try execute another tasks from 0 rank
+,0,9476,rank 0 haven't tasks
+,0,9476,worker finished job
+,6,9477,tasks.size = 10
+,0,9479,worker is executing own tasks
+,0,9506,worker is executing another tasks
+,0,9506,worker try execute another tasks from 1 rank
+,0,9506,rank 1 haven't tasks
+,0,9506,worker try execute another tasks from 0 rank
+,0,9506,rank 0 haven't tasks
+,0,9506,worker finished job
+,6,9509,tasks.size = 10
+,0,9512,worker is executing own tasks
+,0,9540,worker is executing another tasks
+,0,9540,worker try execute another tasks from 1 rank
+,0,9540,rank 1 haven't tasks
+,0,9540,worker try execute another tasks from 0 rank
+,0,9541,rank 0 haven't tasks
+,0,9541,worker finished job
+,6,9543,tasks.size = 10
+,0,9545,worker is executing own tasks
+,3,9571,change location in 0 for task 27 counter was 1
+,3,9571,delete task 27
+,3,9571,change location in 1 for task 27 counter was 0
+,3,9571,map changed for task 27; sendedTaskCounter.size = 0
+,0,9572,worker is executing another tasks
+,0,9572,worker try execute another tasks from 1 rank
+,0,9572,rank 1 haven't tasks
+,0,9572,worker try execute another tasks from 0 rank
+,0,9587,rank 0 haven't tasks
+,0,9587,worker finished job
+,6,9593,tasks.size = 9
+,0,9596,worker is executing own tasks
+,3,9626,task 27 pass to 1
+,0,9627,worker is executing another tasks
+,0,9627,worker try execute another tasks from 1 rank
+,0,9628,rank 1 haven't tasks
+,0,9628,worker try execute another tasks from 0 rank
+,3,9628,change location in 1 for task 17 counter was 1
+,0,9629,rank 0 haven't tasks
+,0,9629,worker finished job
+,3,9629,delete task 17
+,3,9629,change location in 0 for task 17 counter was 0
+,3,9629,map changed for task 17; sendedTaskCounter.size = 0
+,6,9652,tasks.size = 8
+,0,9657,worker is executing own tasks
+,0,9702,worker is executing another tasks
+,0,9702,worker try execute another tasks from 1 rank
+,0,9711,rank 1 haven't tasks
+,0,9711,worker try execute another tasks from 0 rank
+,0,9712,rank 0 haven't tasks
+,0,9712,worker finished job
+,6,9712,tasks.size = 8
+,0,9715,worker is executing own tasks
+,0,9733,worker is executing another tasks
+,0,9733,worker try execute another tasks from 1 rank
+,3,9739,task 16 pass to 2
+,3,9740,task 17 pass to 1
+,0,9742,worker executed 16 task
+,0,9742,worker try execute another tasks from 1 rank
+,0,9755,rank 1 haven't tasks
+,0,9755,worker try execute another tasks from 0 rank
+,0,9769,rank 0 haven't tasks
+,0,9769,worker finished job
+,6,9770,tasks.size = 9
+,0,9780,worker is executing own tasks
+,0,9801,worker is executing another tasks
+,0,9801,worker try execute another tasks from 1 rank
+,3,9802,task 27 pass to 2
+,0,9803,worker executed 27 task
+,0,9803,worker try execute another tasks from 1 rank
+,0,9804,rank 1 haven't tasks
+,0,9804,worker try execute another tasks from 0 rank
+,0,9804,rank 0 haven't tasks
+,0,9804,worker finished job
+,6,9810,tasks.size = 10
+,0,9812,worker is executing own tasks
+,0,9834,worker is executing another tasks
+,0,9834,worker try execute another tasks from 1 rank
+,3,9844,task 17 pass to 2
+,0,9846,worker executed 17 task
+,0,9846,worker try execute another tasks from 1 rank
+,0,9846,rank 1 haven't tasks
+,0,9846,worker try execute another tasks from 0 rank
+,0,9847,rank 0 haven't tasks
+,0,9847,worker finished job
+,6,9847,tasks.size = 11
+,0,9849,worker is executing own tasks
+,3,9872,task 29 pass to 1
+,0,9875,worker is executing another tasks
+,0,9875,worker try execute another tasks from 1 rank
+,0,9875,rank 1 haven't tasks
+,0,9875,worker try execute another tasks from 0 rank
+,0,9875,rank 0 haven't tasks
+,0,9875,worker finished job
+,6,9875,tasks.size = 11
+,0,9878,worker is executing own tasks
+,0,9901,worker is executing another tasks
+,0,9902,worker try execute another tasks from 1 rank
+,0,9902,rank 1 haven't tasks
+,0,9902,worker try execute another tasks from 0 rank
+,3,9902,change location in 1 for task 17 counter was 1
+,3,9902,change location in 0 for task 17 counter was 0
+,3,9902,map changed for task 17; sendedTaskCounter.size = 0
+,3,9902,delete task 17
+,0,9902,rank 0 haven't tasks
+,0,9902,worker finished job
+,6,9906,tasks.size = 10
+,0,9917,worker is executing own tasks
+,0,9939,worker is executing another tasks
+,0,9939,worker try execute another tasks from 1 rank
+,0,9940,rank 1 haven't tasks
+,0,9940,worker try execute another tasks from 0 rank
+,0,9940,rank 0 haven't tasks
+,0,9940,worker finished job
+,6,9942,tasks.size = 10
+,0,9945,worker is executing own tasks
+,0,9967,worker is executing another tasks
+,0,9967,worker try execute another tasks from 1 rank
+,0,9968,rank 1 haven't tasks
+,0,9968,worker try execute another tasks from 0 rank
+,0,9968,rank 0 haven't tasks
+,0,9968,worker finished job
+,6,9971,tasks.size = 10
+,0,9973,worker is executing own tasks
+,0,9996,worker is executing another tasks
+,0,9996,worker try execute another tasks from 1 rank
+,0,9996,rank 1 haven't tasks
+,0,9996,worker try execute another tasks from 0 rank
+,0,9996,rank 0 haven't tasks
+,0,9996,worker finished job
+,6,9999,tasks.size = 10
+,0,10002,worker is executing own tasks
+,0,10024,worker is executing another tasks
+,0,10024,worker try execute another tasks from 1 rank
+,3,10025,task 29 pass to 2
+,0,10027,worker executed 29 task
+,0,10027,worker try execute another tasks from 1 rank
+,0,10031,rank 1 haven't tasks
+,0,10031,worker try execute another tasks from 0 rank
+,0,10031,rank 0 haven't tasks
+,0,10031,worker finished job
+,6,10031,tasks.size = 11
+,0,10034,worker is executing own tasks
+,3,10056,task 17 pass to 1
+,0,10056,worker is executing another tasks
+,0,10056,worker try execute another tasks from 1 rank
+,3,10057,change location in 0 for task 29 counter was 1
+,3,10057,change location in 1 for task 29 counter was 0
+,3,10057,map changed for task 29; sendedTaskCounter.size = 0
+,3,10057,delete task 29
+,0,10058,rank 1 haven't tasks
+,0,10058,worker try execute another tasks from 0 rank
+,0,10058,rank 0 haven't tasks
+,0,10058,worker finished job
+,6,10061,tasks.size = 10
+,0,10072,worker is executing own tasks
+,0,10093,worker is executing another tasks
+,0,10093,worker try execute another tasks from 1 rank
+,3,10094,task 17 pass to 2
+,0,10096,worker executed 17 task
+,0,10096,worker try execute another tasks from 1 rank
+,0,10109,rank 1 haven't tasks
+,0,10110,worker try execute another tasks from 0 rank
+,0,10110,rank 0 haven't tasks
+,0,10110,worker finished job
+,6,10119,tasks.size = 11
+,0,10127,worker is executing own tasks
+,0,10153,worker is executing another tasks
+,0,10153,worker try execute another tasks from 1 rank
+,0,10153,rank 1 haven't tasks
+,0,10153,worker try execute another tasks from 0 rank
+,0,10153,rank 0 haven't tasks
+,0,10153,worker finished job
+,6,10154,tasks.size = 11
+,0,10156,worker is executing own tasks
+,3,10177,task 29 pass to 1
+,0,10181,worker is executing another tasks
+,0,10181,worker try execute another tasks from 1 rank
+,0,10181,rank 1 haven't tasks
+,0,10181,worker try execute another tasks from 0 rank
+,0,10183,rank 0 haven't tasks
+,0,10184,worker finished job
+,6,10184,tasks.size = 11
+,0,10187,worker is executing own tasks
+,0,10210,worker is executing another tasks
+,0,10210,worker try execute another tasks from 1 rank
+,0,10210,rank 1 haven't tasks
+,0,10210,worker try execute another tasks from 0 rank
+,3,10210,change location in 0 for task 17 counter was 1
+,3,10210,change location in 1 for task 17 counter was 0
+,3,10210,map changed for task 17; sendedTaskCounter.size = 0
+,3,10210,delete task 17
+,0,10210,rank 0 haven't tasks
+,0,10211,worker finished job
+,6,10214,tasks.size = 10
+,0,10216,worker is executing own tasks
+,3,10242,change location in 1 for task 15 counter was 1
+,3,10242,delete task 15
+,3,10242,change location in 0 for task 15 counter was 0
+,3,10242,map changed for task 15; sendedTaskCounter.size = 1
+,3,10244,delete task 30
+,3,10244,change location in 0 for task 30 counter was 1
+,3,10244,change location in 1 for task 30 counter was 0
+,3,10244,map changed for task 30; sendedTaskCounter.size = 1
+,3,10245,delete task 16
+,3,10247,change location in 1 for task 16 counter was 1
+,0,10248,worker is executing another tasks
+,0,10248,worker try execute another tasks from 1 rank
+,0,10248,rank 1 haven't tasks
+,0,10248,worker try execute another tasks from 0 rank
+,3,10248,change location in 0 for task 16 counter was 0
+,3,10248,map changed for task 16; sendedTaskCounter.size = 0
+,0,10248,rank 0 haven't tasks
+,0,10248,worker finished job
+,6,10248,tasks.size = 7
+,0,10251,worker is executing own tasks
+,3,10277,task 16 pass to 1
+,0,10277,worker is executing another tasks
+,0,10277,worker try execute another tasks from 1 rank
+,0,10277,rank 1 haven't tasks
+,0,10277,worker try execute another tasks from 0 rank
+,0,10278,rank 0 haven't tasks
+,0,10278,worker finished job
+,6,10296,tasks.size = 7
+,0,10298,worker is executing own tasks
+,0,10320,worker is executing another tasks
+,0,10320,worker try execute another tasks from 1 rank
+,3,10321,task 12 pass to 2
+,3,10328,task 14 pass to 0
+,3,10333,task 5 pass to 0
+,3,10333,task 21 pass to 0
+,3,10336,task 29 pass to 0
+,0,10340,worker executed 12 task
+,0,10340,worker try execute another tasks from 1 rank
+,3,10340,task 30 pass to 0
+,0,10343,rank 1 haven't tasks
+,0,10343,worker try execute another tasks from 0 rank
+,0,10343,rank 0 haven't tasks
+,0,10344,worker finished job
+,6,10344,tasks.size = 8
+,0,10347,worker is executing own tasks
+,3,10364,task 22 pass to 1
+,3,10367,task 15 pass to 1
+,3,10370,task 5 pass to 1
+,3,10373,task 29 pass to 1
+,0,10376,worker is executing another tasks
+,0,10376,worker try execute another tasks from 1 rank
+,0,10381,rank 1 haven't tasks
+,0,10381,worker try execute another tasks from 0 rank
+,0,10382,rank 0 haven't tasks
+,0,10382,worker finished job
+,6,10382,tasks.size = 8
+,0,10384,worker is executing own tasks
+,3,10412,task 30 pass to 1
+,3,10413,change location in 1 for task 12 counter was 1
+,3,10413,change location in 0 for task 12 counter was 0
+,3,10413,map changed for task 12; sendedTaskCounter.size = 0
+,3,10413,delete task 12
+,0,10414,worker is executing another tasks
+,0,10414,worker try execute another tasks from 1 rank
+,0,10414,rank 1 haven't tasks
+,0,10414,worker try execute another tasks from 0 rank
+,0,10414,rank 0 haven't tasks
+,0,10414,worker finished job
+,6,10417,tasks.size = 7
+,0,10428,worker is executing own tasks
+,0,10452,worker is executing another tasks
+,0,10452,worker try execute another tasks from 1 rank
+,3,10452,task 29 pass to 2
+,0,10466,worker executed 29 task
+,0,10466,worker try execute another tasks from 1 rank
+,0,10466,rank 1 haven't tasks
+,0,10466,worker try execute another tasks from 0 rank
+,0,10467,rank 0 haven't tasks
+,0,10467,worker finished job
+,6,10467,tasks.size = 8
+,0,10470,worker is executing own tasks
+,3,10497,task 12 pass to 1
+,0,10499,worker is executing another tasks
+,0,10499,worker try execute another tasks from 1 rank
+,0,10500,rank 1 haven't tasks
+,0,10500,worker try execute another tasks from 0 rank
+,0,10500,rank 0 haven't tasks
+,0,10500,worker finished job
+,6,10519,tasks.size = 8
+,0,10535,worker is executing own tasks
+,3,10556,change location in 1 for task 2 counter was 1
+,3,10556,change location in 0 for task 2 counter was 0
+,3,10556,map changed for task 2; sendedTaskCounter.size = 0
+,0,10558,worker is executing another tasks
+,0,10558,worker try execute another tasks from 1 rank
+,3,10558,delete task 2
+,0,10558,rank 1 haven't tasks
+,0,10558,worker try execute another tasks from 0 rank
+,0,10558,rank 0 haven't tasks
+,0,10558,worker finished job
+,6,10576,tasks.size = 7
+,0,10579,worker is executing own tasks
+,3,10609,task 21 pass to 1
+,0,10612,worker is executing another tasks
+,0,10612,worker try execute another tasks from 1 rank
+,0,10612,rank 1 haven't tasks
+,0,10612,worker try execute another tasks from 0 rank
+,3,10613,task 2 pass to 2
+,0,10617,worker executed 2 task
+,0,10617,worker try execute another tasks from 0 rank
+,0,10627,rank 0 haven't tasks
+,0,10627,worker finished job
+,6,10638,tasks.size = 8
+,0,10641,worker is executing own tasks
+,0,10668,worker is executing another tasks
+,0,10668,worker try execute another tasks from 1 rank
+,3,10669,task 21 pass to 2
+,0,10673,worker executed 21 task
+,0,10673,worker try execute another tasks from 1 rank
+,0,10673,rank 1 haven't tasks
+,0,10673,worker try execute another tasks from 0 rank
+,0,10673,rank 0 haven't tasks
+,0,10673,worker finished job
+,6,10676,tasks.size = 9
+,0,10678,worker is executing own tasks
+,0,10705,worker is executing another tasks
+,0,10705,worker try execute another tasks from 1 rank
+,0,10705,rank 1 haven't tasks
+,0,10705,worker try execute another tasks from 0 rank
+,3,10706,task 14 pass to 2
+,0,10708,worker executed 14 task
+,0,10709,worker try execute another tasks from 0 rank
+,0,10709,rank 0 haven't tasks
+,0,10709,worker finished job
+,6,10709,tasks.size = 10
+,0,10712,worker is executing own tasks
+,0,10741,worker is executing another tasks
+,0,10741,worker try execute another tasks from 1 rank
+,3,10741,task 22 pass to 0
+,3,10743,task 15 pass to 2
+,0,10745,worker executed 15 task
+,0,10747,worker try execute another tasks from 1 rank
+,3,10747,task 5 pass to 0
+,3,10747,task 30 pass to 0
+,3,10748,task 12 pass to 2
+,0,10752,worker executed 12 task
+,0,10752,worker try execute another tasks from 1 rank
+,0,10752,rank 1 haven't tasks
+,0,10752,worker try execute another tasks from 0 rank
+,0,10759,rank 0 haven't tasks
+,0,10759,worker finished job
+,6,10761,tasks.size = 12
+,0,10765,worker is executing own tasks
+,3,10788,task 17 pass to 1
+,0,10800,worker is executing another tasks
+,0,10800,worker try execute another tasks from 1 rank
+,0,10801,rank 1 haven't tasks
+,0,10801,worker try execute another tasks from 0 rank
+,0,10804,rank 0 haven't tasks
+,0,10804,worker finished job
+,6,10816,tasks.size = 12
+,0,10824,worker is executing own tasks
+,3,10841,task 24 pass to 1
+,3,10843,task 23 pass to 1
+,3,10845,task 31 pass to 1
+,3,10847,task 28 pass to 1
+,3,10849,task 5 pass to 1
+,0,10857,worker is executing another tasks
+,3,10871,change location in 0 for task 15 counter was 1
+,3,10871,delete task 15
+,3,10871,change location in 1 for task 15 counter was 0
+,3,10871,map changed for task 15; sendedTaskCounter.size = 0
+,0,10871,worker try execute another tasks from 1 rank
+,0,10872,rank 1 haven't tasks
+,0,10872,worker try execute another tasks from 0 rank
+,0,10872,rank 0 haven't tasks
+,0,10872,worker finished job
+,6,10872,tasks.size = 11
+,0,10897,worker is executing own tasks
+,3,10919,change location in 0 for task 21 counter was 1
+,3,10919,change location in 1 for task 21 counter was 0
+,3,10919,map changed for task 21; sendedTaskCounter.size = 0
+,3,10919,delete task 21
+,0,10922,worker is executing another tasks
+,0,10923,worker try execute another tasks from 1 rank
+,0,10923,rank 1 haven't tasks
+,3,10923,change location in 0 for task 12 counter was 1
+,3,10923,change location in 1 for task 12 counter was 0
+,3,10923,map changed for task 12; sendedTaskCounter.size = 0
+,0,10924,worker try execute another tasks from 0 rank
+,3,10924,delete task 12
+,0,10924,rank 0 haven't tasks
+,0,10924,worker finished job
+,6,10936,tasks.size = 9
+,0,10938,worker is executing own tasks
+,3,10962,task 15 pass to 0
+,0,10964,worker is executing another tasks
+,0,10964,worker try execute another tasks from 1 rank
+,0,10964,rank 1 haven't tasks
+,0,10964,worker try execute another tasks from 0 rank
+,0,10964,rank 0 haven't tasks
+,0,10964,worker finished job
+,6,10965,tasks.size = 9
+,0,10968,worker is executing own tasks
+,0,10994,worker is executing another tasks
+,0,10994,worker try execute another tasks from 1 rank
+,0,10994,rank 1 haven't tasks
+,0,10994,worker try execute another tasks from 0 rank
+,0,10995,rank 0 haven't tasks
+,0,10995,worker finished job
+,6,10996,tasks.size = 9
+,0,10999,worker is executing own tasks
+,0,11024,worker is executing another tasks
+,0,11024,worker try execute another tasks from 1 rank
+,0,11025,rank 1 haven't tasks
+,0,11025,worker try execute another tasks from 0 rank
+,0,11025,rank 0 haven't tasks
+,0,11025,worker finished job
+,6,11025,tasks.size = 9
+,0,11030,worker is executing own tasks
+,0,11055,worker is executing another tasks
+,0,11055,worker try execute another tasks from 1 rank
+,0,11056,rank 1 haven't tasks
+,0,11056,worker try execute another tasks from 0 rank
+,0,11056,rank 0 haven't tasks
+,0,11056,worker finished job
+,6,11056,tasks.size = 9
+,0,11060,worker is executing own tasks
+,0,11085,worker is executing another tasks
+,0,11085,worker try execute another tasks from 1 rank
+,0,11085,rank 1 haven't tasks
+,0,11085,worker try execute another tasks from 0 rank
+,0,11086,rank 0 haven't tasks
+,0,11086,worker finished job
+,6,11087,tasks.size = 9
+,0,11091,worker is executing own tasks
+,0,11116,worker is executing another tasks
+,0,11116,worker try execute another tasks from 1 rank
+,0,11117,rank 1 haven't tasks
+,0,11117,worker try execute another tasks from 0 rank
+,0,11117,rank 0 haven't tasks
+,0,11117,worker finished job
+,6,11118,tasks.size = 9
+,0,11121,worker is executing own tasks
+,0,11147,worker is executing another tasks
+,0,11147,worker try execute another tasks from 1 rank
+,0,11147,rank 1 haven't tasks
+,0,11147,worker try execute another tasks from 0 rank
+,0,11148,rank 0 haven't tasks
+,0,11148,worker finished job
+,6,11148,tasks.size = 9
+,0,11151,worker is executing own tasks
+,0,11177,worker is executing another tasks
+,0,11177,worker try execute another tasks from 1 rank
+,0,11177,rank 1 haven't tasks
+,0,11177,worker try execute another tasks from 0 rank
+,0,11177,rank 0 haven't tasks
+,0,11177,worker finished job
+,6,11178,tasks.size = 9
+,0,11182,worker is executing own tasks
+,0,11203,worker is executing another tasks
+,0,11203,worker try execute another tasks from 1 rank
+,3,11207,task 5 pass to 2
+,3,11207,task 15 pass to 1
+,0,11207,worker executed 5 task
+,0,11207,worker try execute another tasks from 1 rank
+,0,11208,rank 1 haven't tasks
+,0,11208,worker try execute another tasks from 0 rank
+,0,11208,rank 0 haven't tasks
+,0,11208,worker finished job
+,6,11208,tasks.size = 10
+,0,11212,worker is executing own tasks
+,3,11235,task 15 pass to 0
+,0,11235,worker is executing another tasks
+,0,11235,worker try execute another tasks from 1 rank
+,0,11235,rank 1 haven't tasks
+,0,11235,worker try execute another tasks from 0 rank
+,0,11236,rank 0 haven't tasks
+,0,11236,worker finished job
+,6,11240,tasks.size = 10
+,0,11259,worker is executing own tasks
+,3,11281,task 15 pass to 1
+,0,11286,worker is executing another tasks
+,0,11286,worker try execute another tasks from 1 rank
+,0,11286,rank 1 haven't tasks
+,0,11286,worker try execute another tasks from 0 rank
+,0,11287,rank 0 haven't tasks
+,0,11287,worker finished job
+,6,11287,tasks.size = 10
+,0,11290,worker is executing own tasks
+,3,11314,change location in 1 for task 27 counter was 1
+,3,11315,delete task 27
+,3,11315,change location in 0 for task 27 counter was 0
+,3,11315,map changed for task 27; sendedTaskCounter.size = 0
+,3,11316,change location in 1 for task 29 counter was 1
+,3,11316,change location in 0 for task 29 counter was 0
+,3,11316,map changed for task 29; sendedTaskCounter.size = 0
+,3,11316,delete task 29
+,3,11317,change location in 1 for task 14 counter was 1
+,3,11318,change location in 0 for task 14 counter was 0
+,3,11318,map changed for task 14; sendedTaskCounter.size = 0
+,3,11318,delete task 14
+,3,11318,change location in 0 for task 5 counter was 1
+,3,11318,change location in 1 for task 5 counter was 0
+,3,11318,map changed for task 5; sendedTaskCounter.size = 0
+,3,11318,delete task 5
+,0,11321,worker is executing another tasks
+,0,11321,worker try execute another tasks from 1 rank
+,0,11321,rank 1 haven't tasks
+,0,11321,worker try execute another tasks from 0 rank
+,0,11321,rank 0 haven't tasks
+,0,11321,worker finished job
+,6,11322,tasks.size = 6
+,0,11324,worker is executing own tasks
+,0,11348,worker is executing another tasks
+,0,11348,worker try execute another tasks from 1 rank
+,3,11349,task 29 pass to 2
+,0,11366,worker executed 29 task
+,0,11366,worker try execute another tasks from 1 rank
+,0,11367,rank 1 haven't tasks
+,0,11367,worker try execute another tasks from 0 rank
+,0,11368,rank 0 haven't tasks
+,0,11368,worker finished job
+,6,11368,tasks.size = 7
+,0,11372,worker is executing own tasks
+,0,11388,worker is executing another tasks
+,0,11388,worker try execute another tasks from 1 rank
+,3,11390,task 23 pass to 2
+,0,11391,worker executed 23 task
+,0,11391,worker try execute another tasks from 1 rank
+,3,11397,task 22 pass to 1
+,3,11399,task 21 pass to 1
+,3,11402,task 27 pass to 1
+,0,11402,rank 1 haven't tasks
+,0,11402,worker try execute another tasks from 0 rank
+,3,11403,task 14 pass to 2
+,0,11405,worker executed 14 task
+,0,11406,worker try execute another tasks from 0 rank
+,0,11406,rank 0 haven't tasks
+,0,11406,worker finished job
+,6,11406,tasks.size = 9
+,0,11409,worker is executing own tasks
+,0,11429,worker is executing another tasks
+,0,11429,worker try execute another tasks from 1 rank
+,3,11430,task 25 pass to 2
+,0,11432,worker executed 25 task
+,0,11432,worker try execute another tasks from 1 rank
+,3,11433,task 16 pass to 2
+,0,11435,worker executed 16 task
+,0,11435,worker try execute another tasks from 1 rank
+,3,11437,task 31 pass to 2
+,0,11438,worker executed 31 task
+,0,11438,worker try execute another tasks from 1 rank
+,3,11439,task 15 pass to 2
+,0,11441,worker executed 15 task
+,0,11441,worker try execute another tasks from 1 rank
+,3,11442,task 21 pass to 2
+,3,11445,task 12 pass to 1
+,0,11445,worker executed 21 task
+,0,11445,worker try execute another tasks from 1 rank
+,0,11445,rank 1 haven't tasks
+,0,11445,worker try execute another tasks from 0 rank
+,0,11446,rank 0 haven't tasks
+,0,11446,worker finished job
+,6,11463,tasks.size = 14
+,0,11483,worker is executing own tasks
+,3,11499,change location in 1 for task 23 counter was 1
+,3,11499,change location in 0 for task 23 counter was 0
+,3,11499,map changed for task 23; sendedTaskCounter.size = 0
+,3,11499,delete task 23
+,3,11502,change location in 1 for task 14 counter was 1
+,3,11502,change location in 0 for task 14 counter was 0
+,3,11502,map changed for task 14; sendedTaskCounter.size = 0
+,3,11502,delete task 14
+,3,11505,change location in 1 for task 25 counter was 1
+,3,11505,change location in 0 for task 25 counter was 0
+,3,11505,map changed for task 25; sendedTaskCounter.size = 0
+,3,11505,delete task 25
+,3,11507,change location in 0 for task 16 counter was 1
+,3,11507,delete task 16
+,0,11514,worker is executing another tasks
+,0,11514,worker try execute another tasks from 1 rank
+,0,11514,rank 1 haven't tasks
+,0,11514,worker try execute another tasks from 0 rank
+,3,11514,change location in 1 for task 16 counter was 0
+,3,11514,map changed for task 16; sendedTaskCounter.size = 0
+,0,11514,rank 0 haven't tasks
+,0,11514,worker finished job
+,6,11522,tasks.size = 10
+,0,11528,worker is executing own tasks
+,0,11550,worker is executing another tasks
+,0,11550,worker try execute another tasks from 1 rank
+,0,11560,rank 1 haven't tasks
+,0,11560,worker try execute another tasks from 0 rank
+,3,11560,task 14 pass to 1
+,0,11565,worker executed 25 task
+,0,11565,worker try execute another tasks from 0 rank
+,0,11565,rank 0 haven't tasks
+,0,11565,worker finished job
+,3,11565,task 25 pass to 2
+,6,11565,tasks.size = 11
+,0,11587,worker is executing own tasks
+,3,11607,change location in 1 for task 8 counter was 1
+,3,11608,change location in 0 for task 8 counter was 0
+,3,11608,map changed for task 8; sendedTaskCounter.size = 0
+,0,11608,worker is executing another tasks
+,0,11608,worker try execute another tasks from 1 rank
+,0,11608,rank 1 haven't tasks
+,3,11608,delete task 8
+,0,11608,worker try execute another tasks from 0 rank
+,0,11610,rank 0 haven't tasks
+,0,11610,worker finished job
+,6,11625,tasks.size = 10
+,0,11638,worker is executing own tasks
+,0,11658,worker is executing another tasks
+,0,11658,worker try execute another tasks from 1 rank
+,3,11660,task 12 pass to 2
+,0,11662,worker executed 12 task
+,0,11662,worker try execute another tasks from 1 rank
+,0,11663,rank 1 haven't tasks
+,0,11663,worker try execute another tasks from 0 rank
+,0,11663,rank 0 haven't tasks
+,0,11663,worker finished job
+,6,11671,tasks.size = 11
+,0,11679,worker is executing own tasks
+,3,11698,change location in 1 for task 25 counter was 1
+,3,11698,delete task 25
+,3,11699,change location in 0 for task 25 counter was 0
+,3,11699,map changed for task 25; sendedTaskCounter.size = 0
+,0,11702,worker is executing another tasks
+,0,11702,worker try execute another tasks from 1 rank
+,0,11735,rank 1 haven't tasks
+,0,11735,worker try execute another tasks from 0 rank
+,0,11736,rank 0 haven't tasks
+,0,11736,worker finished job
+,6,11741,tasks.size = 10
+,0,11760,worker is executing own tasks
+,3,11783,change location in 0 for task 15 counter was 1
+,3,11783,delete task 15
+,3,11783,change location in 1 for task 15 counter was 0
+,3,11783,map changed for task 15; sendedTaskCounter.size = 0
+,3,11786,change location in 0 for task 12 counter was 1
+,3,11786,delete task 12
+,3,11786,change location in 1 for task 12 counter was 0
+,3,11786,map changed for task 12; sendedTaskCounter.size = 0
+,0,11787,worker is executing another tasks
+,0,11787,worker try execute another tasks from 1 rank
+,0,11788,rank 1 haven't tasks
+,0,11788,worker try execute another tasks from 0 rank
+,0,11788,rank 0 haven't tasks
+,0,11788,worker finished job
+,6,11790,tasks.size = 8
+,0,11795,worker is executing own tasks
+,0,11819,worker is executing another tasks
+,0,11819,worker try execute another tasks from 1 rank
+,0,11819,rank 1 haven't tasks
+,0,11819,worker try execute another tasks from 0 rank
+,0,11832,rank 0 haven't tasks
+,0,11832,worker finished job
+,6,11833,tasks.size = 8
+,0,11840,worker is executing own tasks
+,0,11861,worker is executing another tasks
+,0,11861,worker try execute another tasks from 1 rank
+,3,11862,task 15 pass to 1
+,3,11864,task 14 pass to 2
+,0,11864,worker executed 14 task
+,0,11864,worker try execute another tasks from 1 rank
+,0,11864,rank 1 haven't tasks
+,0,11864,worker try execute another tasks from 0 rank
+,0,11865,rank 0 haven't tasks
+,0,11865,worker finished job
+,6,11867,tasks.size = 9
+,0,11871,worker is executing own tasks
+,0,11889,worker is executing another tasks
+,0,11889,worker try execute another tasks from 1 rank
+,3,11890,task 15 pass to 2
+,0,11892,worker executed 15 task
+,0,11892,worker try execute another tasks from 1 rank
+,0,11907,rank 1 haven't tasks
+,0,11907,worker try execute another tasks from 0 rank
+,0,11908,rank 0 haven't tasks
+,0,11908,worker finished job
+,6,11916,tasks.size = 10
+,0,11927,worker is executing own tasks
+,0,11947,worker is executing another tasks
+,0,11947,worker try execute another tasks from 1 rank
+,3,11947,task 25 pass to 1
+,0,11951,rank 1 haven't tasks
+,0,11951,worker try execute another tasks from 0 rank
+,0,11952,rank 0 haven't tasks
+,0,11952,worker finished job
+,6,11969,tasks.size = 10
+,0,11978,worker is executing own tasks
+,0,11998,worker is executing another tasks
+,0,11998,worker try execute another tasks from 1 rank
+,3,11999,task 24 pass to 2
+,0,12000,worker executed 24 task
+,0,12000,worker try execute another tasks from 1 rank
+,3,12012,task 5 pass to 2
+,0,12014,worker executed 5 task
+,0,12014,worker try execute another tasks from 1 rank
+,0,12014,rank 1 haven't tasks
+,0,12014,worker try execute another tasks from 0 rank
+,0,12014,rank 0 haven't tasks
+,0,12014,worker finished job
+,6,12015,tasks.size = 12
+,0,12039,worker is executing own tasks
+,0,12064,worker is executing another tasks
+,0,12064,worker try execute another tasks from 1 rank
+,0,12064,rank 1 haven't tasks
+,0,12064,worker try execute another tasks from 0 rank
+,0,12064,rank 0 haven't tasks
+,0,12064,worker finished job
+,6,12084,tasks.size = 12
+,0,12097,worker is executing own tasks
+,0,12121,worker is executing another tasks
+,0,12121,worker try execute another tasks from 1 rank
+,0,12121,rank 1 haven't tasks
+,0,12121,worker try execute another tasks from 0 rank
+,0,12144,rank 0 haven't tasks
+,0,12144,worker finished job
+,6,12146,tasks.size = 12
+,0,12152,worker is executing own tasks
+,0,12176,worker is executing another tasks
+,0,12176,worker try execute another tasks from 1 rank
+,3,12177,task 22 pass to 2
+,3,12177,task 27 pass to 0
+,0,12180,worker executed 22 task
+,0,12180,worker try execute another tasks from 1 rank
+,0,12180,rank 1 haven't tasks
+,0,12180,worker try execute another tasks from 0 rank
+,0,12180,rank 0 haven't tasks
+,0,12180,worker finished job
+,6,12188,tasks.size = 13
+,0,12191,worker is executing own tasks
+,3,12216,task 27 pass to 1
+,3,12218,change location in 1 for task 14 counter was 1
+,3,12218,delete task 14
+,3,12218,change location in 0 for task 14 counter was 0
+,3,12218,map changed for task 14; sendedTaskCounter.size = 0
+,3,12220,delete task 24
+,3,12220,change location in 1 for task 24 counter was 1
+,3,12221,change location in 0 for task 24 counter was 0
+,3,12221,map changed for task 24; sendedTaskCounter.size = 1
+,3,12221,change location in 1 for task 5 counter was 1
+,0,12226,worker is executing another tasks
+,0,12226,worker try execute another tasks from 1 rank
+,0,12226,rank 1 haven't tasks
+,0,12226,worker try execute another tasks from 0 rank
+,0,12227,rank 0 haven't tasks
+,0,12227,worker finished job
+,3,12230,delete task 5
+,3,12231,change location in 0 for task 5 counter was 0
+,3,12231,map changed for task 5; sendedTaskCounter.size = 0
+,6,12231,tasks.size = 10
+,0,12235,worker is executing own tasks
+,3,12260,task 5 pass to 1
+,3,12262,change location in 0 for task 15 counter was 1
+,3,12262,change location in 1 for task 15 counter was 0
+,3,12262,map changed for task 15; sendedTaskCounter.size = 0
+,3,12263,delete task 15
+,3,12264,change location in 0 for task 22 counter was 1
+,3,12264,delete task 22
+,3,12264,change location in 1 for task 22 counter was 0
+,3,12264,map changed for task 22; sendedTaskCounter.size = 0
+,0,12267,worker is executing another tasks
+,0,12267,worker try execute another tasks from 1 rank
+,0,12268,rank 1 haven't tasks
+,0,12268,worker try execute another tasks from 0 rank
+,0,12278,rank 0 haven't tasks
+,0,12278,worker finished job
+,6,12279,tasks.size = 8
+,0,12291,worker is executing own tasks
+,3,12324,task 14 pass to 1
+,3,12324,task 15 pass to 1
+,0,12340,worker is executing another tasks
+,0,12340,worker try execute another tasks from 1 rank
+,0,12341,rank 1 haven't tasks
+,0,12341,worker try execute another tasks from 0 rank
+,0,12342,rank 0 haven't tasks
+,0,12342,worker finished job
+,6,12359,tasks.size = 8
+,0,12363,worker is executing own tasks
+,0,12385,worker is executing another tasks
+,0,12385,worker try execute another tasks from 1 rank
+,3,12386,task 15 pass to 2
+,0,12401,worker executed 15 task
+,0,12401,worker try execute another tasks from 1 rank
+,0,12401,rank 1 haven't tasks
+,0,12401,worker try execute another tasks from 0 rank
+,0,12401,rank 0 haven't tasks
+,0,12401,worker finished job
+,6,12402,tasks.size = 9
+,0,12405,worker is executing own tasks
+,0,12432,worker is executing another tasks
+,0,12443,worker try execute another tasks from 1 rank
+,0,12444,rank 1 haven't tasks
+,0,12444,worker try execute another tasks from 0 rank
+,0,12444,rank 0 haven't tasks
+,0,12444,worker finished job
+,6,12468,tasks.size = 9
+,0,12470,worker is executing own tasks
+,3,12494,change location in 0 for task 21 counter was 1
+,3,12495,delete task 21
+,3,12495,change location in 1 for task 21 counter was 0
+,3,12495,map changed for task 21; sendedTaskCounter.size = 0
+,0,12514,worker is executing another tasks
+,0,12514,worker try execute another tasks from 1 rank
+,0,12514,rank 1 haven't tasks
+,0,12514,worker try execute another tasks from 0 rank
+,0,12514,rank 0 haven't tasks
+,0,12514,worker finished job
+,6,12540,tasks.size = 8
+,0,12544,worker is executing own tasks
+,0,12565,worker is executing another tasks
+,0,12565,worker try execute another tasks from 1 rank
+,3,12566,task 14 pass to 2
+,0,12586,worker executed 14 task
+,0,12586,worker try execute another tasks from 1 rank
+,0,12587,rank 1 haven't tasks
+,0,12587,worker try execute another tasks from 0 rank
+,0,12587,rank 0 haven't tasks
+,0,12587,worker finished job
+,6,12587,tasks.size = 9
+,0,12603,worker is executing own tasks
+,0,12633,worker is executing another tasks
+,0,12633,worker try execute another tasks from 1 rank
+,3,12634,change location in 1 for task 19 counter was 1
+,3,12634,change location in 0 for task 19 counter was 0
+,3,12634,map changed for task 19; sendedTaskCounter.size = 0
+,3,12634,delete task 19
+,3,12635,task 21 pass to 2
+,0,12640,worker executed 21 task
+,0,12640,worker try execute another tasks from 1 rank
+,0,12643,rank 1 haven't tasks
+,0,12643,worker try execute another tasks from 0 rank
+,0,12643,rank 0 haven't tasks
+,0,12643,worker finished job
+,6,12655,tasks.size = 9
+,0,12666,worker is executing own tasks
+,3,12688,change location in 0 for task 14 counter was 1
+,3,12688,change location in 1 for task 14 counter was 0
+,3,12688,map changed for task 14; sendedTaskCounter.size = 0
+,3,12688,delete task 14
+,0,12689,worker is executing another tasks
+,0,12689,worker try execute another tasks from 1 rank
+,0,12689,rank 1 haven't tasks
+,0,12689,worker try execute another tasks from 0 rank
+,0,12690,rank 0 haven't tasks
+,0,12690,worker finished job
+,6,12692,tasks.size = 8
+,0,12695,worker is executing own tasks
+,0,12716,worker is executing another tasks
+,0,12716,worker try execute another tasks from 1 rank
+,3,12728,task 19 pass to 1
+,3,12743,task 22 pass to 2
+,0,12747,worker executed 22 task
+,0,12747,worker try execute another tasks from 1 rank
+,0,12775,rank 1 haven't tasks
+,0,12775,worker try execute another tasks from 0 rank
+,0,12776,rank 0 haven't tasks
+,0,12776,worker finished job
+,6,12776,tasks.size = 9
+,0,12800,worker is executing own tasks
+,3,12822,task 12 pass to 1
+,3,12828,delete task 21
+,3,12828,change location in 0 for task 21 counter was 1
+,0,12828,worker is executing another tasks
+,0,12828,worker try execute another tasks from 1 rank
+,3,12843,change location in 1 for task 21 counter was 0
+,3,12843,map changed for task 21; sendedTaskCounter.size = 0
+,0,12843,rank 1 haven't tasks
+,0,12843,worker try execute another tasks from 0 rank
+,0,12851,rank 0 haven't tasks
+,0,12851,worker finished job
+,6,12852,tasks.size = 8
+,0,12855,worker is executing own tasks
+,0,12881,worker is executing another tasks
+,0,12881,worker try execute another tasks from 1 rank
+,0,12881,rank 1 haven't tasks
+,0,12881,worker try execute another tasks from 0 rank
+,0,12881,rank 0 haven't tasks
+,0,12881,worker finished job
+,6,12884,tasks.size = 8
+,0,12890,worker is executing own tasks
+,0,12912,worker is executing another tasks
+,0,12912,worker try execute another tasks from 1 rank
+,3,12928,task 12 pass to 2
+,0,12932,worker executed 12 task
+,0,12932,worker try execute another tasks from 1 rank
+,0,12932,rank 1 haven't tasks
+,0,12932,worker try execute another tasks from 0 rank
+,0,12932,rank 0 haven't tasks
+,0,12932,worker finished job
+,6,12933,tasks.size = 9
+,0,12936,worker is executing own tasks
+,0,12961,worker is executing another tasks
+,0,12961,worker try execute another tasks from 1 rank
+,0,12961,rank 1 haven't tasks
+,0,12961,worker try execute another tasks from 0 rank
+,0,12961,rank 0 haven't tasks
+,0,12961,worker finished job
+,6,12986,tasks.size = 9
+,0,12992,worker is executing own tasks
+,0,13016,worker is executing another tasks
+,0,13016,worker try execute another tasks from 1 rank
+,3,13017,task 17 pass to 2
+,0,13020,worker executed 17 task
+,0,13020,worker try execute another tasks from 1 rank
+,3,13029,task 8 pass to 1
+,0,13029,rank 1 haven't tasks
+,0,13029,worker try execute another tasks from 0 rank
+,0,13044,rank 0 haven't tasks
+,0,13044,worker finished job
+,6,13067,tasks.size = 10
+,0,13076,worker is executing own tasks
+,3,13100,task 21 pass to 1
+,3,13102,change location in 1 for task 17 counter was 1
+,3,13103,delete task 17
+,3,13103,change location in 0 for task 17 counter was 0
+,3,13103,map changed for task 17; sendedTaskCounter.size = 0
+,0,13104,worker is executing another tasks
+,0,13104,worker try execute another tasks from 1 rank
+,0,13104,rank 1 haven't tasks
+,0,13104,worker try execute another tasks from 0 rank
+,0,13114,rank 0 haven't tasks
+,0,13114,worker finished job
+,6,13115,tasks.size = 9
+,0,13128,worker is executing own tasks
+,0,13152,worker is executing another tasks
+,0,13152,worker try execute another tasks from 1 rank
+,0,13164,rank 1 haven't tasks
+,0,13164,worker try execute another tasks from 0 rank
+,0,13164,rank 0 haven't tasks
+,0,13164,worker finished job
+,6,13164,tasks.size = 9
+,0,13183,worker is executing own tasks
+,0,13207,worker is executing another tasks
+,0,13207,worker try execute another tasks from 1 rank
+,0,13208,rank 1 haven't tasks
+,0,13208,worker try execute another tasks from 0 rank
+,3,13209,task 17 pass to 2
+,0,13212,worker executed 17 task
+,0,13212,worker try execute another tasks from 0 rank
+,0,13212,rank 0 haven't tasks
+,0,13212,worker finished job
+,6,13212,tasks.size = 10
+,0,13216,worker is executing own tasks
+,0,13243,worker is executing another tasks
+,0,13243,worker try execute another tasks from 1 rank
+,0,13243,rank 1 haven't tasks
+,0,13243,worker try execute another tasks from 0 rank
+,0,13256,rank 0 haven't tasks
+,0,13256,worker finished job
+,6,13256,tasks.size = 10
+,0,13275,worker is executing own tasks
+,3,13288,change location in 0 for task 29 counter was 1
+,3,13288,change location in 1 for task 29 counter was 0
+,3,13288,map changed for task 29; sendedTaskCounter.size = 1
+,3,13288,delete task 29
+,3,13288,change location in 1 for task 15 counter was 1
+,3,13290,change location in 0 for task 15 counter was 0
+,3,13290,map changed for task 15; sendedTaskCounter.size = 1
+,3,13290,change location in 0 for task 12 counter was 1
+,3,13290,delete task 15
+,3,13293,change location in 1 for task 12 counter was 0
+,3,13293,map changed for task 12; sendedTaskCounter.size = 0
+,3,13293,delete task 12
+,0,13294,worker is executing another tasks
+,0,13294,worker try execute another tasks from 1 rank
+,0,13294,rank 1 haven't tasks
+,0,13294,worker try execute another tasks from 0 rank
+,0,13296,rank 0 haven't tasks
+,0,13296,worker finished job
+,6,13307,tasks.size = 7
+,0,13316,worker is executing own tasks
+,0,13335,worker is executing another tasks
+,0,13335,worker try execute another tasks from 1 rank
+,0,13345,rank 1 haven't tasks
+,0,13345,worker try execute another tasks from 0 rank
+,0,13345,rank 0 haven't tasks
+,0,13345,worker finished job
+,6,13352,tasks.size = 7
+,0,13356,worker is executing own tasks
+,0,13375,worker is executing another tasks
+,0,13375,worker try execute another tasks from 1 rank
+,0,13389,worker executed 8 task
+,0,13389,worker try execute another tasks from 1 rank
+,3,13395,task 8 pass to 2
+,0,13402,rank 1 haven't tasks
+,0,13402,worker try execute another tasks from 0 rank
+,0,13402,rank 0 haven't tasks
+,0,13402,worker finished job
+,6,13403,tasks.size = 8
+,0,13405,worker is executing own tasks
+,0,13427,worker is executing another tasks
+,0,13427,worker try execute another tasks from 1 rank
+,3,13428,task 29 pass to 2
+,0,13430,worker executed 29 task
+,0,13430,worker try execute another tasks from 1 rank
+,0,13431,rank 1 haven't tasks
+,0,13431,worker try execute another tasks from 0 rank
+,3,13431,task 15 pass to 2
+,0,13447,worker executed 15 task
+,0,13447,worker try execute another tasks from 0 rank
+,0,13447,rank 0 haven't tasks
+,0,13447,worker finished job
+,6,13448,tasks.size = 10
+,0,13451,worker is executing own tasks
+,3,13478,change location in 0 for task 29 counter was 1
+,3,13478,delete task 29
+,3,13478,change location in 1 for task 29 counter was 0
+,3,13478,map changed for task 29; sendedTaskCounter.size = 1
+,3,13478,change location in 0 for task 15 counter was 1
+,3,13478,change location in 1 for task 15 counter was 0
+,3,13478,map changed for task 15; sendedTaskCounter.size = 0
+,3,13478,delete task 15
+,0,13497,worker is executing another tasks
+,0,13497,worker try execute another tasks from 1 rank
+,0,13503,rank 1 haven't tasks
+,0,13503,worker try execute another tasks from 0 rank
+,0,13509,rank 0 haven't tasks
+,0,13509,worker finished job
+,6,13521,tasks.size = 8
+,0,13539,worker is executing own tasks
+,3,13554,change location in 1 for task 17 counter was 1
+,0,13558,worker is executing another tasks
+,0,13558,worker try execute another tasks from 1 rank
+,0,13558,rank 1 haven't tasks
+,0,13558,worker try execute another tasks from 0 rank
+,3,13572,delete task 17
+,0,13572,rank 0 haven't tasks
+,0,13572,worker finished job
+,3,13574,change location in 0 for task 17 counter was 0
+,3,13574,map changed for task 17; sendedTaskCounter.size = 0
+,6,13584,tasks.size = 7
+,0,13592,worker is executing own tasks
+,0,13611,worker is executing another tasks
+,0,13611,worker try execute another tasks from 1 rank
+,3,13612,task 19 pass to 2
+,0,13615,worker executed 19 task
+,0,13615,worker try execute another tasks from 1 rank
+,3,13616,task 15 pass to 2
+,0,13626,worker executed 15 task
+,0,13626,worker try execute another tasks from 1 rank
+,0,13626,rank 1 haven't tasks
+,0,13626,worker try execute another tasks from 0 rank
+,0,13627,rank 0 haven't tasks
+,0,13627,worker finished job
+,6,13627,tasks.size = 9
+,0,13631,worker is executing own tasks
+,3,13655,task 18 pass to 1
+,0,13664,worker is executing another tasks
+,0,13664,worker try execute another tasks from 1 rank
+,0,13664,rank 1 haven't tasks
+,0,13667,worker try execute another tasks from 0 rank
+,3,13685,task 17 pass to 2
+,0,13688,worker executed 17 task
+,0,13688,worker try execute another tasks from 0 rank
+,0,13688,rank 0 haven't tasks
+,0,13688,worker finished job
+,6,13697,tasks.size = 10
+,0,13705,worker is executing own tasks
+,3,13729,change location in 1 for task 17 counter was 1
+,3,13731,change location in 0 for task 17 counter was 0
+,3,13731,map changed for task 17; sendedTaskCounter.size = 0
+,3,13732,delete task 17
+,0,13744,worker is executing another tasks
+,0,13744,worker try execute another tasks from 1 rank
+,0,13744,rank 1 haven't tasks
+,0,13744,worker try execute another tasks from 0 rank
+,0,13744,rank 0 haven't tasks
+,0,13744,worker finished job
+,6,13763,tasks.size = 9
+,0,13779,worker is executing own tasks
+,0,13794,worker is executing another tasks
+,0,13795,worker try execute another tasks from 1 rank
+,3,13795,change location in 0 for task 31 counter was 1
+,3,13795,delete task 31
+,3,13795,change location in 0 for task 22 counter was 1
+,3,13795,delete task 22
+,3,13795,change location in 0 for task 19 counter was 1
+,0,13795,rank 1 haven't tasks
+,0,13795,worker try execute another tasks from 0 rank
+,3,13795,change location in 0 for task 15 counter was 1
+,3,13795,delete task 19
+,3,13795,delete task 15
+,3,13795,change location in 1 for task 31 counter was 0
+,3,13795,map changed for task 31; sendedTaskCounter.size = 3
+,3,13795,change location in 1 for task 22 counter was 0
+,3,13795,map changed for task 22; sendedTaskCounter.size = 2
+,3,13795,change location in 1 for task 19 counter was 0
+,3,13795,map changed for task 19; sendedTaskCounter.size = 1
+,3,13795,change location in 1 for task 15 counter was 0
+,3,13795,map changed for task 15; sendedTaskCounter.size = 0
+,0,13795,rank 0 haven't tasks
+,0,13795,worker finished job
+,6,13812,tasks.size = 5
+,0,13818,worker is executing own tasks
+,0,13833,worker is executing another tasks
+,0,13833,worker try execute another tasks from 1 rank
+,3,13834,task 5 pass to 2
+,0,13837,worker executed 5 task
+,0,13837,worker try execute another tasks from 1 rank
+,3,13838,task 12 pass to 2
+,0,13842,worker executed 12 task
+,0,13842,worker try execute another tasks from 1 rank
+,0,13842,rank 1 haven't tasks
+,0,13842,worker try execute another tasks from 0 rank
+,3,13843,task 19 pass to 2
+,0,13847,worker executed 19 task
+,0,13847,worker try execute another tasks from 0 rank
+,0,13870,rank 0 haven't tasks
+,0,13870,worker finished job
+,6,13872,tasks.size = 8
+,0,13876,worker is executing own tasks
+,0,13901,worker is executing another tasks
+,0,13901,worker try execute another tasks from 1 rank
+,0,13901,rank 1 haven't tasks
+,0,13901,worker try execute another tasks from 0 rank
+,0,13901,rank 0 haven't tasks
+,0,13901,worker finished job
+,6,13902,tasks.size = 8
+,0,13905,worker is executing own tasks
+,0,13926,worker is executing another tasks
+,0,13926,worker try execute another tasks from 1 rank
+,3,13927,task 15 pass to 2
+,3,13928,task 22 pass to 1
+,0,13929,worker executed 15 task
+,0,13929,worker try execute another tasks from 1 rank
+,0,13929,rank 1 haven't tasks
+,0,13929,worker try execute another tasks from 0 rank
+,0,13930,rank 0 haven't tasks
+,0,13930,worker finished job
+,6,13931,tasks.size = 9
+,0,13942,worker is executing own tasks
+,0,13963,worker is executing another tasks
+,0,13963,worker try execute another tasks from 1 rank
+,3,13964,task 24 pass to 2
+,0,13965,worker executed 24 task
+,0,13965,worker try execute another tasks from 1 rank
+,0,13972,rank 1 haven't tasks
+,0,13972,worker try execute another tasks from 0 rank
+,0,13973,rank 0 haven't tasks
+,0,13973,worker finished job
+,6,13984,tasks.size = 10
+,0,13990,worker is executing own tasks
+,3,14013,task 25 pass to 0
+,0,14013,worker is executing another tasks
+,0,14013,worker try execute another tasks from 1 rank
+,3,14020,task 27 pass to 2
+,0,14022,worker executed 27 task
+,3,14022,task 21 pass to 0
+,0,14022,worker try execute another tasks from 1 rank
+,3,14024,task 22 pass to 2
+,0,14027,worker executed 22 task
+,0,14027,worker try execute another tasks from 1 rank
+,0,14027,rank 1 haven't tasks
+,0,14027,worker try execute another tasks from 0 rank
+,0,14027,rank 0 haven't tasks
+,0,14027,worker finished job
+,6,14027,tasks.size = 12
+,0,14030,worker is executing own tasks
+,0,14057,worker is executing another tasks
+,0,14057,worker try execute another tasks from 1 rank
+,0,14057,rank 1 haven't tasks
+,0,14057,worker try execute another tasks from 0 rank
+,0,14057,rank 0 haven't tasks
+,0,14057,worker finished job
+,6,14080,tasks.size = 12
+,0,14095,worker is executing own tasks
+,3,14111,change location in 0 for task 19 counter was 1
+,3,14112,change location in 1 for task 19 counter was 0
+,3,14112,map changed for task 19; sendedTaskCounter.size = 1
+,3,14112,delete task 19
+,3,14112,change location in 1 for task 15 counter was 1
+,3,14112,change location in 0 for task 15 counter was 0
+,3,14112,map changed for task 15; sendedTaskCounter.size = 0
+,3,14112,delete task 15
+,0,14116,worker is executing another tasks
+,3,14116,change location in 0 for task 22 counter was 1
+,0,14116,worker try execute another tasks from 1 rank
+,0,14116,rank 1 haven't tasks
+,3,14116,delete task 22
+,0,14116,worker try execute another tasks from 0 rank
+,3,14116,change location in 1 for task 22 counter was 0
+,3,14116,map changed for task 22; sendedTaskCounter.size = 0
+,0,14116,rank 0 haven't tasks
+,0,14116,worker finished job
+,6,14130,tasks.size = 9
+,0,14143,worker is executing own tasks
+,3,14156,task 15 pass to 1
+,0,14165,worker is executing another tasks
+,0,14165,worker try execute another tasks from 1 rank
+,0,14165,rank 1 haven't tasks
+,0,14165,worker try execute another tasks from 0 rank
+,0,14165,rank 0 haven't tasks
+,0,14165,worker finished job
+,6,14166,tasks.size = 9
+,0,14168,worker is executing own tasks
+,0,14189,worker is executing another tasks
+,0,14189,worker try execute another tasks from 1 rank
+,3,14190,task 15 pass to 2
+,3,14192,task 21 pass to 1
+,0,14192,worker executed 15 task
+,0,14192,worker try execute another tasks from 1 rank
+,0,14208,rank 1 haven't tasks
+,0,14208,worker try execute another tasks from 0 rank
+,0,14220,rank 0 haven't tasks
+,0,14220,worker finished job
+,6,14222,tasks.size = 10
+,0,14235,worker is executing own tasks
+,0,14258,worker is executing another tasks
+,0,14258,worker try execute another tasks from 1 rank
+,3,14258,task 19 pass to 2
+,0,14261,worker executed 19 task
+,0,14261,worker try execute another tasks from 1 rank
+,0,14261,rank 1 haven't tasks
+,0,14261,worker try execute another tasks from 0 rank
+,3,14262,task 23 pass to 2
+,3,14267,task 16 pass to 1
+,0,14269,worker executed 23 task
+,0,14269,worker try execute another tasks from 0 rank
+,3,14270,task 29 pass to 2
+,0,14278,worker executed 29 task
+,0,14278,worker try execute another tasks from 0 rank
+,0,14278,rank 0 haven't tasks
+,0,14278,worker finished job
+,6,14286,tasks.size = 13
+,0,14289,worker is executing own tasks
+,3,14309,change location in 1 for task 15 counter was 1
+,3,14309,change location in 0 for task 15 counter was 0
+,3,14309,map changed for task 15; sendedTaskCounter.size = 0
+,3,14309,delete task 15
+,3,14312,change location in 1 for task 23 counter was 1
+,0,14314,worker is executing another tasks
+,0,14314,worker try execute another tasks from 1 rank
+,3,14315,change location in 0 for task 23 counter was 0
+,3,14315,map changed for task 23; sendedTaskCounter.size = 0
+,3,14315,delete task 23
+,3,14315,task 16 pass to 2
+,0,14318,worker executed 16 task
+,0,14318,worker try execute another tasks from 1 rank
+,0,14328,rank 1 haven't tasks
+,0,14328,worker try execute another tasks from 0 rank
+,0,14328,rank 0 haven't tasks
+,0,14328,worker finished job
+,6,14328,tasks.size = 12
+,0,14346,worker is executing own tasks
+,0,14371,worker is executing another tasks
+,0,14372,worker try execute another tasks from 1 rank
+,3,14372,change location in 0 for task 16 counter was 1
+,3,14372,delete task 16
+,3,14382,change location in 1 for task 16 counter was 0
+,3,14382,map changed for task 16; sendedTaskCounter.size = 0
+,3,14382,task 28 pass to 2
+,0,14384,worker executed 28 task
+,0,14384,worker try execute another tasks from 1 rank
+,0,14385,rank 1 haven't tasks
+,0,14385,worker try execute another tasks from 0 rank
+,0,14400,rank 0 haven't tasks
+,0,14400,worker finished job
+,6,14406,tasks.size = 12
+,0,14410,worker is executing own tasks
+,3,14430,task 15 pass to 1
+,0,14455,worker is executing another tasks
+,0,14455,worker try execute another tasks from 1 rank
+,0,14456,rank 1 haven't tasks
+,0,14456,worker try execute another tasks from 0 rank
+,3,14456,change location in 1 for task 28 counter was 1
+,0,14457,rank 0 haven't tasks
+,0,14457,worker finished job
+,3,14457,change location in 0 for task 28 counter was 0
+,3,14457,map changed for task 28; sendedTaskCounter.size = 0
+,3,14457,delete task 28
+,6,14479,tasks.size = 11
+,0,14483,worker is executing own tasks
+,3,14506,task 17 pass to 1
+,3,14515,task 16 pass to 1
+,0,14516,worker is executing another tasks
+,0,14516,worker try execute another tasks from 1 rank
+,0,14523,rank 1 haven't tasks
+,0,14523,worker try execute another tasks from 0 rank
+,0,14523,rank 0 haven't tasks
+,0,14523,worker finished job
+,6,14551,tasks.size = 11
+,0,14555,worker is executing own tasks
+,0,14581,worker is executing another tasks
+,0,14581,worker try execute another tasks from 1 rank
+,0,14581,rank 1 haven't tasks
+,0,14581,worker try execute another tasks from 0 rank
+,3,14582,task 28 pass to 2
+,0,14584,worker executed 28 task
+,0,14584,worker try execute another tasks from 0 rank
+,0,14584,rank 0 haven't tasks
+,0,14584,worker finished job
+,6,14584,tasks.size = 12
+,0,14587,worker is executing own tasks
+,3,14607,change location in 1 for task 19 counter was 1
+,3,14607,change location in 0 for task 19 counter was 0
+,3,14607,map changed for task 19; sendedTaskCounter.size = 0
+,3,14607,delete task 19
+,3,14610,task 16 pass to 0
+,0,14612,worker is executing another tasks
+,0,14612,worker try execute another tasks from 1 rank
+,0,14612,rank 1 haven't tasks
+,0,14612,worker try execute another tasks from 0 rank
+,0,14612,rank 0 haven't tasks
+,0,14612,worker finished job
+,6,14613,tasks.size = 11
+,0,14625,worker is executing own tasks
+,3,14650,change location in 0 for task 29 counter was 1
+,3,14650,delete task 29
+,3,14650,change location in 0 for task 28 counter was 1
+,3,14650,change location in 1 for task 29 counter was 0
+,3,14650,map changed for task 29; sendedTaskCounter.size = 1
+,3,14650,change location in 1 for task 28 counter was 0
+,3,14650,map changed for task 28; sendedTaskCounter.size = 0
+,3,14650,delete task 28
+,0,14653,worker is executing another tasks
+,0,14653,worker try execute another tasks from 1 rank
+,0,14654,rank 1 haven't tasks
+,0,14654,worker try execute another tasks from 0 rank
+,0,14658,rank 0 haven't tasks
+,0,14658,worker finished job
+,6,14662,tasks.size = 9
+,0,14680,worker is executing own tasks
+,0,14706,worker is executing another tasks
+,0,14706,worker try execute another tasks from 1 rank
+,0,14706,rank 1 haven't tasks
+,0,14706,worker try execute another tasks from 0 rank
+,3,14724,task 19 pass to 2
+,0,14727,worker executed 19 task
+,0,14727,worker try execute another tasks from 0 rank
+,0,14728,rank 0 haven't tasks
+,0,14728,worker finished job
+,6,14744,tasks.size = 10
+,0,14756,worker is executing own tasks
+,3,14780,change location in 1 for task 24 counter was 1
+,3,14780,change location in 0 for task 24 counter was 0
+,3,14780,map changed for task 24; sendedTaskCounter.size = 0
+,3,14780,delete task 24
+,3,14783,change location in 0 for task 27 counter was 1
+,3,14783,delete task 27
+,3,14783,change location in 1 for task 27 counter was 0
+,3,14783,map changed for task 27; sendedTaskCounter.size = 0
+,3,14785,change location in 0 for task 19 counter was 1
+,3,14785,delete task 19
+,3,14786,change location in 1 for task 19 counter was 0
+,3,14786,map changed for task 19; sendedTaskCounter.size = 0
+,0,14791,worker is executing another tasks
+,0,14791,worker try execute another tasks from 1 rank
+,0,14807,rank 1 haven't tasks
+,0,14807,worker try execute another tasks from 0 rank
+,0,14807,rank 0 haven't tasks
+,0,14807,worker finished job
+,6,14812,tasks.size = 7
+,0,14818,worker is executing own tasks
+,3,14848,change location in 0 for task 5 counter was 1
+,3,14848,delete task 5
+,3,14849,change location in 1 for task 5 counter was 0
+,3,14849,map changed for task 5; sendedTaskCounter.size = 1
+,3,14849,change location in 0 for task 12 counter was 1
+,3,14849,change location in 1 for task 12 counter was 0
+,3,14849,map changed for task 12; sendedTaskCounter.size = 0
+,0,14850,worker is executing another tasks
+,0,14850,worker try execute another tasks from 1 rank
+,3,14850,delete task 12
+,0,14851,rank 1 haven't tasks
+,0,14851,worker try execute another tasks from 0 rank
+,0,14851,rank 0 haven't tasks
+,0,14851,worker finished job
+,6,14899,tasks.size = 5
+,0,14909,worker is executing own tasks
+,0,14921,worker is executing another tasks
+,0,14921,worker try execute another tasks from 1 rank
+,3,14935,task 21 pass to 2
+,3,14935,task 19 pass to 1
+,0,14938,worker executed 21 task
+,0,14938,worker try execute another tasks from 1 rank
+,0,14938,rank 1 haven't tasks
+,0,14938,worker try execute another tasks from 0 rank
+,0,14939,rank 0 haven't tasks
+,0,14939,worker finished job
+,6,14940,tasks.size = 6
+,0,14955,worker is executing own tasks
+,0,14970,worker is executing another tasks
+,0,14970,worker try execute another tasks from 1 rank
+,3,14971,task 15 pass to 2
+,0,14981,worker executed 15 task
+,0,14981,worker try execute another tasks from 1 rank
+,0,14981,rank 1 haven't tasks
+,0,14981,worker try execute another tasks from 0 rank
+,3,15000,task 5 pass to 2
+,0,15002,worker executed 5 task
+,0,15002,worker try execute another tasks from 0 rank
+,0,15002,rank 0 haven't tasks
+,0,15002,worker finished job
+,6,15003,tasks.size = 8
+,0,15005,worker is executing own tasks
+,0,15025,worker is executing another tasks
+,0,15025,worker try execute another tasks from 1 rank
+,3,15026,task 18 pass to 2
+,0,15029,worker executed 18 task
+,0,15029,worker try execute another tasks from 1 rank
+,3,15030,task 28 pass to 2
+,0,15032,worker executed 28 task
+,0,15032,worker try execute another tasks from 1 rank
+,3,15033,task 19 pass to 2
+,0,15036,worker executed 19 task
+,0,15036,worker try execute another tasks from 1 rank
+,0,15036,rank 1 haven't tasks
+,0,15036,worker try execute another tasks from 0 rank
+,0,15036,rank 0 haven't tasks
+,0,15036,worker finished job
+,6,15036,tasks.size = 11
+,0,15052,worker is executing own tasks
+,3,15076,task 24 pass to 1
+,0,15079,worker is executing another tasks
+,0,15079,worker try execute another tasks from 1 rank
+,0,15080,rank 1 haven't tasks
+,0,15080,worker try execute another tasks from 0 rank
+,0,15080,rank 0 haven't tasks
+,0,15080,worker finished job
+,6,15092,tasks.size = 11
+,0,15105,worker is executing own tasks
+,0,15130,worker is executing another tasks
+,0,15130,worker try execute another tasks from 1 rank
+,0,15130,rank 1 haven't tasks
+,0,15130,worker try execute another tasks from 0 rank
+,3,15140,task 29 pass to 2
+,0,15142,worker executed 29 task
+,0,15142,worker try execute another tasks from 0 rank
+,0,15143,rank 0 haven't tasks
+,0,15143,worker finished job
+,6,15148,tasks.size = 12
+,0,15167,worker is executing own tasks
+,3,15190,change location in 1 for task 19 counter was 1
+,3,15190,change location in 0 for task 19 counter was 0
+,3,15190,map changed for task 19; sendedTaskCounter.size = 0
+,3,15191,delete task 19
+,0,15192,worker is executing another tasks
+,0,15192,worker try execute another tasks from 1 rank
+,3,15197,task 12 pass to 2
+,0,15200,worker executed 12 task
+,0,15203,worker try execute another tasks from 1 rank
+,0,15204,rank 1 haven't tasks
+,0,15204,worker try execute another tasks from 0 rank
+,0,15219,rank 0 haven't tasks
+,0,15219,worker finished job
+,6,15220,tasks.size = 12
+,0,15223,worker is executing own tasks
+,3,15241,task 23 pass to 1
+,3,15245,task 19 pass to 1
+,3,15246,change location in 0 for task 29 counter was 1
+,3,15248,delete task 29
+,3,15248,change location in 1 for task 29 counter was 0
+,3,15248,map changed for task 29; sendedTaskCounter.size = 0
+,0,15249,worker is executing another tasks
+,0,15249,worker try execute another tasks from 1 rank
+,0,15249,rank 1 haven't tasks
+,0,15250,worker try execute another tasks from 0 rank
+,0,15250,rank 0 haven't tasks
+,0,15250,worker finished job
+,6,15250,tasks.size = 11
+,0,15253,worker is executing own tasks
+,0,15278,worker is executing another tasks
+,0,15278,worker try execute another tasks from 1 rank
+,0,15278,rank 1 haven't tasks
+,0,15278,worker try execute another tasks from 0 rank
+,0,15278,rank 0 haven't tasks
+,0,15278,worker finished job
+,6,15279,tasks.size = 11
+,0,15295,worker is executing own tasks
+,0,15321,worker is executing another tasks
+,0,15321,worker try execute another tasks from 1 rank
+,0,15321,rank 1 haven't tasks
+,0,15321,worker try execute another tasks from 0 rank
+,0,15321,rank 0 haven't tasks
+,0,15321,worker finished job
+,6,15322,tasks.size = 11
+,0,15326,worker is executing own tasks
+,3,15350,change location in 1 for task 12 counter was 1
+,3,15350,delete task 12
+,3,15350,change location in 0 for task 12 counter was 0
+,3,15350,map changed for task 12; sendedTaskCounter.size = 0
+,0,15350,worker is executing another tasks
+,0,15350,worker try execute another tasks from 1 rank
+,0,15351,rank 1 haven't tasks
+,0,15351,worker try execute another tasks from 0 rank
+,0,15351,rank 0 haven't tasks
+,0,15351,worker finished job
+,6,15360,tasks.size = 10
+,0,15364,worker is executing own tasks
+,0,15388,worker is executing another tasks
+,0,15388,worker try execute another tasks from 1 rank
+,0,15388,rank 1 haven't tasks
+,0,15388,worker try execute another tasks from 0 rank
+,0,15388,rank 0 haven't tasks
+,0,15388,worker finished job
+,6,15392,tasks.size = 10
+,0,15395,worker is executing own tasks
+,0,15419,worker is executing another tasks
+,0,15419,worker try execute another tasks from 1 rank
+,0,15419,rank 1 haven't tasks
+,0,15419,worker try execute another tasks from 0 rank
+,0,15419,rank 0 haven't tasks
+,0,15419,worker finished job
+,6,15422,tasks.size = 10
+,0,15425,worker is executing own tasks
+,0,15448,worker is executing another tasks
+,0,15448,worker try execute another tasks from 1 rank
+,0,15448,rank 1 haven't tasks
+,0,15448,worker try execute another tasks from 0 rank
+,0,15449,rank 0 haven't tasks
+,0,15449,worker finished job
+,6,15452,tasks.size = 10
+,0,15455,worker is executing own tasks
+,0,15479,worker is executing another tasks
+,0,15479,worker try execute another tasks from 1 rank
+,0,15479,rank 1 haven't tasks
+,0,15479,worker try execute another tasks from 0 rank
+,0,15480,rank 0 haven't tasks
+,0,15480,worker finished job
+,6,15482,tasks.size = 10
+,0,15486,worker is executing own tasks
+,0,15510,worker is executing another tasks
+,0,15510,worker try execute another tasks from 1 rank
+,0,15510,rank 1 haven't tasks
+,0,15510,worker try execute another tasks from 0 rank
+,0,15510,rank 0 haven't tasks
+,0,15510,worker finished job
+,6,15513,tasks.size = 10
+,0,15516,worker is executing own tasks
+,0,15540,worker is executing another tasks
+,0,15540,worker try execute another tasks from 1 rank
+,0,15540,rank 1 haven't tasks
+,0,15540,worker try execute another tasks from 0 rank
+,0,15541,rank 0 haven't tasks
+,0,15541,worker finished job
+,6,15544,tasks.size = 10
+,0,15547,worker is executing own tasks
+,0,15570,worker is executing another tasks
+,0,15570,worker try execute another tasks from 1 rank
+,0,15571,rank 1 haven't tasks
+,0,15571,worker try execute another tasks from 0 rank
+,0,15571,rank 0 haven't tasks
+,0,15571,worker finished job
+,6,15574,tasks.size = 10
+,0,15577,worker is executing own tasks
+,0,15602,worker is executing another tasks
+,0,15602,worker try execute another tasks from 1 rank
+,0,15602,rank 1 haven't tasks
+,0,15602,worker try execute another tasks from 0 rank
+,0,15602,rank 0 haven't tasks
+,0,15602,worker finished job
+,6,15605,tasks.size = 10
+,0,15608,worker is executing own tasks
+,0,15632,worker is executing another tasks
+,0,15632,worker try execute another tasks from 1 rank
+,0,15633,rank 1 haven't tasks
+,0,15633,worker try execute another tasks from 0 rank
+,0,15633,rank 0 haven't tasks
+,0,15633,worker finished job
+,6,15636,tasks.size = 10
+,0,15640,worker is executing own tasks
+,0,15664,worker is executing another tasks
+,0,15664,worker try execute another tasks from 1 rank
+,0,15664,rank 1 haven't tasks
+,0,15664,worker try execute another tasks from 0 rank
+,0,15664,rank 0 haven't tasks
+,0,15664,worker finished job
+,6,15667,tasks.size = 10
+,0,15671,worker is executing own tasks
+,0,15695,worker is executing another tasks
+,0,15695,worker try execute another tasks from 1 rank
+,0,15696,rank 1 haven't tasks
+,0,15696,worker try execute another tasks from 0 rank
+,0,15696,rank 0 haven't tasks
+,0,15696,worker finished job
+,6,15698,tasks.size = 10
+,0,15702,worker is executing own tasks
+,0,15726,worker is executing another tasks
+,0,15726,worker try execute another tasks from 1 rank
+,0,15727,rank 1 haven't tasks
+,0,15727,worker try execute another tasks from 0 rank
+,0,15727,rank 0 haven't tasks
+,0,15727,worker finished job
+,6,15730,tasks.size = 10
+,0,15733,worker is executing own tasks
+,0,15757,worker is executing another tasks
+,0,15757,worker try execute another tasks from 1 rank
+,0,15758,rank 1 haven't tasks
+,0,15758,worker try execute another tasks from 0 rank
+,0,15758,rank 0 haven't tasks
+,0,15758,worker finished job
+,6,15761,tasks.size = 10
+,0,15764,worker is executing own tasks
+,0,15788,worker is executing another tasks
+,0,15788,worker try execute another tasks from 1 rank
+,0,15788,rank 1 haven't tasks
+,0,15788,worker try execute another tasks from 0 rank
+,0,15789,rank 0 haven't tasks
+,0,15789,worker finished job
+,6,15789,tasks.size = 10
+,0,15792,worker is executing own tasks
+,3,15814,task 29 pass to 1
+,0,15815,worker is executing another tasks
+,0,15815,worker try execute another tasks from 1 rank
+,3,15815,delete task 28
+,0,15816,rank 1 haven't tasks
+,0,15816,worker try execute another tasks from 0 rank
+,0,15816,rank 0 haven't tasks
+,0,15816,worker finished job
+,3,15817,change location in 0 for task 28 counter was 1
+,3,15818,change location in 1 for task 28 counter was 0
+,3,15818,map changed for task 28; sendedTaskCounter.size = 0
+,6,15827,tasks.size = 9
+,0,15838,worker is executing own tasks
+,0,15860,worker is executing another tasks
+,0,15860,worker try execute another tasks from 1 rank
+,0,15860,rank 1 haven't tasks
+,0,15860,worker try execute another tasks from 0 rank
+,0,15860,rank 0 haven't tasks
+,0,15860,worker finished job
+,6,15863,tasks.size = 9
+,0,15865,worker is executing own tasks
+,0,15888,worker is executing another tasks
+,0,15888,worker try execute another tasks from 1 rank
+,0,15888,rank 1 haven't tasks
+,0,15888,worker try execute another tasks from 0 rank
+,0,15888,rank 0 haven't tasks
+,0,15888,worker finished job
+,6,15891,tasks.size = 9
+,0,15894,worker is executing own tasks
+,0,15916,worker is executing another tasks
+,0,15916,worker try execute another tasks from 1 rank
+,0,15916,rank 1 haven't tasks
+,0,15916,worker try execute another tasks from 0 rank
+,0,15917,rank 0 haven't tasks
+,0,15917,worker finished job
+,6,15920,tasks.size = 9
+,0,15923,worker is executing own tasks
+,0,15944,worker is executing another tasks
+,0,15944,worker try execute another tasks from 1 rank
+,0,15945,rank 1 haven't tasks
+,0,15945,worker try execute another tasks from 0 rank
+,0,15946,rank 0 haven't tasks
+,0,15946,worker finished job
+,6,15948,tasks.size = 9
+,0,15950,worker is executing own tasks
+,0,15972,worker is executing another tasks
+,0,15972,worker try execute another tasks from 1 rank
+,0,15973,rank 1 haven't tasks
+,0,15973,worker try execute another tasks from 0 rank
+,0,15973,rank 0 haven't tasks
+,0,15973,worker finished job
+,6,15976,tasks.size = 9
+,0,15979,worker is executing own tasks
+,0,16001,worker is executing another tasks
+,0,16001,worker try execute another tasks from 1 rank
+,0,16001,rank 1 haven't tasks
+,0,16001,worker try execute another tasks from 0 rank
+,0,16001,rank 0 haven't tasks
+,0,16001,worker finished job
+,6,16004,tasks.size = 9
+,0,16006,worker is executing own tasks
+,0,16029,worker is executing another tasks
+,0,16029,worker try execute another tasks from 1 rank
+,0,16029,rank 1 haven't tasks
+,0,16029,worker try execute another tasks from 0 rank
+,0,16029,rank 0 haven't tasks
+,0,16029,worker finished job
+,6,16032,tasks.size = 9
+,0,16035,worker is executing own tasks
+,0,16057,worker is executing another tasks
+,0,16057,worker try execute another tasks from 1 rank
+,0,16058,rank 1 haven't tasks
+,0,16058,worker try execute another tasks from 0 rank
+,0,16058,rank 0 haven't tasks
+,0,16058,worker finished job
+,6,16061,tasks.size = 9
+,0,16064,worker is executing own tasks
+,0,16086,worker is executing another tasks
+,0,16086,worker try execute another tasks from 1 rank
+,0,16086,rank 1 haven't tasks
+,0,16086,worker try execute another tasks from 0 rank
+,0,16086,rank 0 haven't tasks
+,0,16086,worker finished job
+,6,16089,tasks.size = 9
+,0,16092,worker is executing own tasks
+,0,16114,worker is executing another tasks
+,0,16114,worker try execute another tasks from 1 rank
+,0,16114,rank 1 haven't tasks
+,0,16114,worker try execute another tasks from 0 rank
+,0,16115,rank 0 haven't tasks
+,0,16115,worker finished job
+,6,16117,tasks.size = 9
+,0,16120,worker is executing own tasks
+,0,16142,worker is executing another tasks
+,0,16142,worker try execute another tasks from 1 rank
+,0,16142,rank 1 haven't tasks
+,0,16142,worker try execute another tasks from 0 rank
+,0,16142,rank 0 haven't tasks
+,0,16142,worker finished job
+,6,16145,tasks.size = 9
+,0,16148,worker is executing own tasks
+,0,16171,worker is executing another tasks
+,0,16171,worker try execute another tasks from 1 rank
+,0,16171,rank 1 haven't tasks
+,0,16171,worker try execute another tasks from 0 rank
+,0,16171,rank 0 haven't tasks
+,0,16171,worker finished job
+,6,16173,tasks.size = 9
+,0,16176,worker is executing own tasks
+,0,16198,worker is executing another tasks
+,0,16198,worker try execute another tasks from 1 rank
+,0,16198,rank 1 haven't tasks
+,0,16198,worker try execute another tasks from 0 rank
+,0,16198,rank 0 haven't tasks
+,0,16198,worker finished job
+,6,16201,tasks.size = 9
+,0,16204,worker is executing own tasks
+,0,16227,worker is executing another tasks
+,0,16227,worker try execute another tasks from 1 rank
+,0,16227,rank 1 haven't tasks
+,0,16227,worker try execute another tasks from 0 rank
+,0,16227,rank 0 haven't tasks
+,0,16227,worker finished job
+,6,16229,tasks.size = 9
+,0,16232,worker is executing own tasks
+,0,16255,worker is executing another tasks
+,0,16255,worker try execute another tasks from 1 rank
+,0,16255,rank 1 haven't tasks
+,0,16255,worker try execute another tasks from 0 rank
+,0,16255,rank 0 haven't tasks
+,0,16255,worker finished job
+,6,16257,tasks.size = 9
+,0,16260,worker is executing own tasks
+,0,16283,worker is executing another tasks
+,0,16283,worker try execute another tasks from 1 rank
+,0,16283,rank 1 haven't tasks
+,0,16283,worker try execute another tasks from 0 rank
+,0,16283,rank 0 haven't tasks
+,0,16283,worker finished job
+,6,16285,tasks.size = 9
+,0,16288,worker is executing own tasks
+,0,16311,worker is executing another tasks
+,0,16311,worker try execute another tasks from 1 rank
+,0,16312,rank 1 haven't tasks
+,0,16312,worker try execute another tasks from 0 rank
+,0,16312,rank 0 haven't tasks
+,0,16312,worker finished job
+,6,16313,tasks.size = 9
+,0,16316,worker is executing own tasks
+,0,16339,worker is executing another tasks
+,0,16339,worker try execute another tasks from 1 rank
+,0,16340,rank 1 haven't tasks
+,0,16340,worker try execute another tasks from 0 rank
+,0,16340,rank 0 haven't tasks
+,0,16340,worker finished job
+,6,16341,tasks.size = 9
+,0,16343,worker is executing own tasks
+,0,16366,worker is executing another tasks
+,0,16366,worker try execute another tasks from 1 rank
+,0,16367,rank 1 haven't tasks
+,0,16367,worker try execute another tasks from 0 rank
+,0,16367,rank 0 haven't tasks
+,0,16367,worker finished job
+,6,16368,tasks.size = 9
+,0,16371,worker is executing own tasks
+,0,16393,worker is executing another tasks
+,0,16393,worker try execute another tasks from 1 rank
+,0,16394,rank 1 haven't tasks
+,0,16394,worker try execute another tasks from 0 rank
+,0,16394,rank 0 haven't tasks
+,0,16394,worker finished job
+,6,16396,tasks.size = 9
+,0,16399,worker is executing own tasks
+,0,16422,worker is executing another tasks
+,0,16422,worker try execute another tasks from 1 rank
+,0,16422,rank 1 haven't tasks
+,0,16422,worker try execute another tasks from 0 rank
+,0,16422,rank 0 haven't tasks
+,0,16422,worker finished job
+,6,16424,tasks.size = 9
+,0,16427,worker is executing own tasks
+,0,16450,worker is executing another tasks
+,0,16450,worker try execute another tasks from 1 rank
+,0,16450,rank 1 haven't tasks
+,0,16450,worker try execute another tasks from 0 rank
+,0,16450,rank 0 haven't tasks
+,0,16450,worker finished job
+,6,16453,tasks.size = 9
+,0,16456,worker is executing own tasks
+,0,16478,worker is executing another tasks
+,0,16478,worker try execute another tasks from 1 rank
+,0,16479,rank 1 haven't tasks
+,0,16479,worker try execute another tasks from 0 rank
+,0,16479,rank 0 haven't tasks
+,0,16479,worker finished job
+,6,16481,tasks.size = 9
+,0,16483,worker is executing own tasks
+,0,16505,worker is executing another tasks
+,0,16505,worker try execute another tasks from 1 rank
+,0,16505,rank 1 haven't tasks
+,0,16505,worker try execute another tasks from 0 rank
+,0,16505,rank 0 haven't tasks
+,0,16505,worker finished job
+,6,16507,tasks.size = 9
+,0,16510,worker is executing own tasks
+,0,16532,worker is executing another tasks
+,0,16532,worker try execute another tasks from 1 rank
+,0,16533,rank 1 haven't tasks
+,0,16533,worker try execute another tasks from 0 rank
+,0,16533,rank 0 haven't tasks
+,0,16533,worker finished job
+,6,16535,tasks.size = 9
+,0,16538,worker is executing own tasks
+,0,16561,worker is executing another tasks
+,0,16561,worker try execute another tasks from 1 rank
+,0,16561,rank 1 haven't tasks
+,0,16561,worker try execute another tasks from 0 rank
+,0,16561,rank 0 haven't tasks
+,0,16561,worker finished job
+,6,16563,tasks.size = 9
+,0,16566,worker is executing own tasks
+,0,16588,worker is executing another tasks
+,0,16588,worker try execute another tasks from 1 rank
+,0,16588,rank 1 haven't tasks
+,0,16588,worker try execute another tasks from 0 rank
+,0,16588,rank 0 haven't tasks
+,0,16588,worker finished job
+,6,16591,tasks.size = 9
+,0,16593,worker is executing own tasks
+,0,16617,worker is executing another tasks
+,0,16617,worker try execute another tasks from 1 rank
+,0,16617,rank 1 haven't tasks
+,0,16617,worker try execute another tasks from 0 rank
+,0,16617,rank 0 haven't tasks
+,0,16617,worker finished job
+,6,16618,tasks.size = 9
+,0,16621,worker is executing own tasks
+,0,16644,worker is executing another tasks
+,0,16644,worker try execute another tasks from 1 rank
+,0,16644,rank 1 haven't tasks
+,0,16644,worker try execute another tasks from 0 rank
+,0,16644,rank 0 haven't tasks
+,0,16644,worker finished job
+,6,16646,tasks.size = 9
+,0,16648,worker is executing own tasks
+,0,16670,worker is executing another tasks
+,0,16670,worker try execute another tasks from 1 rank
+,0,16670,rank 1 haven't tasks
+,0,16670,worker try execute another tasks from 0 rank
+,0,16670,rank 0 haven't tasks
+,0,16670,worker finished job
+,6,16673,tasks.size = 9
+,0,16675,worker is executing own tasks
+,0,16698,worker is executing another tasks
+,0,16698,worker try execute another tasks from 1 rank
+,0,16698,rank 1 haven't tasks
+,0,16698,worker try execute another tasks from 0 rank
+,0,16698,rank 0 haven't tasks
+,0,16698,worker finished job
+,6,16701,tasks.size = 9
+,0,16703,worker is executing own tasks
+,0,16725,worker is executing another tasks
+,0,16725,worker try execute another tasks from 1 rank
+,0,16725,rank 1 haven't tasks
+,0,16725,worker try execute another tasks from 0 rank
+,0,16725,rank 0 haven't tasks
+,0,16725,worker finished job
+,6,16728,tasks.size = 9
+,0,16730,worker is executing own tasks
+,0,16754,worker is executing another tasks
+,0,16754,worker try execute another tasks from 1 rank
+,0,16754,rank 1 haven't tasks
+,0,16754,worker try execute another tasks from 0 rank
+,0,16754,rank 0 haven't tasks
+,0,16754,worker finished job
+,6,16755,tasks.size = 9
+,0,16758,worker is executing own tasks
+,0,16780,worker is executing another tasks
+,0,16780,worker try execute another tasks from 1 rank
+,0,16780,rank 1 haven't tasks
+,0,16780,worker try execute another tasks from 0 rank
+,0,16781,rank 0 haven't tasks
+,0,16781,worker finished job
+,6,16783,tasks.size = 9
+,0,16785,worker is executing own tasks
+,0,16808,worker is executing another tasks
+,0,16808,worker try execute another tasks from 1 rank
+,0,16808,rank 1 haven't tasks
+,0,16808,worker try execute another tasks from 0 rank
+,0,16809,rank 0 haven't tasks
+,0,16809,worker finished job
+,6,16811,tasks.size = 9
+,0,16813,worker is executing own tasks
+,0,16836,worker is executing another tasks
+,0,16836,worker try execute another tasks from 1 rank
+,0,16836,rank 1 haven't tasks
+,0,16836,worker try execute another tasks from 0 rank
+,0,16836,rank 0 haven't tasks
+,0,16836,worker finished job
+,6,16839,tasks.size = 9
+,0,16842,worker is executing own tasks
+,0,16864,worker is executing another tasks
+,0,16864,worker try execute another tasks from 1 rank
+,0,16864,rank 1 haven't tasks
+,0,16864,worker try execute another tasks from 0 rank
+,0,16864,rank 0 haven't tasks
+,0,16864,worker finished job
+,6,16867,tasks.size = 9
+,0,16869,worker is executing own tasks
+,0,16893,worker is executing another tasks
+,0,16893,worker try execute another tasks from 1 rank
+,0,16893,rank 1 haven't tasks
+,0,16893,worker try execute another tasks from 0 rank
+,0,16893,rank 0 haven't tasks
+,0,16893,worker finished job
+,6,16895,tasks.size = 9
+,0,16897,worker is executing own tasks
+,0,16921,worker is executing another tasks
+,0,16921,worker try execute another tasks from 1 rank
+,0,16921,rank 1 haven't tasks
+,0,16921,worker try execute another tasks from 0 rank
+,0,16921,rank 0 haven't tasks
+,0,16921,worker finished job
+,6,16923,tasks.size = 9
+,0,16925,worker is executing own tasks
+,0,16947,worker is executing another tasks
+,0,16947,worker try execute another tasks from 1 rank
+,0,16948,rank 1 haven't tasks
+,0,16948,worker try execute another tasks from 0 rank
+,0,16948,rank 0 haven't tasks
+,0,16948,worker finished job
+,6,16950,tasks.size = 9
+,0,16952,worker is executing own tasks
+,0,16976,worker is executing another tasks
+,0,16976,worker try execute another tasks from 1 rank
+,0,16976,rank 1 haven't tasks
+,0,16976,worker try execute another tasks from 0 rank
+,0,16976,rank 0 haven't tasks
+,0,16976,worker finished job
+,6,16978,tasks.size = 9
+,0,16980,worker is executing own tasks
+,0,17002,worker is executing another tasks
+,0,17002,worker try execute another tasks from 1 rank
+,0,17003,rank 1 haven't tasks
+,0,17003,worker try execute another tasks from 0 rank
+,0,17003,rank 0 haven't tasks
+,0,17003,worker finished job
+,6,17005,tasks.size = 9
+,0,17007,worker is executing own tasks
+,0,17030,worker is executing another tasks
+,0,17030,worker try execute another tasks from 1 rank
+,0,17030,rank 1 haven't tasks
+,0,17030,worker try execute another tasks from 0 rank
+,0,17030,rank 0 haven't tasks
+,0,17030,worker finished job
+,6,17033,tasks.size = 9
+,0,17035,worker is executing own tasks
+,0,17058,worker is executing another tasks
+,0,17058,worker try execute another tasks from 1 rank
+,0,17058,rank 1 haven't tasks
+,0,17058,worker try execute another tasks from 0 rank
+,0,17059,rank 0 haven't tasks
+,0,17059,worker finished job
+,6,17061,tasks.size = 9
+,0,17064,worker is executing own tasks
+,0,17087,worker is executing another tasks
+,0,17087,worker try execute another tasks from 1 rank
+,0,17087,rank 1 haven't tasks
+,0,17087,worker try execute another tasks from 0 rank
+,0,17088,rank 0 haven't tasks
+,0,17088,worker finished job
+,6,17089,tasks.size = 9
+,0,17091,worker is executing own tasks
+,0,17114,worker is executing another tasks
+,0,17114,worker try execute another tasks from 1 rank
+,0,17114,rank 1 haven't tasks
+,0,17114,worker try execute another tasks from 0 rank
+,0,17114,rank 0 haven't tasks
+,0,17114,worker finished job
+,6,17116,tasks.size = 9
+,0,17119,worker is executing own tasks
+,0,17142,worker is executing another tasks
+,0,17142,worker try execute another tasks from 1 rank
+,0,17142,rank 1 haven't tasks
+,0,17142,worker try execute another tasks from 0 rank
+,0,17142,rank 0 haven't tasks
+,0,17142,worker finished job
+,6,17145,tasks.size = 9
+,0,17148,worker is executing own tasks
+,0,17171,worker is executing another tasks
+,0,17171,worker try execute another tasks from 1 rank
+,0,17171,rank 1 haven't tasks
+,0,17171,worker try execute another tasks from 0 rank
+,0,17171,rank 0 haven't tasks
+,0,17171,worker finished job
+,6,17173,tasks.size = 9
+,0,17177,worker is executing own tasks
+,0,17200,worker is executing another tasks
+,0,17200,worker try execute another tasks from 1 rank
+,0,17201,rank 1 haven't tasks
+,0,17201,worker try execute another tasks from 0 rank
+,0,17201,rank 0 haven't tasks
+,0,17201,worker finished job
+,6,17202,tasks.size = 9
+,0,17205,worker is executing own tasks
+,0,17228,worker is executing another tasks
+,0,17228,worker try execute another tasks from 1 rank
+,0,17228,rank 1 haven't tasks
+,0,17228,worker try execute another tasks from 0 rank
+,0,17228,rank 0 haven't tasks
+,0,17228,worker finished job
+,6,17231,tasks.size = 9
+,0,17233,worker is executing own tasks
+,0,17256,worker is executing another tasks
+,0,17256,worker try execute another tasks from 1 rank
+,0,17256,rank 1 haven't tasks
+,0,17256,worker try execute another tasks from 0 rank
+,0,17256,rank 0 haven't tasks
+,0,17256,worker finished job
+,6,17259,tasks.size = 9
+,0,17261,worker is executing own tasks
+,0,17283,worker is executing another tasks
+,0,17283,worker try execute another tasks from 1 rank
+,0,17283,rank 1 haven't tasks
+,0,17283,worker try execute another tasks from 0 rank
+,0,17283,rank 0 haven't tasks
+,0,17283,worker finished job
+,6,17286,tasks.size = 9
+,0,17289,worker is executing own tasks
+,0,17312,worker is executing another tasks
+,0,17312,worker try execute another tasks from 1 rank
+,0,17312,rank 1 haven't tasks
+,0,17312,worker try execute another tasks from 0 rank
+,0,17312,rank 0 haven't tasks
+,0,17312,worker finished job
+,6,17314,tasks.size = 9
+,0,17317,worker is executing own tasks
+,0,17339,worker is executing another tasks
+,0,17339,worker try execute another tasks from 1 rank
+,0,17340,rank 1 haven't tasks
+,0,17340,worker try execute another tasks from 0 rank
+,0,17340,rank 0 haven't tasks
+,0,17340,worker finished job
+,6,17342,tasks.size = 9
+,0,17345,worker is executing own tasks
+,0,17369,worker is executing another tasks
+,0,17369,worker try execute another tasks from 1 rank
+,0,17369,rank 1 haven't tasks
+,0,17369,worker try execute another tasks from 0 rank
+,0,17369,rank 0 haven't tasks
+,0,17369,worker finished job
+,6,17371,tasks.size = 9
+,0,17373,worker is executing own tasks
+,0,17396,worker is executing another tasks
+,0,17396,worker try execute another tasks from 1 rank
+,0,17396,rank 1 haven't tasks
+,0,17396,worker try execute another tasks from 0 rank
+,0,17397,rank 0 haven't tasks
+,0,17397,worker finished job
+,6,17398,tasks.size = 9
+,0,17400,worker is executing own tasks
+,0,17424,worker is executing another tasks
+,0,17424,worker try execute another tasks from 1 rank
+,0,17424,rank 1 haven't tasks
+,0,17424,worker try execute another tasks from 0 rank
+,0,17424,rank 0 haven't tasks
+,0,17424,worker finished job
+,6,17426,tasks.size = 9
+,3,17428,map controller is closed
+,0,17428,worker is closed
+,1,17428,dispatcher closed

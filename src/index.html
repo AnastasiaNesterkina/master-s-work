@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<meta charset="utf-8">
+<script src="https://d3js.org/d3.v4.js">
+</script>
+ <style type="text/css">
+  button {
+   padding: 3px 7px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   border: 1px solid #666;
+   border-color: black;
+  }
+  button.green {
+   background-color: green;
+  }
+  button.grey {
+   background-color: grey;
+  }
+  button.pink {
+   background-color: pink; 
+  }
+  button.black {
+   background-color: teal;
+  }
+  button.red {
+   background-color: red; 
+  }
+  button.purple {
+   background-color: purple; 
+  }
+  </style>
+</head>
+<body>  
+    
+ <span id="sidenav">
+    <button class="green"></button> Send
+    <button class="grey"></button> Recv 
+    <button class="pink"></button> Wait
+    <button class="black"></button> AllReduce
+    <button class="red"></button> Barrier
+    <button class="purple"></button> Dup
+  </span>
+  <span id="main">
+    <script src ="js/draw.js"> </script>
+  </span>
+ 
+</body>
+</html>
