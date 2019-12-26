@@ -1,6 +1,6 @@
 #pragma once
 #include "library/library.h"
-#define PROFILER
+//#define PROFILER
 // Максимальное кол-во итераций
 extern int maxiter;
 extern std::vector<double> oldResult, newResult;
@@ -12,6 +12,12 @@ extern int iteration;
 struct Point {
 	double x, y, z;
 	int globalNumber;
+	Point() {};
+	Point(double x1, double y1, double z1) {
+		x = x1;
+		y = y1;
+		z = z1;
+	}
 	void set(double x1, double y1, double z1, int glN) {
 		x = x1;
 		y = y1;

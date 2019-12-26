@@ -16,7 +16,7 @@ bool CheckConditions() {
 void FindSolution() {
 	MPI_Status st;
 	
-	std::string nameFile = "src/loading/loading" + std::to_string(rank) + ".txt";
+	std::string nameFile = "src/loading/" + folderName + "loading" + std::to_string(rank) + ".txt";
 	std::ofstream fLoading(nameFile);
 	
 	StartWork(true);

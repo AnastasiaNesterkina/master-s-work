@@ -1,24 +1,19 @@
 #include "task.h"
+int countOfConnect = 0;
 int dim;
 // Шаги сетки
-double	hx = 0.1,
-hy = 0.1,
-hz = 0.1;
+double	hx = 0.05,
+hy = 0.05,
+hz = 0.05;
 int maxiter = 10000;
-/*hx = 0.25,
-hy = 0.25,
-hz = 0.25;*/
 std::vector<double> oldResult, newResult;
 std::vector <double> globalRes;
 std::vector <double> globalOldRes;
-int countOfConnect = 1;
+std::vector<Point> globalPoints;
 double residual = 1;
 int iteration = 0;
-/*hx = 0.5,
-hy = 0.5,
-hz = 0.5;*/
-int countOfBlockY = 4,
-countOfBlockZ = 4;
+int countOfBlockY = 8,
+countOfBlockZ = 8;
 double	begX = 0, endX = 2,
 begY = 0, endY = 2,
 begZ = 0, endZ = 2;
@@ -282,12 +277,12 @@ void Task::Run() {
 
 // Учёт первых краевых условий
 double CalcF1BC(double x, double y, double z) {
-	return 2;
+	return x*x+y*y+z*z;
 }
 
 // Правая часть уравнения Пуассона
 double CalcF(double x, double y, double z) {
-	return 0;
+	return 6;
 }
 
 int CalculateNumberBeg(int residue, int &taskPerIterval, int rank_) {
@@ -325,6 +320,17 @@ void GenerateBasicConcepts() {
 	oldResult.resize(dim);
 	globalRes.resize(dim);
 	globalOldRes.resize(dim);
+	//globalPoints.resize(dim);
+	for (int k = 0; k < intervalsZ + 1; k++) {
+		double z = begZ + k * hz;
+		for (int j = 0; j < intervalsY + 1; j++) {
+			double y = begY + j * hy;
+			for (int i = 0; i < intervalsX + 1; i++) {
+				double x = begX + i * hx;
+				globalPoints.push_back(Point(x,y,z));
+			}
+		}
+	}		
 }
 
 void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map) {
@@ -359,7 +365,8 @@ void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map)
 	fprintf(stderr, "k_y = %d, k_z = %d, r_y = %d, r_z = %d, count = %d\n ", k_y, k_z, r_y, r_z, countOfBlockY * countOfBlockZ * size);
 	t.resize(countOfBlockY * countOfBlockZ);
 	map.resize(countOfBlockY * countOfBlockZ * size);
-
+	fprintf(stderr, "k_y = %d, k_z = %d, r_y = %d, r_z = %d, count = %d\n ", k_y, k_z, r_y, r_z, countOfBlockY * countOfBlockZ * size);
+	
 	std::vector <int> tasks_y, tasks_z;
 	tasks_y.resize(countOfBlockY);  tasks_z.resize(countOfBlockZ);
 	for (int i_z = 0; i_z < countOfBlockZ; i_z++) {
@@ -490,8 +497,9 @@ void GenerateResult(MPI_Comm Comm) {
 		printf("\n--------------------------------------------------------------------\n\n");
 		double sum = 0;
 		for (int i = 0; i < globalRes.size(); i++) {
-			sum += (2. - globalRes[i])*(2. - globalRes[i]);
-			printf("%.14lf\n", globalRes[i]);
+			double trueRes = CalcF1BC(globalPoints[i].x, globalPoints[i].y, globalPoints[i].z);
+			sum += (trueRes - globalRes[i])*(trueRes - globalRes[i]);
+			printf("%.2lf\t%.2lf\t%.2lf\t%.14lf\n", globalPoints[i].x, globalPoints[i].y, globalPoints[i].z, globalRes[i]);
 		}
 		sum = sqrt(sum);
 		printf("||result|| = %.10e\n", sum);
