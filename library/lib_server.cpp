@@ -41,23 +41,23 @@ void* server(void *me) {
 		#ifdef PROFILER
 			if (rank == 0)
 				for (int k = old_size; k < new_size; k++) {
-					MPI_Send(&numberOfConnection, 1, MPI_INT, k, 10002, newComm, Server);
-					MPI_Send(folderName.c_str(), 20, MPI_CHAR, k, 10003,  newComm, Server);
+					MPI_Send(&numberOfConnection, 1, MPI_INT, k, NUMBEROFCONNECTION_TAG, newComm, Server);
+					MPI_Send(folderName.c_str(), 20, MPI_CHAR, k, FOLDER_TAG,  newComm, Server);
 				}
 			// Send to dispatcher message about new communicator
-			MPI_Send(&message, 1, MPI_INT, rank, 2001, currentComm, Server);
+			MPI_Send(&message, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm, Server);
 			// The previous connection must be finished
-			MPI_Recv(&cond, 1, MPI_INT, rank, 1998, oldComm, &st, Server);
+			MPI_Recv(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, oldComm, &st, Server);
 		#else
 			if (rank == 0)
 				for (int k = old_size; k < new_size; k++){
-					MPI_Send(&numberOfConnection, 1, MPI_INT, k, 10002, newComm);
-					MPI_Send(folderName.c_str(), 20, MPI_CHAR, k, 10003, newComm);
+					MPI_Send(&numberOfConnection, 1, MPI_INT, k, NUMBEROFCONNECTION_TAG, newComm);
+					MPI_Send(folderName.c_str(), 20, MPI_CHAR, k, FOLDER_TAG, newComm);
 				}
 			// Send to dispatcher message about new communicator
-			MPI_Send(&message, 1, MPI_INT, rank, 2001, currentComm);
+			MPI_Send(&message, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm);
 			// The previous connection must be finished
-			MPI_Recv(&cond, 1, MPI_INT, rank, 1998, oldComm, &st);		
+			MPI_Recv(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, oldComm, &st);		
 		#endif
 	}
 	#ifdef PROFILER

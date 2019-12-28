@@ -48,13 +48,13 @@ void ExecuteOtherTask(MPI_Comm &Comm, int id, bool &retry) {
 	MPI_Status st;
 	MPI_Request s;
 	#ifdef PROFILER		
-		MPI_Send(&existTask, 1, MPI_INT, id, 2001, Comm, Worker);
+		MPI_Send(&existTask, 1, MPI_INT, id, DISPATCHER_TAG, Comm, Worker);
 		// Get information about task existing
-		MPI_Recv(&existTask, 1, MPI_INT, id, 2002, Comm, &st, Worker);
+		MPI_Recv(&existTask, 1, MPI_INT, id, DISPATCHER_TASK_INFO_TAG, Comm, &st, Worker);
 	#else		
-		MPI_Send(&existTask, 1, MPI_INT, id, 2001, Comm);
+		MPI_Send(&existTask, 1, MPI_INT, id, DISPATCHER_TAG, Comm);
 		// Get information about task existing
-		MPI_Recv(&existTask, 1, MPI_INT, id, 2002, Comm, &st);
+		MPI_Recv(&existTask, 1, MPI_INT, id, DISPATCHER_TASK_INFO_TAG, Comm, &st);
 	#endif
 	std::string str = "";
 	// If task exist, worker recieve and execute it
@@ -67,7 +67,7 @@ void ExecuteOtherTask(MPI_Comm &Comm, int id, bool &retry) {
 		pthread_mutex_unlock(&mutex_set_task);
 		
 		int to_map_message[2] = { -3, t->blockNumber };
-		MPI_Isend(&to_map_message, 2, MPI_INT, id, 1030, Comm, &s);	
+		MPI_Isend(&to_map_message, 2, MPI_INT, id, MAPCONTROLLER_TAG, Comm, &s);	
 		
 		t->Run();
 		//fprintf(stderr, "%d:: worker executed %d task.\n", rank, t->blockNumber );
@@ -101,10 +101,10 @@ void ChangeCommunicator(MPI_Comm &Comm, int &newSize) {
 	//fprintf(stderr, "%d:: worker send message to %d ranks.\n", rank, newSize);
 	#ifdef PROFILER
 		for (int i = 0; i < newSize; i++)
-			MPI_Send(&message, 1, MPI_INT, i, 1999, Comm, Worker);
+			MPI_Send(&message, 1, MPI_INT, i, START_WORK_RECV_TAG, Comm, Worker);
 	#else
 		for (int i = 0; i < newSize; i++)
-			MPI_Send(&message, 1, MPI_INT, i, 1999, Comm);
+			MPI_Send(&message, 1, MPI_INT, i, START_WORK_RECV_TAG, Comm);
 	#endif
 	Comm = newComm;
 	newSize = size_new;
@@ -123,16 +123,16 @@ void* worker(void* me) {
 	int flagChange = 0, flagCalc = 0;
 	int cond, message;
 	// Get message from own rank
-	MPI_Irecv(&message, 1, MPI_INT, rank, 1997, Comm, &reqChange);	
-	MPI_Irecv(&cond, 1, MPI_INT, rank, 1996, Comm, &reqCalc);
+	MPI_Irecv(&message, 1, MPI_INT, rank, WORKER_CHANGE_TAG, Comm, &reqChange);	
+	MPI_Irecv(&cond, 1, MPI_INT, rank, WORKER_CALC_TAG, Comm, &reqCalc);
 	int countOfProcess, newSize = size;	
 	while (!close) {
 		MPI_Test(&reqChange, &flagChange, &st);
 		MPI_Test(&reqCalc, &flagCalc, &st);
 		if (flagChange != 0) {
 			ChangeCommunicator(Comm, newSize);
-			MPI_Irecv(&message, 1, MPI_INT, rank, 1997, Comm, &reqChange);
-			MPI_Irecv(&cond, 1, MPI_INT, rank, 1996, Comm, &reqCalc);
+			MPI_Irecv(&message, 1, MPI_INT, rank, WORKER_CHANGE_TAG, Comm, &reqChange);
+			MPI_Irecv(&cond, 1, MPI_INT, rank, WORKER_CALC_TAG, Comm, &reqCalc);
 			flagChange = false;
 		}
 		if (flagCalc != 0){
@@ -156,7 +156,7 @@ void* worker(void* me) {
 					MPI_Test(&reqChange, &flagChange, &st);
 					if (flagChange) {
 						ChangeCommunicator(Comm, newSize);
-						MPI_Irecv(&message, 1, MPI_INT, rank, 1997, Comm, &reqChange);
+						MPI_Irecv(&message, 1, MPI_INT, rank, WORKER_CHANGE_TAG, Comm, &reqChange);
 						flagChange = false;
 					}
 					#ifdef PROFILER
@@ -171,13 +171,13 @@ void* worker(void* me) {
 					}
 				}
 				#ifdef PROFILER
-					MPI_Send(&cond, 1, MPI_INT, rank, 1999, Comm, Worker);
+					MPI_Send(&cond, 1, MPI_INT, rank, START_WORK_RECV_TAG, Comm, Worker);
 					Profiler::AddEvent("worker finished job", Worker);
 				#else
-					MPI_Send(&cond, 1, MPI_INT, rank, 1999, Comm);
+					MPI_Send(&cond, 1, MPI_INT, rank, START_WORK_RECV_TAG, Comm);
 				#endif
 				//fprintf(stderr, "%d:: worker finished job.\n", rank);
-				MPI_Irecv(&cond, 1, MPI_INT, rank, 1996, Comm, &reqCalc);
+				MPI_Irecv(&cond, 1, MPI_INT, rank, WORKER_CALC_TAG, Comm, &reqCalc);
 				flagCalc = 0;
 			}
 			else if (cond == -1) close = true;
@@ -196,21 +196,21 @@ void ChangeMainCommunicator() {
 	int cond = 4;
 	// Send message to close old dispatcher
 	#ifdef PROFILER		
-	MPI_Send(&cond, 1, MPI_INT, rank, 2001, currentComm, StartWorker);
+	MPI_Send(&cond, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm, StartWorker);
 	#else		
-	MPI_Send(&cond, 1, MPI_INT, rank, 2001, currentComm);
+	MPI_Send(&cond, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm);
 	#endif
 	cond = -1;
 	int to_map_message[2] = { cond, cond };
 	// Close old mapController 
 	#ifdef PROFILER			
-	MPI_Send(&to_map_message, 2, MPI_INT, rank, 1030, currentComm, StartWorker);
+	MPI_Send(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, currentComm, StartWorker);
 	#else	
-	MPI_Send(&to_map_message, 2, MPI_INT, rank, 1030, currentComm);
+	MPI_Send(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, currentComm);
 	#endif
 	currentComm = newComm;
 	// Send message to server about changed communicator
-	MPI_Isend(&cond, 1, MPI_INT, rank, 1998, oldComm, &req);
+	MPI_Isend(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, oldComm, &req);
 	#ifdef PROFILER
 		Profiler::AddEvent("connection is done", StartWorker);
 	#endif
@@ -231,16 +231,16 @@ void StartWork(bool clientProgram) {
 	if (!clientProgram || condition) {
 		for (int i = 0; i < countOfWorkers; i++)
 			#ifdef PROFILER					
-			MPI_Send(&message, 1, MPI_INT, rank, 1996, currentComm, StartWorker);
+			MPI_Send(&message, 1, MPI_INT, rank, WORKER_CALC_TAG, currentComm, StartWorker);
 			#else					
-			MPI_Send(&message, 1, MPI_INT, rank, 1996, currentComm);
+			MPI_Send(&message, 1, MPI_INT, rank, WORKER_CALC_TAG, currentComm);
 			#endif
 		while (count < countOfWorkers || connection) {
 			//fprintf(stderr, "%d:: waiting for message...\n", rank);
 			#ifdef PROFILER	
-			MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, 1999, currentComm, &st, StartWorker);
+			MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, START_WORK_RECV_TAG, currentComm, &st, StartWorker);
 			#else			
-			MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, 1999, currentComm, &st);
+			MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, START_WORK_RECV_TAG, currentComm, &st);
 			#endif
 			//fprintf(stderr, "%d:: get condition %d.\n", rank, cond);
 			if (cond == 2) {
@@ -260,9 +260,9 @@ void StartWork(bool clientProgram) {
 					//fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size_old, size_new);
 					for (int k = size_old; k < size_new; k++)
 						#ifdef PROFILER							
-						MPI_Send(&condition, 1, MPI_INT, k, 30000, newComm, StartWorker);
+						MPI_Send(&condition, 1, MPI_INT, k, CONDITION_TAG, newComm, StartWorker);
 						#else									
-						MPI_Send(&condition, 1, MPI_INT, k, 30000, newComm);
+						MPI_Send(&condition, 1, MPI_INT, k, CONDITION_TAG, newComm);
 						#endif
 				}
 				MPI_Comm_dup(newComm, &serverComm);
@@ -271,9 +271,9 @@ void StartWork(bool clientProgram) {
 				flags.resize(size_new); globalFlags.resize(size_new);
 				for (int i = 0; i < countOfWorkers; i++)
 					#ifdef PROFILER							
-					MPI_Send(&cond, 1, MPI_INT, rank_old, 1997, currentComm, StartWorker);
+					MPI_Send(&cond, 1, MPI_INT, rank_old, WORKER_CHANGE_TAG, currentComm, StartWorker);
 					#else									
-					MPI_Send(&cond, 1, MPI_INT, rank_old, 1997, currentComm);
+					MPI_Send(&cond, 1, MPI_INT, rank_old, WORKER_CHANGE_TAG, currentComm);
 					#endif
 			}
 			else if (cond == 3) {
@@ -304,9 +304,9 @@ void StartWork(bool clientProgram) {
 					//fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size_old, size_new);
 					for (int k = size_old; k < size_new; k++)
 						#ifdef PROFILER							
-						MPI_Send(&condition, 1, MPI_INT, k, 30000, newComm, StartWorker);
+						MPI_Send(&condition, 1, MPI_INT, k, CONDITION_TAG, newComm, StartWorker);
 						#else									
-						MPI_Send(&condition, 1, MPI_INT, k, 30000, newComm);
+						MPI_Send(&condition, 1, MPI_INT, k, CONDITION_TAG, newComm);
 						#endif
 				}
 				MPI_Comm_dup(newComm, &serverComm);
@@ -314,16 +314,16 @@ void StartWork(bool clientProgram) {
 				MPI_Comm_dup(newComm, &barrierComm);
 				for (int i = 0; i < countOfWorkers; i++)
 					#ifdef PROFILER							
-					MPI_Send(&cond, 1, MPI_INT, rank_old, 1997, currentComm, StartWorker);
+					MPI_Send(&cond, 1, MPI_INT, rank_old, WORKER_CHANGE_TAG, currentComm, StartWorker);
 					#else									
-					MPI_Send(&cond, 1, MPI_INT, rank_old, 1997, currentComm);
+					MPI_Send(&cond, 1, MPI_INT, rank_old, WORKER_CHANGE_TAG, currentComm);
 					#endif
 				connection = true;
 				while (connection) {
 					#ifdef PROFILER											
-					MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, 1999, currentComm, &st, StartWorker);
+					MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, START_WORK_RECV_TAG, currentComm, &st, StartWorker);
 					#else									
-					MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, 1999, currentComm, &st);
+					MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, START_WORK_RECV_TAG, currentComm, &st);
 					#endif
 					if (cond == 3) {
 						countOfConnectedWorkers++;

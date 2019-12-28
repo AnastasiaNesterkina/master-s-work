@@ -1,5 +1,31 @@
 #include "lib_init.h"
 
+/*int DISPATCHER_TAG = MPI_TAG_UB;
+int DISPATCHER_TASK_INFO_TAG = MPI_TAG_UB - 1;
+int MAPCONTROLLER_TAG = MPI_TAG_UB - 2;
+int SIZEOFMAP_TAG = MPI_TAG_UB - 3;
+int MAP_TAG = MPI_TAG_UB - 4;
+int CONDITION_TAG = MPI_TAG_UB - 5;
+int FOLDER_TAG = MPI_TAG_UB - 6;
+int NUMBEROFCONNECTION_TAG = MPI_TAG_UB - 7;
+int CONNECTION_FINISH_TAG = MPI_TAG_UB - 8;
+int START_WORK_RECV_TAG = MPI_TAG_UB - 9;
+int WORKER_CALC_TAG = MPI_TAG_UB - 10;
+int WORKER_CHANGE_TAG = MPI_TAG_UB - 11;*/
+
+int DISPATCHER_TAG = 10000000;
+int DISPATCHER_TASK_INFO_TAG = 100000001;
+int MAPCONTROLLER_TAG = 100000002;
+int SIZEOFMAP_TAG = 100000003;
+int MAP_TAG = 100000004;
+int CONDITION_TAG = 100000005;
+int FOLDER_TAG = 100000006;
+int NUMBEROFCONNECTION_TAG = 100000007;
+int CONNECTION_FINISH_TAG = 100000008;
+int START_WORK_RECV_TAG = 100000009;
+int WORKER_CALC_TAG = 100000010;
+int WORKER_CHANGE_TAG = 100000011;
+
 // Descriptors for threads
 pthread_t thrs[12];
 // id for threads
@@ -65,11 +91,11 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 	MPI_Comm_rank(currentComm, &rank);
 	MPI_Comm_size(currentComm, &size);
 	size_old = size;
-	
+	if (rank == 0) std::cout << MPI_TAG_UB << std::endl;
 	if (argc > 1) {
 		folderName = argv[argc - 1];
 		folderName += "/";
-		std::cout << folderName.size() << std::endl;
+		//std::cout << folderName.size() << std::endl;
 	}
 	
 	pthread_mutexattr_init(&attr_get_task);
@@ -146,16 +172,16 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 		//fprintf(stderr, "%d:: new rank = %d, new_size = %d\n", rank_old, rank, size);
 
 		int sizeOfMap;
-		MPI_Recv(&numberOfConnection, 1, MPI_INT, 0, 10002, currentComm, &st);
+		MPI_Recv(&numberOfConnection, 1, MPI_INT, 0, NUMBEROFCONNECTION_TAG, currentComm, &st);
 		char b[20];
-		MPI_Recv(&b, 20, MPI_CHAR, 0, 10003, currentComm, &st); 
+		MPI_Recv(&b, 20, MPI_CHAR, 0, FOLDER_TAG, currentComm, &st); 
 		folderName = b;
 		//fprintf(stderr, "%d:: numberOfConnection = %d\n", rank, numberOfConnection);
-		MPI_Recv(&sizeOfMap, 1, MPI_INT, 0, 10000, currentComm, &st);
+		MPI_Recv(&sizeOfMap, 1, MPI_INT, 0, SIZEOFMAP_TAG, currentComm, &st);
 		if (sizeOfMap) {
 			map.resize(sizeOfMap);
-			MPI_Recv(map.data(), sizeOfMap, MPI_INT, 0, 10001, currentComm, &st);
-			MPI_Recv(&condition, 1, MPI_INT, 0, 30000, currentComm, &st);
+			MPI_Recv(map.data(), sizeOfMap, MPI_INT, 0, MAP_TAG, currentComm, &st);
+			MPI_Recv(&condition, 1, MPI_INT, 0, CONDITION_TAG, currentComm, &st);
 			MPI_Comm_dup(currentComm, &serverComm);
 			MPI_Comm_dup(currentComm, &reduceComm);			
 			MPI_Comm_dup(currentComm, &barrierComm);
@@ -176,27 +202,27 @@ void CloseLibraryComponents() {
 	int exit = -1;
 	
 	// Close dispatcher
-	MPI_Isend(&exit, 1, MPI_INT, rank, 2001, currentComm, &s);	
+	MPI_Isend(&exit, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm, &s);	
 	
 	// Close workers
 	for (int i = 0; i < countOfWorkers; i++)
-		MPI_Isend(&exit, 1, MPI_INT, rank, 1996, currentComm, &s);
+		MPI_Isend(&exit, 1, MPI_INT, rank, WORKER_CALC_TAG, currentComm, &s);
 	
 	// Close map controller
 	int to_map_message[2] = { exit, exit };
-	MPI_Isend(&to_map_message, 2, MPI_INT, rank, 1030, currentComm, &s);	
+	MPI_Isend(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, currentComm, &s);	
 	
 	while (numberOfConnection < countOfConnect) {
 		int cond;
-		MPI_Recv(&cond, 1, MPI_INT, rank, 2001, currentComm, &st);
+		MPI_Recv(&cond, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm, &st);
 		if (rank == 0) {
 			size_old = size;
 			MPI_Comm_size(newComm, &size_new);
 			cond = 0;
 			for (int k = size_old; k < size_new; k++)
-				MPI_Send(&cond, 1, MPI_INT, k, 10000, newComm);
+				MPI_Send(&cond, 1, MPI_INT, k, SIZEOFMAP_TAG, newComm);
 		}
-		MPI_Send(&cond, 1, MPI_INT, rank, 1998, currentComm);
+		MPI_Send(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, currentComm);
 	}
 	
 	pthread_join(thrs[countOfWorkers], NULL);	

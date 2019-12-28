@@ -11,9 +11,9 @@ void* mapController(void* me) {
 	int message[2];
 	while (!close) {
 		#ifdef PROFILER
-			MPI_Recv(&message, 2, MPI_INT, MPI_ANY_SOURCE, 1030, Comm, &st, MapController);
+			MPI_Recv(&message, 2, MPI_INT, MPI_ANY_SOURCE, MAPCONTROLLER_TAG, Comm, &st, MapController);
 		#else
-			MPI_Recv(&message, 2, MPI_INT, MPI_ANY_SOURCE, 1030, Comm, &st);
+			MPI_Recv(&message, 2, MPI_INT, MPI_ANY_SOURCE, MAPCONTROLLER_TAG, Comm, &st);
 		#endif
 		// Task place was changed	
 		if (message[0] >= 0) {
@@ -26,10 +26,10 @@ void* mapController(void* me) {
 			#ifdef PROFILER			
 				std::string str = "task " + std::to_string(map_id) + " pass to " + std::to_string(rank_id);
 				Profiler::AddEvent(str, MapController);	
-				MPI_Send(&map_message, 2, MPI_INT, peer, 1030, currentComm, MapController);
+				MPI_Send(&map_message, 2, MPI_INT, peer, MAPCONTROLLER_TAG, currentComm, MapController);
 			#else
 				//fprintf(stderr, "%d:: task %d pass to %d\n", rank, map_id, rank_id);
-				MPI_Send(&map_message, 2, MPI_INT, peer, 1030, currentComm);
+				MPI_Send(&map_message, 2, MPI_INT, peer, MAPCONTROLLER_TAG, currentComm);
 			#endif
 		} //DeleteSendedTask
 		else if (message[0] == -2) {			
@@ -101,9 +101,9 @@ void* oldMapController(void* me) {
 	int message[2];
 	while (!close) {
 		#ifdef PROFILER
-			MPI_Recv(&message, 2, MPI_INT, MPI_ANY_SOURCE, 1030, Comm, &st, MapController);
+			MPI_Recv(&message, 2, MPI_INT, MPI_ANY_SOURCE, MAPCONTROLLER_TAG, Comm, &st, MapController);
 		#else
-			MPI_Recv(&message, 2, MPI_INT, MPI_ANY_SOURCE, 1030, Comm, &st);
+			MPI_Recv(&message, 2, MPI_INT, MPI_ANY_SOURCE, MAPCONTROLLER_TAG, Comm, &st);
 		#endif
 		// Message from worker in old communicator
 		if (message[0] == -3) {

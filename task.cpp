@@ -10,6 +10,7 @@ std::vector<double> oldResult, newResult;
 std::vector <double> globalRes;
 std::vector <double> globalOldRes;
 std::vector<Point> globalPoints;
+std::vector<int> globalNumbersOfKU;
 double residual = 1;
 int iteration = 0;
 int countOfBlockY = 8,
@@ -285,22 +286,6 @@ double CalcF(double x, double y, double z) {
 	return 6;
 }
 
-int CalculateNumberBeg(int residue, int &taskPerIterval, int rank_) {
-	int number_beg;
-	if (residue != 0 && rank_ < residue) taskPerIterval++;
-	// Если процесс не входит в область задач с лишними подзадачами
-	if (residue != 0 && residue <= rank_) {
-		// Смещаем по области задач с лишними подзадачами
-		number_beg = residue * (taskPerIterval + 1);
-		// -//- по остальным
-		number_beg += (rank_ - residue)*taskPerIterval;
-	}
-	else // Если входит, то количество задач на процесс совпадает с предыдущими
-		number_beg = rank_ * taskPerIterval;
-
-	return number_beg;
-}
-
 void GenerateBasicConcepts() {
 	int          len[5] = { 1,1,1,1,1 };
 	MPI_Aint     pos[5] = { offsetof(Point,x), offsetof(Point,y), offsetof(Point,z), offsetof(Point,globalNumber), sizeof(Point) };
@@ -312,9 +297,9 @@ void GenerateBasicConcepts() {
 
 	double	l;
 	// Бьём задачи по координате х
-	l = abs(endX - begX);	intervalsX = l / hx;
-	l = abs(endY - begY);	intervalsY = l / hy;
-	l = abs(endZ - begZ);	intervalsZ = l / hz;
+	l = fabs(endX - begX);	intervalsX = l / hx;
+	l = fabs(endY - begY);	intervalsY = l / hy;
+	l = fabs(endZ - begZ);	intervalsZ = l / hz;
 	dim = (intervalsX + 1) * (intervalsY + 1) * (intervalsZ + 1);
 	newResult.resize(dim);
 	oldResult.resize(dim);
@@ -327,28 +312,41 @@ void GenerateBasicConcepts() {
 			double y = begY + j * hy;
 			for (int i = 0; i < intervalsX + 1; i++) {
 				double x = begX + i * hx;
-				globalPoints.push_back(Point(x,y,z));
+				int number = i + (intervalsX + 1)*j + (intervalsX + 1)*(intervalsY + 1)*k;
+				globalPoints.push_back(Point(x,y,z, number));
+				
+				// Формирование глобальных номеров краевых условий
+				if (k == 0 || k == intervalsZ || j == 0 || j == intervalsY || i == 0 || i == intervalsX)
+					globalNumbersOfKU.push_back(number);
 			}
 		}
 	}		
 }
 
+int CalculateNumberBeg(int residue, int &taskPerIterval, int rank_) {
+	int number_beg;
+	if (residue != 0 && rank_ < residue) taskPerIterval++;
+	// Если процесс не входит в область задач с лишними подзадачами
+	if (residue != 0 && rank_ >= residue) {
+		// Смещаем по области задач с лишними подзадачами
+		number_beg = residue * (taskPerIterval + 1);
+		// -//- по остальным
+		number_beg += (rank_ - residue)*taskPerIterval;
+	}
+	else // Если входит, то количество задач на процесс совпадает с предыдущими
+		number_beg = rank_ * taskPerIterval;
+
+	return number_beg;
+}
+
 void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map) {
 	double	l;
 	double x, y, z;
-	std::vector<int> globalNumbersOfKU;
 	// Бьём задачи по координате х
 	int tasksPerProcess = intervalsX / size;
 	// Если количество интервалов не кратно числу процессов
 	// то распределяем оставшиеся задачи по первым процессам
 	int residue = intervalsX % size;
-
-	// Формирование глобальных номеров краевых условий
-	for (int i = 0; i < intervalsZ + 1; i++)
-		for (int j = 0; j < intervalsY + 1; j++)
-			for (int k = 0; k < intervalsX + 1; k++)
-				if (i == 0 || i == intervalsZ || j == 0 || j == intervalsY || k == 0 || k == intervalsX)
-					globalNumbersOfKU.push_back(k + (intervalsX + 1)*j + (intervalsX + 1)*(intervalsY + 1)*i);
 
 	// Глобальный номер первого элемента сетки
 	int number_beg_x = 0, firstX = begX;
@@ -362,10 +360,8 @@ void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map)
 	// Количество интервалов в одном блоке
 	int k_y = intervalsY / countOfBlockY, k_z = intervalsZ / countOfBlockZ;
 	int r_y = intervalsY % countOfBlockY, r_z = intervalsZ % countOfBlockZ;
-	fprintf(stderr, "k_y = %d, k_z = %d, r_y = %d, r_z = %d, count = %d\n ", k_y, k_z, r_y, r_z, countOfBlockY * countOfBlockZ * size);
 	t.resize(countOfBlockY * countOfBlockZ);
 	map.resize(countOfBlockY * countOfBlockZ * size);
-	fprintf(stderr, "k_y = %d, k_z = %d, r_y = %d, r_z = %d, count = %d\n ", k_y, k_z, r_y, r_z, countOfBlockY * countOfBlockZ * size);
 	
 	std::vector <int> tasks_y, tasks_z;
 	tasks_y.resize(countOfBlockY);  tasks_z.resize(countOfBlockZ);
@@ -373,22 +369,21 @@ void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map)
 		// количество интервалов
 		tasks_z[i_z] = k_z;
 		number_beg_z = CalculateNumberBeg(r_z, tasks_z[i_z], i_z);
-		z = begZ + number_beg_z * hz;
 		// по количеству точек
 		for (int i = 0; i < tasks_z[i_z] + 1; i++) {
 			for (int j_y = 0; j_y < countOfBlockY; j_y++) {
 				tasks_y[j_y] = k_y;
 				number_beg_y = CalculateNumberBeg(r_y, tasks_y[j_y], j_y);
-				y = begY + number_beg_y * hy;
 				int idBlock = i_z * countOfBlockY + j_y;
 				for (int j = 0; j < tasks_y[j_y] + 1; j++) {
 					x = firstX;
 					for (int k = 0; k < tasksPerProcess + 1; k++) {
-						Point p;
 						int number = number_beg_x + k + (intervalsX + 1)*(number_beg_y + j) +
 							(intervalsX + 1)*(intervalsY + 1)*(number_beg_z + i);
-						p.set(x, y, z, number);
-						t[idBlock].points.push_back(p);
+						x = globalPoints[number].x;
+						y = globalPoints[number].y;
+						z = globalPoints[number].z;
+						t[idBlock].points.push_back(globalPoints[number]);
 						t[idBlock].oldU.push_back(1);
 						bool ku = false;
 						for (int z = 0; z < globalNumbersOfKU.size(); z++)
@@ -416,12 +411,9 @@ void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map)
 							t[idBlock].shadowBorders[4].push_back(t[idBlock].oldU.size() - 1);
 						else if (i == tasks_z[i_z] && z != endZ)
 							t[idBlock].shadowBorders[5].push_back(t[idBlock].oldU.size() - 1);
-						x = firstX + hx * (k + 1);
 					}
-					y = begY + number_beg_y * hy + hy * (j + 1);
 				}
 			}
-			z = begZ + number_beg_z * hz + hz * (i + 1);
 		}
 	}
 
@@ -480,7 +472,7 @@ void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map)
 			}
 		queueOTasks.push(&t[i]);
 	}
-	fprintf(stderr, "tasks generated\n ");
+	//fprintf(stderr, "tasks generated\n ");
 }
 
 void GenerateResult(MPI_Comm Comm) {
@@ -499,10 +491,10 @@ void GenerateResult(MPI_Comm Comm) {
 		for (int i = 0; i < globalRes.size(); i++) {
 			double trueRes = CalcF1BC(globalPoints[i].x, globalPoints[i].y, globalPoints[i].z);
 			sum += (trueRes - globalRes[i])*(trueRes - globalRes[i]);
-			printf("%.2lf\t%.2lf\t%.2lf\t%.14lf\n", globalPoints[i].x, globalPoints[i].y, globalPoints[i].z, globalRes[i]);
+			printf("%d:: %.2lf\t%.2lf\t%.2lf\t%.14lf\t%.14lf\n", globalPoints[i].globalNumber, globalPoints[i].x, globalPoints[i].y, globalPoints[i].z, trueRes, globalRes[i]);
 		}
 		sum = sqrt(sum);
-		printf("||result|| = %.10e\n", sum);
+		printf("||result|| = %.10e\ndim = %d\n", sum, dim);
 		for (int i = 0; i < size; i++)
 			printf("rank %d::\tcountOfIter = %d;\tresidual = %e\n", i, resIterations[i], globalR[i]);
 		printf("\n--------------------------------------------------------------------\n");

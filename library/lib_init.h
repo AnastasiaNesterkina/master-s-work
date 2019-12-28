@@ -10,6 +10,19 @@
 #endif
 
 
+extern int DISPATCHER_TAG;
+extern int DISPATCHER_TASK_INFO_TAG;
+extern int MAPCONTROLLER_TAG;
+extern int SIZEOFMAP_TAG;
+extern int MAP_TAG;
+extern int CONDITION_TAG;
+extern int FOLDER_TAG;
+extern int NUMBEROFCONNECTION_TAG;
+extern int CONNECTION_FINISH_TAG;
+extern int START_WORK_RECV_TAG;
+extern int WORKER_CALC_TAG;
+extern int WORKER_CHANGE_TAG;
+
 // Descriptors for threads
 extern pthread_t thrs[12];
 // id for threads

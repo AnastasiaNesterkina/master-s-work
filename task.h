@@ -18,6 +18,12 @@ struct Point {
 		y = y1;
 		z = z1;
 	}
+	Point(double x1, double y1, double z1, int glN) {
+		x = x1;
+		y = y1;
+		z = z1;		
+		globalNumber = glN;
+	}
 	void set(double x1, double y1, double z1, int glN) {
 		x = x1;
 		y = y1;
