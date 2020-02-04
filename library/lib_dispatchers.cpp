@@ -18,8 +18,18 @@ void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap, THREAD th
 			sendedTasksCounter.insert({taskNumber, size_new - 1});	
 		pthread_mutex_unlock(&mutex_send_task);
 		
-		t->GenerateSend(peer, CommWorker);
 		
+		pthread_mutex_lock(&mutex_map_task);
+		if (CommWorker == newComm || currentComm == newComm)
+			mapMessageCount += 2;
+		else if (CommWorker == currentComm && currentComm != newComm) {
+			oldMapMessageCount += 1; // recv message in old Communicator
+			mapMessageCount += 1;
+		}
+		pthread_mutex_unlock(&mutex_map_task);
+		
+		t->GenerateSend(peer, CommWorker);		
+		fprintf(stderr, "%d:: send task %d to %d\n", rank, t->blockNumber, peer);
 		int to_map_message[2] = { taskNumber, peer };
 		// Send the future task place to all ranks 	
 		for (int j = 0; j < size_new; j++) {
@@ -51,8 +61,17 @@ void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap){
 			sendedTasksCounter.insert({taskNumber, size_new - 1});	
 		pthread_mutex_unlock(&mutex_send_task);
 		
-		t->GenerateSend(peer, CommWorker);
+		pthread_mutex_lock(&mutex_map_task);
+		if (CommWorker == newComm || currentComm == newComm)
+			mapMessageCount += 2;
+		else if (CommWorker == currentComm && currentComm != newComm) {
+			oldMapMessageCount += 1; // recv message in old Communicator
+			mapMessageCount += 1;
+		}
+		pthread_mutex_unlock(&mutex_map_task);
 		
+		t->GenerateSend(peer, CommWorker);
+	
 		int to_map_message[2] = { taskNumber, peer };
 		// Send the future task place to all ranks 	
 		for (int j = 0; j < size_new; j++) {
@@ -181,13 +200,7 @@ void* dispatcher(void* me) {
 				perror("Cannot create a thread");
 				abort();
 			}
-			
-			// Create map controller which is working in old communicator
-			if (0 != pthread_create(&thrs[countOfWorkers + 4], &attrs, oldMapController, &ids[countOfWorkers + 4])) {
-				perror("Cannot create a thread");
-				abort();
-			}
-			
+						
 			cond = 2;
 			#ifdef PROFILER
 				MPI_Send(&cond, 1, MPI_INT, rank_old, START_WORK_RECV_TAG, oldComm_, Dispatcher);			

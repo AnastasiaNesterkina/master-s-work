@@ -1,5 +1,5 @@
 #include "../task.h"
-
+#include <set>
 #ifdef PROFILER
 #define MPI_Send PROFILE_MPI_Send
 #define MPI_Recv PROFILE_MPI_Recv
@@ -30,14 +30,14 @@ extern int ids[12];
 
 extern int rank_old, size_new;
 
-extern pthread_mutexattr_t attr_set_task, attr_get_task, attr_send_task;
-extern pthread_mutex_t mutex_get_task, mutex_set_task, mutex_send_task;
+extern pthread_mutexattr_t attr_set_task, attr_get_task, attr_send_task, attr_map_task;
+extern pthread_mutex_t mutex_get_task, mutex_set_task, mutex_send_task, mutex_map_task;
 extern pthread_attr_t attrs_dispatcher, attrs_server, attrs_mapController, attrs_workers;
 extern pthread_cond_t server_cond, comunicator_cond;
 extern pthread_mutex_t server_mutexcond, comunicator_mutexcond;
 
 extern MPI_Comm currentComm, oldComm, newComm, serverComm, barrierComm;
-
+extern int mapMessageCount, oldMapMessageCount;
 extern std::map<int, ITask*> sendedTasks;
 extern std::map<int, int> sendedTasksCounter;
 extern std::map<int, bool> sendedTasksSuccessfullyRecv;

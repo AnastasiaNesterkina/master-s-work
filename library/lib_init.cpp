@@ -48,11 +48,14 @@ std::map<int, bool> sendedTasksSuccessfullyRecv;
 MPI_Comm currentComm = MPI_COMM_WORLD;
 MPI_Comm oldComm, newComm, serverComm, reduceComm;
 MPI_Comm barrierComm;
-pthread_mutexattr_t attr_set_task, attr_get_task, attr_send_task;
-pthread_mutex_t mutex_get_task, mutex_set_task, mutex_send_task;
+pthread_mutexattr_t attr_set_task, attr_get_task, attr_send_task, attr_map_task;
+pthread_mutex_t mutex_get_task, mutex_set_task, mutex_send_task, mutex_map_task;
 pthread_attr_t attrs_dispatcher, attrs_server, attrs_mapController, attrs_workers;
 pthread_cond_t server_cond, comunicator_cond;
 pthread_mutex_t server_mutexcond, comunicator_mutexcond;
+
+
+int mapMessageCount = 0, oldMapMessageCount = 0;
 
 void CreateLibraryComponents() {
 	// Create dispatcher
@@ -104,7 +107,8 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 	pthread_mutex_init(&mutex_set_task, &attr_set_task);
 	pthread_mutexattr_init(&attr_send_task);
 	pthread_mutex_init(&mutex_send_task, &attr_send_task);
-	
+	pthread_mutexattr_init(&attr_map_task);
+	pthread_mutex_init(&mutex_map_task, &attr_map_task);
 	#ifdef PROFILER
 	// Profiler's mutex
 	Profiler::Init();

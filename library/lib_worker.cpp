@@ -209,12 +209,6 @@ void ChangeMainCommunicator() {
 	MPI_Send(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, currentComm);
 	#endif
 	currentComm = newComm;
-	// Send message to server about changed communicator
-	MPI_Isend(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, oldComm, &req);
-	#ifdef PROFILER
-		Profiler::AddEvent("connection is done", StartWorker);
-	#endif
-	//fprintf(stderr, "%d:: connection is done.\n", rank);
 }
 
 void StartWork(bool clientProgram) {
