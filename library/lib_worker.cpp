@@ -70,7 +70,7 @@ void ExecuteOtherTask(MPI_Comm &Comm, int id, bool &retry) {
 		MPI_Isend(&to_map_message, 2, MPI_INT, id, MAPCONTROLLER_TAG, Comm, &s);	
 		
 		t->Run();
-		//fprintf(stderr, "%d:: worker executed %d task.\n", rank, t->blockNumber );
+		fprintf(stderr, "%d:: worker executed %d task.\n", rank, t->blockNumber );
 		// This rank can have new task for work
 		retry = true; 
 		#ifdef PROFILER		
@@ -88,17 +88,17 @@ void ExecuteOtherTask(MPI_Comm &Comm, int id, bool &retry) {
 		str += "rank " + std::to_string(id) + " haven't tasks";
 		Profiler::AddEvent(str, Worker);
 	#endif
-	//fprintf(stderr, "%d:: rank %d haven't tasks.\n", rank, id );
+	fprintf(stderr, "%d:: rank %d haven't tasks.\n", rank, id );
 }
 void ChangeCommunicator(MPI_Comm &Comm, int &newSize) {
 	#ifdef PROFILER
 		Profiler::AddEvent("worker started changing communicator", Worker);
 	#endif
-	//fprintf(stderr, "%d:: worker is changing communicator.\n", rank);
+	fprintf(stderr, "%d:: worker is changing communicator.\n", rank);
 	int message = 3;
 	MPI_Request req;
 	// The message about finished changing of communicator
-	//fprintf(stderr, "%d:: worker send message to %d ranks.\n", rank, newSize);
+	fprintf(stderr, "%d:: worker send message to %d ranks.\n", rank, newSize);
 	#ifdef PROFILER
 		for (int i = 0; i < newSize; i++)
 			MPI_Send(&message, 1, MPI_INT, i, START_WORK_RECV_TAG, Comm, Worker);
@@ -111,7 +111,7 @@ void ChangeCommunicator(MPI_Comm &Comm, int &newSize) {
 	#ifdef PROFILER
 		Profiler::AddEvent("worker finished changing communicator", Worker);
 	#endif
-	//fprintf(stderr, "%d:: worker finished changing communicator.\n", rank);
+	fprintf(stderr, "%d:: worker finished changing communicator.\n", rank);
 }
 // Computational thread
 void* worker(void* me) {
@@ -137,7 +137,7 @@ void* worker(void* me) {
 		}
 		if (flagCalc != 0){
 			if (cond == 1) {
-				//fprintf(stderr, "%d:: worker is executing own tasks.\n", rank);
+				fprintf(stderr, "%d:: worker is executing own tasks.\n", rank);
 				#ifdef PROFILER
 					Profiler::AddEvent("worker is executing own tasks", Worker);
 				#endif
@@ -150,7 +150,7 @@ void* worker(void* me) {
 				#ifdef PROFILER
 					Profiler::AddEvent("worker is executing another tasks", Worker);
 				#endif
-				//fprintf(stderr, "%d:: worker is executing another tasks.\n", rank);
+				fprintf(stderr, "%d:: worker is executing another tasks.\n", rank);
 				id = GetRank(sign, k, countOfProcess);
 				for (int i = 0; i < countOfProcess - 1;) {
 					MPI_Test(&reqChange, &flagChange, &st);
@@ -163,7 +163,7 @@ void* worker(void* me) {
 						std:: string str = "worker try execute another tasks from " + std::to_string(id) + " rank";
 						Profiler::AddEvent(str, Worker);
 					#endif
-					//fprintf(stderr, "%d:: worker try execute another tasks from %d rank.\n", rank, id);
+					fprintf(stderr, "%d:: worker try execute another tasks from %d rank.\n", rank, id);
 					ExecuteOtherTask(Comm, id, retry);
 					if (!retry) { 
 						id = GetRank(sign, k, countOfProcess);
@@ -176,7 +176,7 @@ void* worker(void* me) {
 				#else
 					MPI_Send(&cond, 1, MPI_INT, rank, START_WORK_RECV_TAG, Comm);
 				#endif
-				//fprintf(stderr, "%d:: worker finished job.\n", rank);
+				fprintf(stderr, "%d:: worker finished job.\n", rank);
 				MPI_Irecv(&cond, 1, MPI_INT, rank, WORKER_CALC_TAG, Comm, &reqCalc);
 				flagCalc = 0;
 			}
@@ -186,7 +186,7 @@ void* worker(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("worker is closed", Worker);
 	#endif
-	//fprintf(stderr, "%d:: worker is closed.\n", rank);
+	fprintf(stderr, "%d:: worker is closed.\n", rank);
 	return 0;
 }
 
@@ -214,7 +214,7 @@ void ChangeMainCommunicator() {
 void StartWork(bool clientProgram) {
 	MPI_Status st;
 	MPI_Request req;
-	bool barrier = false;
+	bool barrier = true;
 	int cond = 1, message = 1;
 	int count = 0, countOfConnectedWorkers = 0;
 	bool connection = false;
@@ -230,7 +230,7 @@ void StartWork(bool clientProgram) {
 			MPI_Send(&message, 1, MPI_INT, rank, WORKER_CALC_TAG, currentComm);
 			#endif
 		while (count < countOfWorkers || connection) {
-			//fprintf(stderr, "%d:: waiting for message...\n", rank);
+			fprintf(stderr, "%d:: waiting for message...\n", rank);
 			#ifdef PROFILER	
 			MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, START_WORK_RECV_TAG, currentComm, &st, StartWorker);
 			#else			
@@ -239,19 +239,24 @@ void StartWork(bool clientProgram) {
 			//fprintf(stderr, "%d:: get condition %d.\n", rank, cond);
 			if (cond == 2) {
 				// Send message to dispatcher about connection continue
-				//fprintf(stderr, "%d:: connection....\n", rank);
+				fprintf(stderr, "%d:: connection....\n", rank);
 				#ifdef PROFILER
 				Profiler::AddEvent("start connection", StartWorker);
 				#endif
 				connection = true;
 				condition = 2;
+				for (int i = 0; i < globalFlags.size(); i++) 
+					flags[i] = 0;
 				flags[rank] = condition;
 				MPI_Allreduce(flags.data(), globalFlags.data(), globalFlags.size(), MPI_INT, MPI_SUM, reduceComm);
 				for (int i = 0; i < globalFlags.size(); i++)
-					if (globalFlags[i] == 0) { barrier = true; condition = 0;}
+					if (globalFlags[i] == 0) { 
+						//barrier = true; 
+						condition = 0;
+					}
 				// Send the message about calculation condition
 				if (rank == 0) {
-					//fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size_old, size_new);
+					fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size_old, size_new);
 					for (int k = size_old; k < size_new; k++)
 						#ifdef PROFILER							
 						MPI_Send(&condition, 1, MPI_INT, k, CONDITION_TAG, newComm, StartWorker);
@@ -272,12 +277,11 @@ void StartWork(bool clientProgram) {
 			}
 			else if (cond == 3) {
 				countOfConnectedWorkers++;
-				//fprintf(stderr, "%d:: %d connected workers. sizeOld = %d\n", rank, countOfConnectedWorkers, size_old);
+				fprintf(stderr, "%d:: %d connected workers. sizeOld = %d\n", rank, countOfConnectedWorkers, size_old);
 				if (countOfConnectedWorkers == size_old * countOfWorkers) {
 					ChangeMainCommunicator();
 					connection = false;
 					countOfConnectedWorkers = 0;
-					//fprintf(stderr, "%d:: tutaaaa", rank);
 					MPI_Barrier(barrierComm);
 					size = size_new;
 				}
@@ -285,17 +289,20 @@ void StartWork(bool clientProgram) {
 			else if (cond == 1) count++;
 		}
 	
-		if (!barrier) {
+		while (barrier) {
 			condition = 0;
 			// Exchange of condition
-			flags[rank] = condition;
+			for (int i = 0; i < globalFlags.size(); i++) 
+					flags[i] = 0;
 			MPI_Allreduce(flags.data(), globalFlags.data(), globalFlags.size(), MPI_INT, MPI_SUM, reduceComm);
-			for (int i = 0; i < globalFlags.size() && !barrier; i++)
-				if (globalFlags[i] == 2) barrier = true;
+			int i = 0; 
+			for (; i < globalFlags.size(); i++)
+				if (globalFlags[i] == 2) break;
+			if (i = globalFlags.size()) barrier = false;
 			if (barrier) {
 				// Send the message about calculation condition
 				if (rank == 0) {
-					//fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size_old, size_new);
+					fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size_old, size_new);
 					for (int k = size_old; k < size_new; k++)
 						#ifdef PROFILER							
 						MPI_Send(&condition, 1, MPI_INT, k, CONDITION_TAG, newComm, StartWorker);
@@ -321,7 +328,7 @@ void StartWork(bool clientProgram) {
 					#endif
 					if (cond == 3) {
 						countOfConnectedWorkers++;
-						//fprintf(stderr, "%d:: %d connected workers after calculations. sizeOld = %d\n", rank, countOfConnectedWorkers, size_old);
+						fprintf(stderr, "%d:: %d connected workers after calculations. sizeOld = %d\n", rank, countOfConnectedWorkers, size_old);
 						if (countOfConnectedWorkers == size_old * countOfWorkers) {
 							ChangeMainCommunicator();
 							connection = false;
@@ -333,11 +340,11 @@ void StartWork(bool clientProgram) {
 				}
 			}
 		}
-		//fprintf(stderr, "%d:: sended tasks count = %d\n", rank, sendedTasksCounter.size());
+		fprintf(stderr, "%d:: sended tasks count = %d\n", rank, sendedTasksCounter.size());
 	
 		while (!sendedTasksCounter.empty());
 	}
-	//fprintf(stderr, "%d:: barrier after calculations\n", rank);
+	fprintf(stderr, "%d:: barrier after calculations\n", rank);
 	MPI_Barrier(barrierComm);
 	#ifdef PROFILER
 		Profiler::AddEvent("tasks.size = " + std::to_string(queueRecv.size()), StartWorker);

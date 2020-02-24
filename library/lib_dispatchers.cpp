@@ -16,16 +16,10 @@ void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap, THREAD th
 		pthread_mutex_lock(&mutex_send_task);
 			sendedTasks.insert({taskNumber, t}); 
 			sendedTasksCounter.insert({taskNumber, size_new - 1});	
-		pthread_mutex_unlock(&mutex_send_task);
-		
+		pthread_mutex_unlock(&mutex_send_task);		
 		
 		pthread_mutex_lock(&mutex_map_task);
-		if (CommWorker == newComm || currentComm == newComm)
-			mapMessageCount += 2;
-		else if (CommWorker == currentComm && currentComm != newComm) {
-			oldMapMessageCount += 1; // recv message in old Communicator
 			mapMessageCount += 1;
-		}
 		pthread_mutex_unlock(&mutex_map_task);
 		
 		t->GenerateSend(peer, CommWorker);		
@@ -62,12 +56,7 @@ void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap){
 		pthread_mutex_unlock(&mutex_send_task);
 		
 		pthread_mutex_lock(&mutex_map_task);
-		if (CommWorker == newComm || currentComm == newComm)
-			mapMessageCount += 2;
-		else if (CommWorker == currentComm && currentComm != newComm) {
-			oldMapMessageCount += 1; // recv message in old Communicator
 			mapMessageCount += 1;
-		}
 		pthread_mutex_unlock(&mutex_map_task);
 		
 		t->GenerateSend(peer, CommWorker);
@@ -91,7 +80,7 @@ void* dispatcher_old(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("old dispatcher run", OldDispatcher);
 	#endif
-	//fprintf(stderr, "%d:: dispetcher_old run\n", rank);	
+	fprintf(stderr, "%d:: dispetcher_old run\n", rank);	
 	MPI_Request req;
 	MPI_Comm oldComm_ = currentComm, newComm_ = newComm;
 	ITask *t;
@@ -113,7 +102,7 @@ void* dispatcher_old(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("old dispatcher closed", OldDispatcher);
 	#endif
-	//fprintf(stderr, "%d:: old dispatcher is closed.\n", rank);
+	fprintf(stderr, "%d:: old dispatcher is closed.\n", rank);
 	return 0;
 }
 
@@ -123,7 +112,7 @@ void* dispatcher(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("dispatcher run", Dispatcher);
 	#endif
-	//fprintf(stderr, "%d:: dispatcher run.\n", rank);
+	fprintf(stderr, "%d:: dispatcher run.\n", rank);
 	MPI_Comm Comm = currentComm;
 	ITask *t;
 	int cond;
@@ -145,14 +134,14 @@ void* dispatcher(void* me) {
 			cond = -10;
 			int to_map_message[2] = { cond, cond };
 			#ifdef PROFILER
-				MPI_Barrier(currentComm, Dispatcher);			
+				MPI_Barrier(currentComm, Dispatcher);					
 				Profiler::AddEvent("start communication", Dispatcher);
 				// Message to mapController about communicator changing
 				MPI_Send(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, currentComm, Dispatcher);
 				// Communicators should be changed in single time because of map control
 				MPI_Barrier(currentComm, Dispatcher);
 			#else
-				MPI_Barrier(currentComm);			
+				MPI_Barrier(currentComm);				
 				// Message to mapController about communicator changing
 				MPI_Send(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, currentComm);
 				// Communicators should be changed in single time because of map control
@@ -186,6 +175,8 @@ void* dispatcher(void* me) {
 				}
 				MPI_Barrier(currentComm);
 			#endif
+			
+			MPI_Recv(&cond, 1, MPI_INT, rank, MAPCONTROLLER_TAG, oldComm_, &st);	
 			pthread_attr_t attrs;
 			if (0 != pthread_attr_init(&attrs)) {
 				perror("Cannot initialize attributes");
@@ -200,7 +191,8 @@ void* dispatcher(void* me) {
 				perror("Cannot create a thread");
 				abort();
 			}
-						
+			
+					
 			cond = 2;
 			#ifdef PROFILER
 				MPI_Send(&cond, 1, MPI_INT, rank_old, START_WORK_RECV_TAG, oldComm_, Dispatcher);			
@@ -208,8 +200,8 @@ void* dispatcher(void* me) {
 			#else
 				MPI_Send(&cond, 1, MPI_INT, rank_old, START_WORK_RECV_TAG, oldComm_);		
 			#endif
-			//fprintf(stderr, "%d:: new dispatcher run.\n", rank);
-
+			
+	fprintf(stderr, "%d:: map is connected.\n", rank);
 		} // Close dispatcher 
 		else if (cond == -1) close = true;
 		
@@ -217,6 +209,6 @@ void* dispatcher(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("dispatcher closed", Dispatcher);
 	#endif
-	//fprintf(stderr, "%d:: dispatcher is closed.\n", rank);
+	fprintf(stderr, "%d:: dispatcher is closed.\n", rank);
 	return 0;
 }

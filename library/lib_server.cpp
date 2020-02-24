@@ -3,7 +3,7 @@ void* server(void *me) {
 	#ifdef PROFILER
 	Profiler::AddEvent("server run", Server);
 	#endif
-	//fprintf(stderr, "%d:: server run.\n", rank);
+	fprintf(stderr, "%d:: server run.\n", rank);
 	MPI_Comm client;
 	MPI_Status st;
 	int cond;
@@ -23,7 +23,7 @@ void* server(void *me) {
 		#ifdef PROFILER
 		Profiler::AddEvent("server are ready for connection", Server);
 		#endif
-		//fprintf(stderr, "%d:: server are ready for connection.\n", rank);
+		fprintf(stderr, "%d:: server are ready for connection.\n", rank);
 		old_size = size;
 		// Waiting for new ranks
 		MPI_Comm_accept(port_name, MPI_INFO_NULL, 0, serverComm, &client);
@@ -63,6 +63,6 @@ void* server(void *me) {
 	#ifdef PROFILER
 	Profiler::AddEvent("server is closed", Server);
 	#endif
-	//fprintf(stderr, "%d:: server is closed;\n", rank);
+	fprintf(stderr, "%d:: server is closed;\n", rank);
 	return 0;
 }

@@ -36,8 +36,8 @@ extern pthread_attr_t attrs_dispatcher, attrs_server, attrs_mapController, attrs
 extern pthread_cond_t server_cond, comunicator_cond;
 extern pthread_mutex_t server_mutexcond, comunicator_mutexcond;
 
-extern MPI_Comm currentComm, oldComm, newComm, serverComm, barrierComm;
-extern int mapMessageCount, oldMapMessageCount;
+extern MPI_Comm reduceComm, oldComm, newComm, serverComm, barrierComm;
+extern int mapMessageCount;
 extern std::map<int, ITask*> sendedTasks;
 extern std::map<int, int> sendedTasksCounter;
 extern std::map<int, bool> sendedTasksSuccessfullyRecv;

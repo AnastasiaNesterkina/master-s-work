@@ -29,7 +29,7 @@ extern bool changeExist;
 extern std::vector<int> map;
 extern std::queue<ITask*> currentTasks, queueRecv;
 // Communicators
-extern MPI_Comm reduceComm;
+extern MPI_Comm currentComm;
 
 void AddTask(ITask* t);
 
