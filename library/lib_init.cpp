@@ -223,7 +223,7 @@ void CloseLibraryComponents() {
 			size_old = size;
 			MPI_Comm_size(newComm, &size_new);
 			cond = 0;
-			for (int k = size_old; k < size_new; k++)
+			for (int k = size; k < size_new; k++)
 				MPI_Send(&cond, 1, MPI_INT, k, SIZEOFMAP_TAG, newComm);
 		}
 		MPI_Send(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, currentComm);

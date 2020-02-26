@@ -219,7 +219,7 @@ void StartWork(bool clientProgram) {
 	int count = 0, countOfConnectedWorkers = 0;
 	bool connection = false;
 	MPI_Barrier(barrierComm);
-	
+	size_old = size;
 	std::vector<int> flags(size);
 	std::vector<int> globalFlags(size);
 	if (!clientProgram || condition) {
@@ -256,8 +256,8 @@ void StartWork(bool clientProgram) {
 					}
 				// Send the message about calculation condition
 				if (rank == 0) {
-					fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size_old, size_new);
-					for (int k = size_old; k < size_new; k++)
+					fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size, size_new);
+					for (int k = size; k < size_new; k++)
 						#ifdef PROFILER							
 						MPI_Send(&condition, 1, MPI_INT, k, CONDITION_TAG, newComm, StartWorker);
 						#else									
@@ -277,8 +277,8 @@ void StartWork(bool clientProgram) {
 			}
 			else if (cond == 3) {
 				countOfConnectedWorkers++;
-				fprintf(stderr, "%d:: %d connected workers. sizeOld = %d\n", rank, countOfConnectedWorkers, size_old);
-				if (countOfConnectedWorkers == size_old * countOfWorkers) {
+				fprintf(stderr, "%d:: %d connected workers. sizeOld = %d\n", rank, countOfConnectedWorkers, size);
+				if (countOfConnectedWorkers == size * countOfWorkers) {
 					ChangeMainCommunicator();
 					connection = false;
 					countOfConnectedWorkers = 0;
@@ -302,8 +302,8 @@ void StartWork(bool clientProgram) {
 			if (barrier) {
 				// Send the message about calculation condition
 				if (rank == 0) {
-					fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size_old, size_new);
-					for (int k = size_old; k < size_new; k++)
+					fprintf(stderr, "%d:: send condition to client size_old = %d, size = %d.\n", rank, size, size_new);
+					for (int k = size; k < size_new; k++)
 						#ifdef PROFILER							
 						MPI_Send(&condition, 1, MPI_INT, k, CONDITION_TAG, newComm, StartWorker);
 						#else									
@@ -328,8 +328,8 @@ void StartWork(bool clientProgram) {
 					#endif
 					if (cond == 3) {
 						countOfConnectedWorkers++;
-						fprintf(stderr, "%d:: %d connected workers after calculations. sizeOld = %d\n", rank, countOfConnectedWorkers, size_old);
-						if (countOfConnectedWorkers == size_old * countOfWorkers) {
+						fprintf(stderr, "%d:: %d connected workers after calculations. sizeOld = %d\n", rank, countOfConnectedWorkers, size);
+						if (countOfConnectedWorkers == size * countOfWorkers) {
 							ChangeMainCommunicator();
 							connection = false;
 							countOfConnectedWorkers = 0;		

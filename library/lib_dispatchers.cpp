@@ -148,7 +148,7 @@ void* dispatcher(void* me) {
 				MPI_Barrier(currentComm);
 			#endif
 			rank_old = rank;
-			size_old = size;
+			//size_old = size;
 			MPI_Request req;
 			MPI_Comm oldComm_ = currentComm;
 			Comm = newComm;
@@ -158,7 +158,7 @@ void* dispatcher(void* me) {
 				// Sending current places of tasks to new ranks
 				if (rank == 0) {
 					int sizeOfMap = map.size();
-					for (int k = size_old; k < size_new; k++) {
+					for (int k = size; k < size_new; k++) {
 						MPI_Send(&sizeOfMap, 1, MPI_INT, k, SIZEOFMAP_TAG, newComm, Dispatcher);
 						MPI_Send(map.data(), map.size(), MPI_INT, k, MAP_TAG, newComm, Dispatcher);
 					}
@@ -168,7 +168,7 @@ void* dispatcher(void* me) {
 				// Sending current places of tasks to new ranks
 				if (rank == 0) {
 					int sizeOfMap = map.size();
-					for (int k = size_old; k < size_new; k++) {
+					for (int k = size; k < size_new; k++) {
 						MPI_Send(&sizeOfMap, 1, MPI_INT, k, SIZEOFMAP_TAG, newComm);
 						MPI_Send(map.data(), map.size(), MPI_INT, k, MAP_TAG, newComm);
 					}
