@@ -20,25 +20,25 @@ void FindSolution() {
 	std::ofstream fLoading(nameFile);
 	
 	StartWork(true);
-	MPI_Recv(&iteration, 1, MPI_INT, 0, 10005, reduceComm, &st);
+	MPI_Recv(&iteration, 1, MPI_INT, 0, 10005, currentComm, &st);
 	//fprintf(stderr, "%d:: iteration = %d.\n", rank, iteration);
 	iteration++;
 	client = false;
-	GenerateResultOfIteration(reduceComm); 
+	GenerateResultOfIteration(currentComm); 
 	while (!queueRecv.empty()) {
 		Task *t = dynamic_cast<Task*>(queueRecv.front());
-		t->SendToNeighbors(reduceComm);
+		t->SendToNeighbors(currentComm);
 		allTasks.push(t);
 		queueRecv.pop();
 	}
 	for (; iteration < maxiter && CheckConditions(); iteration++) {
-		//if (oldClientRank == 0) printf("%d::  --------------------START ITERATION %d---------------------\n", rank, iteration);
+		if (oldClientRank == 0) printf("%d::  --------------------START ITERATION %d---------------------\n", rank, iteration);
 		for (auto &i : newResult) i = 0;
 		for (auto &i : oldResult) i = 0;
 
 		while (!allTasks.empty()) {
 			Task *t = dynamic_cast<Task*>(allTasks.front());
-			if (iteration != 0) t->ReceiveFromNeighbors(reduceComm);
+			if (iteration != 0) t->ReceiveFromNeighbors(currentComm);
 			queueRecv.push(t);
 			allTasks.pop();
 		}
@@ -53,20 +53,20 @@ void FindSolution() {
 
 		StartWork(false);
 				
-		GenerateResultOfIteration(reduceComm);
+		GenerateResultOfIteration(currentComm);
 
 		while (!queueRecv.empty()) {
 			Task *t = dynamic_cast<Task*>(queueRecv.front());
-			t->SendToNeighbors(reduceComm);
+			t->SendToNeighbors(currentComm);
 			allTasks.push(t);
 			queueRecv.pop();
 		}
 		fLoading << "iteration " << iteration << "::  " << allTasks.size() << "\ttasks\n";
-		//if (oldClientRank == 0) printf("%d:: --------------------FINISH ITERATION %d---------------------\n", rank, iteration);
+		if (oldClientRank == 0) printf("%d:: --------------------FINISH ITERATION %d---------------------\n", rank, iteration);
 	}	
 	fLoading.close();
 	
-	GenerateResult(reduceComm);
+	GenerateResult(currentComm);
 	CloseLibraryComponents();	
 }
 

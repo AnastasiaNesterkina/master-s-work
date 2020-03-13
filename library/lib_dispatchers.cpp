@@ -9,28 +9,24 @@ void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap, THREAD th
 	// Try get task
 	if (GetTask(&t)) {
 		send = 1;
+		
 		// Send the message about task existing 
 		MPI_Send(&send, 1, MPI_INT, peer, DISPATCHER_TASK_INFO_TAG, CommWorker, thread);
 		
 		int taskNumber = t->blockNumber;
-		pthread_mutex_lock(&mutex_send_task);
-			sendedTasks.insert({taskNumber, t}); 
-			sendedTasksCounter.insert({taskNumber, size_new - 1});	
-		pthread_mutex_unlock(&mutex_send_task);		
-		
-		pthread_mutex_lock(&mutex_map_task);
-			mapMessageCount += 1;
-		pthread_mutex_unlock(&mutex_map_task);
-		
-		t->GenerateSend(peer, CommWorker);		
-		fprintf(stderr, "%d:: send task %d to %d\n", rank, t->blockNumber, peer);
 		int to_map_message[2] = { taskNumber, peer };
+		pthread_mutex_lock(&mutex_send_task);
+			sendedTasks.insert({taskNumber, t}); 	
+		pthread_mutex_unlock(&mutex_send_task);
+		MPI_Send(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, CommMap, thread);
+		t->GenerateSend(peer, CommWorker);		
+		//fprintf(stderr, "%d:: send task %d to %d\n", rank, t->blockNumber, peer);
+		
 		// Send the future task place to all ranks 	
 		for (int j = 0; j < size_new; j++) {
 			if (j != rank) {
 				MPI_Send(&to_map_message, 2, MPI_INT, j, MAPCONTROLLER_TAG, CommMap, thread);
 			}
-			else map[taskNumber] = peer;
 		}
 		
 	}	// Send the message about task failure
@@ -50,24 +46,24 @@ void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap){
 		MPI_Send(&send, 1, MPI_INT, peer, DISPATCHER_TASK_INFO_TAG, CommWorker);
 		
 		int taskNumber = t->blockNumber;
+		int to_map_message[2] = { taskNumber, peer };
 		pthread_mutex_lock(&mutex_send_task);
-			sendedTasks.insert({taskNumber, t}); 
-			sendedTasksCounter.insert({taskNumber, size_new - 1});	
+			sendedTasks.insert({taskNumber, t}); 	
 		pthread_mutex_unlock(&mutex_send_task);
+		MPI_Send(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, CommMap);
+		//fprintf(stderr, "%d:: start generate sendedTasks %d to %d\n", rank, t->blockNumber, peer);
 		
-		pthread_mutex_lock(&mutex_map_task);
-			mapMessageCount += 1;
-		pthread_mutex_unlock(&mutex_map_task);
-		
+		//MPI_RECV
+		//fprintf(stderr, "%d:: start sending task %d to %d\n", rank, t->blockNumber, peer);
 		t->GenerateSend(peer, CommWorker);
 	
-		int to_map_message[2] = { taskNumber, peer };
+		//fprintf(stderr, "%d:: send task %d to %d\n", rank, t->blockNumber, peer);
+		
 		// Send the future task place to all ranks 	
 		for (int j = 0; j < size_new; j++) {
 			if (j != rank) {
 				MPI_Send(&to_map_message, 2, MPI_INT, j, MAPCONTROLLER_TAG, CommMap);
 			}
-			else map[taskNumber] = peer;
 		}
 		
 	}	// Send the message about task failure
@@ -80,7 +76,7 @@ void* dispatcher_old(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("old dispatcher run", OldDispatcher);
 	#endif
-	fprintf(stderr, "%d:: dispetcher_old run\n", rank);	
+	//fprintf(stderr, "%d:: dispetcher_old run\n", rank);	
 	MPI_Request req;
 	MPI_Comm oldComm_ = currentComm, newComm_ = newComm;
 	ITask *t;
@@ -102,7 +98,7 @@ void* dispatcher_old(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("old dispatcher closed", OldDispatcher);
 	#endif
-	fprintf(stderr, "%d:: old dispatcher is closed.\n", rank);
+	//fprintf(stderr, "%d:: old dispatcher is closed.\n", rank);
 	return 0;
 }
 
@@ -112,7 +108,7 @@ void* dispatcher(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("dispatcher run", Dispatcher);
 	#endif
-	fprintf(stderr, "%d:: dispatcher run.\n", rank);
+	//fprintf(stderr, "%d:: dispatcher run.\n", rank);
 	MPI_Comm Comm = currentComm;
 	ITask *t;
 	int cond;
@@ -175,8 +171,7 @@ void* dispatcher(void* me) {
 				}
 				MPI_Barrier(currentComm);
 			#endif
-			
-			MPI_Recv(&cond, 1, MPI_INT, rank, MAPCONTROLLER_TAG, oldComm_, &st);	
+				
 			pthread_attr_t attrs;
 			if (0 != pthread_attr_init(&attrs)) {
 				perror("Cannot initialize attributes");
@@ -191,8 +186,7 @@ void* dispatcher(void* me) {
 				perror("Cannot create a thread");
 				abort();
 			}
-			
-					
+				
 			cond = 2;
 			#ifdef PROFILER
 				MPI_Send(&cond, 1, MPI_INT, rank_old, START_WORK_RECV_TAG, oldComm_, Dispatcher);			
@@ -201,7 +195,7 @@ void* dispatcher(void* me) {
 				MPI_Send(&cond, 1, MPI_INT, rank_old, START_WORK_RECV_TAG, oldComm_);		
 			#endif
 			
-	fprintf(stderr, "%d:: map is connected.\n", rank);
+	//fprintf(stderr, "%d:: map is connected.\n", rank);
 		} // Close dispatcher 
 		else if (cond == -1) close = true;
 		
@@ -209,6 +203,6 @@ void* dispatcher(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("dispatcher closed", Dispatcher);
 	#endif
-	fprintf(stderr, "%d:: dispatcher is closed.\n", rank);
+	//fprintf(stderr, "%d:: dispatcher is closed.\n", rank);
 	return 0;
 }

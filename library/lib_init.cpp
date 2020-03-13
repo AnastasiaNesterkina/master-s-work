@@ -25,6 +25,7 @@ int CONNECTION_FINISH_TAG = 100000008;
 int START_WORK_RECV_TAG = 100000009;
 int WORKER_CALC_TAG = 100000010;
 int WORKER_CHANGE_TAG = 100000011;
+int MAPCONTROLLER_CONNECTION_TAG = 100000012;
 
 // Descriptors for threads
 pthread_t thrs[12];
@@ -166,26 +167,26 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 		#ifdef PROFILER
 		Profiler::AddEvent("connect to server success", Main);
 		#endif
-		fprintf(stderr, "%d:: connect to server success\n", rank);
+		//fprintf(stderr, "%d:: connect to server success\n", rank);
 
 		MPI_Comm_rank(currentComm, &rank);
 		MPI_Comm_size(currentComm, &size);
 		rank_old = rank;
 		size_old = size;
-		fprintf(stderr, "%d:: new rank = %d, new_size = %d\n", rank_old, rank, size);
+		//fprintf(stderr, "%d:: new rank = %d, new_size = %d\n", rank_old, rank, size);
 
 		int sizeOfMap;
 		MPI_Recv(&numberOfConnection, 1, MPI_INT, 0, NUMBEROFCONNECTION_TAG, currentComm, &st);
 		char b[20];
 		MPI_Recv(&b, 20, MPI_CHAR, 0, FOLDER_TAG, currentComm, &st); 
 		folderName = b;
-		fprintf(stderr, "%d:: numberOfConnection = %d\n", rank, numberOfConnection);
+		//fprintf(stderr, "%d:: numberOfConnection = %d\n", rank, numberOfConnection);
 		MPI_Recv(&sizeOfMap, 1, MPI_INT, 0, SIZEOFMAP_TAG, currentComm, &st);
 		if (sizeOfMap) {
 			map.resize(sizeOfMap);
 			MPI_Recv(map.data(), sizeOfMap, MPI_INT, 0, MAP_TAG, currentComm, &st);
 			MPI_Recv(&condition, 1, MPI_INT, 0, CONDITION_TAG, currentComm, &st);
-			fprintf(stderr, "%d:: condition = %d\n", rank, condition);
+			//fprintf(stderr, "%d:: condition = %d\n", rank, condition);
 			MPI_Comm_dup(currentComm, &serverComm);
 			MPI_Comm_dup(currentComm, &reduceComm);			
 			MPI_Comm_dup(currentComm, &barrierComm);
@@ -231,7 +232,7 @@ void CloseLibraryComponents() {
 	
 	pthread_join(thrs[countOfWorkers], NULL);	
 	for (int i = 0; i < countOfWorkers; i++)
-		pthread_join(thrs[i], NULL);	
+		pthread_join(thrs[i], NULL);
 	pthread_join(thrs[countOfWorkers + 1], NULL);
 	pthread_join(thrs[countOfWorkers + 2], NULL);
 	

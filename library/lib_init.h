@@ -22,6 +22,7 @@ extern int CONNECTION_FINISH_TAG;
 extern int START_WORK_RECV_TAG;
 extern int WORKER_CALC_TAG;
 extern int WORKER_CHANGE_TAG;
+extern int MAPCONTROLLER_CONNECTION_TAG;
 
 // Descriptors for threads
 extern pthread_t thrs[12];
