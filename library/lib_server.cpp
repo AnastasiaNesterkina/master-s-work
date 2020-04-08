@@ -18,6 +18,9 @@ void* server(void *me) {
 		for (int i = 0; i < MPI_MAX_PORT_NAME; i++)
 			fPort << port_name[i];
 		fPort.close();
+		/*for(int i = 0; i < countOfConnect; i++) {
+            system("/mnt/storage/home/magorodnichev/nestyorkina/hpc2c-mpi-tools/qsub_client.sh");
+        }*/
 	}
 	for (; numberOfConnection < countOfConnect; ) {
 		#ifdef PROFILER

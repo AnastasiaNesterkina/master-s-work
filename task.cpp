@@ -1,5 +1,5 @@
 #include "task.h"
-int countOfConnect = 0;
+int countOfConnect = 3;
 int dim;
 // Шаги сетки
 double	hx = 0.05,
@@ -14,7 +14,8 @@ std::vector<int> globalNumbersOfKU;
 double residual = 1;
 int iteration = 0;
 int countOfBlockY = 8,
-countOfBlockZ = 8;
+countOfBlockZ = 8,
+countOfBlockX = 16;
 double	begX = 0, endX = 2,
 begY = 0, endY = 2,
 begZ = 0, endZ = 2;
@@ -63,8 +64,10 @@ bool Task::BelongToKU(int node) {
 void Task::ReceiveFromNeighbors(MPI_Comm Comm) {
 	MPI_Status st;
 	for (int i = 0; i < 6; i++)
-		if (neighbors[i] != -1)
+		if (neighbors[i] != -1) {
+			//if (rank == 1) fprintf(stderr, "%d:: recv borders of task %d with tag %d.\n", rank, blockNumber, blockNumber * 6 + i);
 			MPI_Recv(bordersRecv[i].data(), bordersRecv[i].size(), MPI_DOUBLE, MPI_ANY_SOURCE, blockNumber * 6 + i, Comm, &st);
+		}
 }
 
 void Task::SendToNeighbors(MPI_Comm Comm) {
@@ -78,8 +81,11 @@ void Task::SendToNeighbors(MPI_Comm Comm) {
 		case 4: map_id = 5; break;
 		case 5: map_id = 4; break;
 		}
-		if (neighbors[i] != -1)
+		
+		if (neighbors[i] != -1) {
+			//if (map[neighbors[i]] == 1) fprintf(stderr, "%d:: send borders of task %d with tag %d.\n", rank, blockNumber, neighbors[i] * 6 + map_id);
 			MPI_Isend(bordersSend[i].data(), bordersSend[i].size(), MPI_DOUBLE, map[neighbors[i]], neighbors[i] * 6 + map_id, Comm, &sendReq[i]);
+		}
 	}
 }
 
@@ -93,7 +99,7 @@ void Task::WaitBorders() {
 
 void Task::GenerateSend(int reciever, MPI_Comm Comm) {
 	MPI_Status st;
-	MPI_Request sendReq;
+	MPI_Request sendReq, sizeReq;
 
 	int sizes[14];
 	for (int j = 0; j < 6; j++)
@@ -103,7 +109,7 @@ void Task::GenerateSend(int reciever, MPI_Comm Comm) {
 	sizes[12] = oldU.size();
 	sizes[13] = numbersOfKU.size();
 
-	MPI_Isend(&sizes, 14, MPI_INT, reciever, 1000, Comm, &sendReq);
+	MPI_Isend(&sizes, 14, MPI_INT, reciever, 1000, Comm, &sizeReq);
 
 	// Отправляем данные
 	for (int j = 0; j < 6; j++) {
@@ -128,7 +134,7 @@ void Task::GenerateSend(int reciever, MPI_Comm Comm) {
 	MPI_Isend(&localNumber, 1, MPI_INT, reciever, 1021, Comm, &sendReq);
 	MPI_Isend(&flag, 1, MPI_INT, reciever, 1022, Comm, &sendReq);
 	MPI_Isend(&tasks_y, 1, MPI_INT, reciever, 1023, Comm, &sendReq);
-	//fprintf(stderr, "%d:: send task %d to %d\n", rank, blockNumber, reciever);
+	MPI_Wait(&sizeReq, &st);
 }
 
 void Task::GenerateRecv(int sender, MPI_Comm Comm) {
@@ -168,8 +174,6 @@ void Task::GenerateRecv(int sender, MPI_Comm Comm) {
 	MPI_Recv(&localNumber, 1, MPI_INT, sender, 1021, Comm, &st);
 	MPI_Recv(&flag, 1, MPI_INT, sender, 1022, Comm, &st);
 	MPI_Recv(&tasks_y, 1, MPI_INT, sender, 1023, Comm, &st);
-	
-	//fprintf(stderr, "%d:: get task %d from %d\n", rank, blockNumber, sender);
 }
 
 void Task::Calculate1Node(int i) {
@@ -347,6 +351,174 @@ void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map)
 	// Если количество интервалов не кратно числу процессов
 	// то распределяем оставшиеся задачи по первым процессам
 	int residue = intervalsX % size;
+	int k_x = intervalsX / countOfBlockX; // количество координат по x в блоке
+	int r_x = intervalsX % countOfBlockX;
+	std::vector<int> tasksPerBlockX(countOfBlockX);
+	for (int i = 0; i < countOfBlockX; i++) {
+		if (r_x != 0 && i < r_x) tasksPerBlockX[i] = k_x + 1;
+		// Если процесс не входит в область задач с лишними координатами
+		else tasksPerBlockX[i] = k_x;
+	}
+	tasksPerProcess = countOfBlockX / size; // количество блоков в процессе
+	residue = countOfBlockX % size;
+	
+	// Глобальный номер первого элемента сетки
+	int number_beg_x = 0, number_end_x = 0, firstX = begX;
+	//номер начального блока
+	int blockNumber = CalculateNumberBeg(residue, tasksPerProcess, rank);
+	for (int i = 0; i < blockNumber; i++)
+		number_beg_x += tasksPerBlockX[i];
+	number_end_x = number_beg_x + tasksPerBlockX[blockNumber];
+	firstX += number_beg_x * hx;
+	
+
+	int number_beg_z = 0, number_beg_y = 0;
+
+	// Количество интервалов в одном блоке
+	int k_y = intervalsY / countOfBlockY, k_z = intervalsZ / countOfBlockZ;
+	int r_y = intervalsY % countOfBlockY, r_z = intervalsZ % countOfBlockZ;
+	t.resize(countOfBlockY * countOfBlockZ * tasksPerProcess);
+	map.resize(countOfBlockY * countOfBlockZ * countOfBlockX);
+	std::vector <int> tasks_y, tasks_z;
+	tasks_y.resize(countOfBlockY);  tasks_z.resize(countOfBlockZ);
+	//std::cout << 0%9 <<std::endl;
+	for (int i_z = 0; i_z < countOfBlockZ; i_z++) {
+		// количество интервалов
+		tasks_z[i_z] = k_z;
+		number_beg_z = CalculateNumberBeg(r_z, tasks_z[i_z], i_z);
+		
+		for (int j_y = 0; j_y < countOfBlockY; j_y++) {
+			tasks_y[j_y] = k_y;
+			number_beg_y = CalculateNumberBeg(r_y, tasks_y[j_y], j_y);
+			// по количеству точек
+			//проход по кол-ву блоков
+			int tasksCountX = 0;
+			for (int k = 0; k < tasksPerProcess; k++) {
+				int idBlock = k + i_z * countOfBlockY*tasksPerProcess + j_y*tasksPerProcess;
+				t[idBlock].blockNumber = blockNumber + k + i_z * countOfBlockY*countOfBlockX + j_y*countOfBlockX;					
+				t[idBlock].tasks_x = tasksPerBlockX[blockNumber+k];
+				for (int i = 0; i < tasks_z[i_z] + 1; i++) {				
+					for (int j = 0; j < tasks_y[j_y] + 1; j++) {	
+						int xNum = number_beg_x + tasksCountX;					
+							
+						for (int m = 0; m < tasksPerBlockX[blockNumber+k] + 1; m++, xNum++) {
+							int number = xNum + (intervalsX + 1)*(number_beg_y + j) +
+								(intervalsX + 1)*(intervalsY + 1)*(number_beg_z + i);											
+							
+							x = globalPoints[number].x;
+							y = globalPoints[number].y;
+							z = globalPoints[number].z;
+							
+							t[idBlock].points.push_back(globalPoints[number]);
+							t[idBlock].oldU.push_back(1);
+							bool ku = false;
+							for (int z = 0; z < globalNumbersOfKU.size(); z++)
+								if (globalNumbersOfKU[z] == number) ku = true;
+							// Расчёт правых частей
+							if (ku) {
+								t[idBlock].F.push_back(CalcF1BC(x, y, z));
+								// Локальные адреса краевых условий
+								t[idBlock].numbersOfKU.push_back(t[idBlock].oldU.size() - 1);
+							}
+							else t[idBlock].F.push_back(CalcF(x, y, z));
+
+							// Локальнные адреса теневых границ
+							if (m == 0 && t[idBlock].blockNumber % countOfBlockX != 0)
+								t[idBlock].shadowBorders[0].push_back(t[idBlock].oldU.size() - 1);
+							else if (m == tasksPerBlockX[blockNumber+k] && t[idBlock].blockNumber % countOfBlockX  != countOfBlockX - 1)
+								t[idBlock].shadowBorders[1].push_back(t[idBlock].oldU.size() - 1);
+
+							if (j == 0 && y != begY)
+								t[idBlock].shadowBorders[2].push_back(t[idBlock].oldU.size() - 1);
+							else if (j == tasks_y[j_y] && y != endY)
+								t[idBlock].shadowBorders[3].push_back(t[idBlock].oldU.size() - 1);
+
+							if (i == 0 && z != begZ)
+								t[idBlock].shadowBorders[4].push_back(t[idBlock].oldU.size() - 1);
+							else if (i == tasks_z[i_z] && z != endZ)
+								t[idBlock].shadowBorders[5].push_back(t[idBlock].oldU.size() - 1);
+						}
+					}
+				}
+				tasksCountX += tasksPerBlockX[blockNumber+k];
+			}
+		}
+	}
+	
+	//std::string nameFile = "queue" + std::to_string(rank) + ".txt";
+	//std::ofstream fLoading(nameFile);
+	for (int i = 0; i < t.size(); i++)
+	{
+		t[i].newU.resize(t[i].oldU.size());
+		t[i].localNumber = i;
+		t[i].tasks_y = tasks_y[i % countOfBlockY];
+
+		map[t[i].blockNumber] = rank;
+		
+		if (t[i].blockNumber % countOfBlockX != 0) {
+			t[i].neighbors[0] = t[i].blockNumber - 1;
+		} else {
+			t[i].neighbors[0] = -1;
+		}
+		
+		if (t[i].blockNumber % countOfBlockX  != countOfBlockX - 1) {
+			t[i].neighbors[1] = t[i].blockNumber + 1;
+		} else {
+			t[i].neighbors[1] = -1;
+		}
+		
+		if (t[i].shadowBorders[2].size()) {
+			t[i].neighbors[2] = t[i].blockNumber - countOfBlockX;
+		} else {
+			t[i].neighbors[2] = -1;
+		}
+		
+		if (t[i].shadowBorders[3].size()) {
+			t[i].neighbors[3] = t[i].blockNumber + countOfBlockX;
+		} else {
+			t[i].neighbors[3] = -1;
+		}
+
+		if (t[i].shadowBorders[4].size()) {
+			t[i].neighbors[4] = t[i].blockNumber - countOfBlockX * countOfBlockY;
+		} else {
+			t[i].neighbors[4] = -1;
+		} 
+		
+		if (t[i].shadowBorders[5].size()) {
+			t[i].neighbors[5] = t[i].blockNumber + countOfBlockX * countOfBlockY;
+		} else {
+			t[i].neighbors[5] = -1;
+		}
+			for (int j = 0; j < t[i].shadowBorders.size(); j++) {
+			if (t[i].neighbors[j] != -1) {
+				t[i].bordersSend[j].resize(t[i].shadowBorders[j].size());
+				for (auto &el : t[i].bordersSend[j]) el = 1;
+				t[i].bordersRecv[j].resize(t[i].shadowBorders[j].size());
+				for (auto &el : t[i].bordersSend[j]) el = 1;
+			}
+		}
+		queueOTasks.push(&t[i]);
+		/*fLoading << "local id: " << t[i].localNumber << "\nglobal id: " << t[i].blockNumber << "\n";
+		fLoading << "neighbors: [ " << t[i].neighbors[0] << ", " << t[i].neighbors[1] << t[i].neighbors[2] 
+		<< ", " << t[i].neighbors[3]  << ", " << t[i].neighbors[4] << ", " << t[i].neighbors[5] <<" ]\n";
+		fLoading << "points (number,x,y,z):\n";
+		for (int j = 0; j < t[i].points.size(); j++) {
+			fLoading << t[i].points[j].globalNumber << " " << t[i].points[j].x << " " << t[i].points[j].y << " " << t[i].points[j].z << "\n";
+		}
+		fLoading << "------------------------------------------------------------------------------"<< "\n";*/
+	}
+	//fLoading.close();
+	//fprintf(stderr, "tasks generated\n ");
+}
+/*void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map) {
+	double	l;
+	double x, y, z;
+	// Бьём задачи по координате х
+	int tasksPerProcess = intervalsX / size;
+	// Если количество интервалов не кратно числу процессов
+	// то распределяем оставшиеся задачи по первым процессам
+	int residue = intervalsX % size;
 
 	// Глобальный номер первого элемента сетки
 	int number_beg_x = 0, firstX = begX;
@@ -380,6 +552,7 @@ void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map)
 					for (int k = 0; k < tasksPerProcess + 1; k++) {
 						int number = number_beg_x + k + (intervalsX + 1)*(number_beg_y + j) +
 							(intervalsX + 1)*(intervalsY + 1)*(number_beg_z + i);
+							std::cout << idBlock <<":: number = " << number << std::endl;
 						x = globalPoints[number].x;
 						y = globalPoints[number].y;
 						z = globalPoints[number].z;
@@ -473,7 +646,7 @@ void GenerateQueueOfTask(std::queue<ITask*> &queueOTasks, std::vector<int> &map)
 		queueOTasks.push(&t[i]);
 	}
 	//fprintf(stderr, "tasks generated\n ");
-}
+}*/
 
 void GenerateResult(MPI_Comm Comm) {
 	std::vector <double> res(size), globalR(size);

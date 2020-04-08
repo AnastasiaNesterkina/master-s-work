@@ -195,6 +195,7 @@ void* worker(void* me) {
 void ChangeMainCommunicator() {
 	changeExist = true;
 	MPI_Request req;
+	MPI_Status st;
 	int cond = 4;
 	// Send message to close old dispatcher
 	#ifdef PROFILER		
@@ -211,7 +212,16 @@ void ChangeMainCommunicator() {
 	#else	
 	MPI_Send(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, currentComm);
 	#endif
+	
+	#ifdef PROFILER	
+		MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, START_WORK_RECV_TAG, currentComm, &st, StartWorker);
+	#else			
+		MPI_Recv(&cond, 1, MPI_INT, MPI_ANY_SOURCE, START_WORK_RECV_TAG, currentComm, &st);
+	#endif
+	MPI_Comm Comm = currentComm;
 	currentComm = newComm;
+	// Send message to server about changed communicator
+	MPI_Send(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, Comm);
 }
 
 void StartWork(bool clientProgram) {
@@ -221,7 +231,7 @@ void StartWork(bool clientProgram) {
 	int cond = 1, message = 1;
 	int count = 0, countOfConnectedWorkers = 0;
 	bool connection = false;
-	
+	int nConnect = 0;
 	size_old = size;
 	std::vector<int> flags(size);
 	std::vector<int> globalFlags(size);
@@ -285,7 +295,7 @@ void StartWork(bool clientProgram) {
 					countOfConnectedWorkers = 0;
 					if (condition) MPI_Barrier(barrierComm);
 					size = size_new;
-					
+					nConnect++;
 					flags.resize(size); globalFlags.resize(size);
 				}
 			}
@@ -344,6 +354,7 @@ void StartWork(bool clientProgram) {
 					//fprintf(stderr, "%d:: %d connected workers after calculations. sizeOld = %d\n", rank, countOfConnectedWorkers, size);
 					if (countOfConnectedWorkers == size * countOfWorkers) {
 						ChangeMainCommunicator();
+						nConnect++;
 						connection = false;
 						countOfConnectedWorkers = 0;		
 						//MPI_Barrier(barrierComm);
@@ -359,6 +370,7 @@ void StartWork(bool clientProgram) {
 	while (!sendedTasksCounter.empty());
 	
 	//fprintf(stderr, "%d:: barrier after calculations\n", rank);
+	//fprintf(stderr, "%d:: connects = %d\n", rank, nConnect);
 	MPI_Barrier(reduceComm);
 	#ifdef PROFILER
 		Profiler::AddEvent("tasks.size = " + std::to_string(queueRecv.size()), StartWorker);

@@ -22,13 +22,15 @@ void FindSolution() {
 		for (auto &i : newResult) i = 0;
 		for (auto &i : oldResult) i = 0;
 		auto t_start = std::chrono::high_resolution_clock::now();
+		//fprintf(stderr, "\n%d:: cс of tasks = %d\n\n", rank, allTasks.size());
 		while (!allTasks.empty()) {
 			Task *t = dynamic_cast<Task*>(allTasks.front());
+			//if (rank == 1) fprintf(stderr, "%d:: recv borders of task %d.\n", rank, t->blockNumber);
 			if (iteration != 0) t->ReceiveFromNeighbors(currentComm);
 			queueRecv.push(t);
 			allTasks.pop();
 		}
-
+		//fprintf(stderr, "\n%d:: c of tasks = %d\n\n", rank, queueRecv.size());
 		while (!queueRecv.empty()) {
 			Task *t = dynamic_cast<Task*>(queueRecv.front());
 			//fprintf(stderr, "%d:: wait borders of task %d.\n", rank, t->blockNumber);
@@ -52,7 +54,7 @@ void FindSolution() {
 		}
 		//fprintf(stderr, "%d:: get to generate result of iteration\n", rank);
 		GenerateResultOfIteration(currentComm);
-
+		//fprintf(stderr, "%d:: generate result of iteration\n", rank);
 		while (!queueRecv.empty()) {
 			Task *t = dynamic_cast<Task*>(queueRecv.front());
 			t->SendToNeighbors(currentComm);
@@ -60,6 +62,7 @@ void FindSolution() {
 			allTasks.push(t);
 		}
 		auto t_end = std::chrono::high_resolution_clock::now();
+		//printf("%d:: res = %e\n", rank, residual);
 		if (rank == 0) {
 			printf("%d:: res = %e\n", rank, residual);
 			printf("%d:: --------------------FINISH ITERATION %d---------------------\n", rank, iteration);
@@ -80,7 +83,7 @@ int main(int argc, char **argv) {
 	timeinfo = localtime(&rawtime);
 	strftime(buffer, 80, "%H:%M:%S", timeinfo);
 	puts(buffer);
-	LibraryInitialize(argc, argv, false);	
+	LibraryInitialize(argc, argv, false);
 	if (rank == 0) fTime.open("src/loading/"+ folderName +"time_server.txt");
 	if (rank == 0) 	fTime << "servers's processes start in " << buffer << "\n";
 	GenerateBasicConcepts();
@@ -89,6 +92,8 @@ int main(int argc, char **argv) {
 	map.resize(map.size());
 	MPI_Allreduce(map.data(), tmp.data(), map.size(), MPI_INT, MPI_SUM, currentComm);
 	map = tmp;
+	
+	CreateLibraryComponents();
 	FindSolution();
 	MPI_Finalize();
 	if (rank == 0) fTime.close();

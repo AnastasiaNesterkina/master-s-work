@@ -75,6 +75,9 @@ void CreateLibraryComponents() {
 			perror("Cannot create a thread");
 			abort();
 		}
+}
+
+void CreateServer() {
 	// Create server
 	if (0 != pthread_create(&thrs[countOfWorkers + 2], &attrs_server, server, &ids[countOfWorkers + 2])) {
 		perror("Cannot create a thread");
@@ -159,7 +162,7 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 		char port_name[MPI_MAX_PORT_NAME];
 		std::ifstream fPort("port_name.txt");
 		for (int i = 0; i < MPI_MAX_PORT_NAME; i++)
-		fPort >> port_name[i];
+			fPort >> port_name[i];
 		fPort.close();
 		oldClientRank = rank;
 		MPI_Comm_connect(port_name, MPI_INFO_NULL, 0, currentComm, &server);
@@ -191,13 +194,15 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 			MPI_Comm_dup(currentComm, &reduceComm);			
 			MPI_Comm_dup(currentComm, &barrierComm);
 			CreateLibraryComponents();
+			CreateServer();
 		}
-	}	
-	else {
+	} else {
 		MPI_Comm_dup(currentComm, &serverComm);
 		MPI_Comm_dup(currentComm, &reduceComm);
 		MPI_Comm_dup(currentComm, &barrierComm);
-		CreateLibraryComponents();
+		// Create server
+		CreateServer();
+		//CreateLibraryComponents();
 	}
 }
 

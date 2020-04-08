@@ -150,8 +150,8 @@ void* oldMapController(void* me) {
 	#endif
 	//fprintf(stderr, "%d:: old map controller is closed.\n", rank);
 	
-	// Send message to server about changed communicator
-	MPI_Send(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, Comm);
+	// continue finish connection
+	MPI_Send(&cond, 1, MPI_INT, rank, START_WORK_RECV_TAG, Comm);
 	#ifdef PROFILER
 		Profiler::AddEvent("connection is done", StartWorker);
 	#endif
