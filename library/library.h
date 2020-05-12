@@ -13,6 +13,11 @@
 #include <sstream>
 #include "profiler/pmpi.h"
 #define MAX_DATA 1000
+
+// walltime in seconds
+extern int walltime;
+extern int timeDelta;
+
 class ITask {
 public:
 	int blockNumber;
@@ -33,7 +38,6 @@ extern MPI_Comm currentComm;
 
 void AddTask(ITask* t);
 
-void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap);
 void LibraryInitialize(int argc, char **argv, bool clientProgram);
 void CreateLibraryComponents();
 void StartWork(bool clientProgram);

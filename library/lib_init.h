@@ -9,7 +9,6 @@
 #define MPI_Comm_dup PROFILE_MPI_Comm_dup
 #endif
 
-
 extern int DISPATCHER_TAG;
 extern int DISPATCHER_TASK_INFO_TAG;
 extern int MAPCONTROLLER_TAG;
@@ -39,26 +38,31 @@ extern pthread_mutex_t server_mutexcond, comunicator_mutexcond;
 
 extern MPI_Comm reduceComm, oldComm, newComm, serverComm, barrierComm;
 extern int mapMessageCount;
+extern std::vector<std::string> clientsList;
 extern std::map<int, ITask*> sendedTasks;
 extern std::map<int, int> sendedTasksCounter;
 extern std::map<int, bool> sendedTasksSuccessfullyRecv;
-
-
+extern bool kill;
 // Count of computational threads
 extern int countOfWorkers;
 // Count of all threads
 extern int countOfThreads;
 extern int condition;
+
+void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap);
 bool GetTask(ITask **currTask);
 int GetRank(int &sign, int &k, int countOfProcess);
 
 void ExecuteOwnTasks();
 void ExecuteOtherTask(MPI_Comm &Comm, int id, bool &retry);
 void ChangeCommunicator(MPI_Comm &Comm, int &newSize);
+void GenerateClientsList();
 
 void* dispatcher_old(void* me);
 void* dispatcher(void* me);
 void* worker(void* me);
 void* mapController(void* me);
 void* oldMapController(void* me);
+void* walltimeController(void *me);
 void* server(void *me);
+void killServer();

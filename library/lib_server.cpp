@@ -1,4 +1,5 @@
 #include "lib_init.h"
+bool kill = false;
 void* server(void *me) {
 	#ifdef PROFILER
 	Profiler::AddEvent("server run", Server);
@@ -18,9 +19,30 @@ void* server(void *me) {
 		for (int i = 0; i < MPI_MAX_PORT_NAME; i++)
 			fPort << port_name[i];
 		fPort.close();
-		/*for(int i = 0; i < countOfConnect; i++) {
-            system("/mnt/storage/home/magorodnichev/nestyorkina/hpc2c-mpi-tools/qsub_client.sh");
-        }*/
+		
+		int hour = walltime/60/60;
+		int min = walltime/60%60;
+		int sec = walltime%60;
+		std::string qsub = "sh qsub_client.sh " + std::to_string(hour) + ":" + std::to_string(min) + ":" + std::to_string(sec);
+		const char *cqsub = qsub.c_str();
+		for(int i = 0; i < countOfConnect; i++) {			
+            system(cqsub);
+        }
+		
+		pthread_attr_t attrs;
+		if (0 != pthread_attr_init(&attrs)) {
+			perror("Cannot initialize attributes");
+			abort();
+		};
+		if (0 != pthread_attr_setdetachstate(&attrs, PTHREAD_CREATE_DETACHED)) {
+			perror("Error in setting attributes");
+			abort();
+		}
+		// Create dispatcher which is working in old communicator
+		if (0 != pthread_create(&thrs[countOfWorkers + 4], &attrs, walltimeController, &ids[countOfWorkers + 4])) {
+			perror("Cannot create a thread");
+			abort();
+		}
 	}
 	for (; numberOfConnection < countOfConnect; ) {
 		#ifdef PROFILER
@@ -30,6 +52,7 @@ void* server(void *me) {
 		old_size = size;
 		// Waiting for new ranks
 		MPI_Comm_accept(port_name, MPI_INFO_NULL, 0, serverComm, &client);
+		if(kill) break;
 		#ifdef PROFILER
 		Profiler::AddEvent("start communication", Server);
 		#endif
@@ -69,3 +92,22 @@ void* server(void *me) {
 	//fprintf(stderr, "%d:: server is closed;\n", rank);
 	return 0;
 }
+/*
+void killServer() {
+	kill = true;
+	if(rank == 0) {
+		//barrier
+		MPI_Comm server;
+		MPI_Status st;
+		double buf[MAX_DATA];
+		char port_name[MPI_MAX_PORT_NAME];
+		std::ifstream fPort("port_name.txt");
+		for (int i = 0; i < MPI_MAX_PORT_NAME; i++)
+			fPort >> port_name[i];
+		fPort.close();
+		port_name;
+		fprintf(stderr, "%d:: try connect. %s\n", rank, port_name);
+		MPI_Comm_connect(port_name, MPI_INFO_NULL, 0, currentComm, &server);
+		fprintf(stderr, "%d:: connect!.\n", rank);
+	}
+}*/

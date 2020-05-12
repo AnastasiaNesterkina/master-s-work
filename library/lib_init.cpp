@@ -1,4 +1,5 @@
 #include "lib_init.h"
+#include <sys/file.h>
 
 /*int DISPATCHER_TAG = MPI_TAG_UB;
 int DISPATCHER_TASK_INFO_TAG = MPI_TAG_UB - 1;
@@ -160,10 +161,28 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 		double buf[MAX_DATA];
 
 		char port_name[MPI_MAX_PORT_NAME];
+		/*FILE *fp;
+		fp = fopen("port_name.txt", "w");		
+		int fd  = fileno(fp); 
+		// acquire shared lock
+		if (flock(fd, LOCK_SH) == -1) {
+			exit(1);
+		}
+
+		// non-atomically upgrade to exclusive lock
+		// do it in non-blocking mode, i.e. fail if can't upgrade immediately
+		if (flock(fd, LOCK_EX | LOCK_NB) == -1) {
+			exit(1);
+		}*/
 		std::ifstream fPort("port_name.txt");
 		for (int i = 0; i < MPI_MAX_PORT_NAME; i++)
 			fPort >> port_name[i];
 		fPort.close();
+		/*// release lock
+		// lock is also released automatically when close() is called or process exits
+		if (flock(fd, LOCK_UN) == -1) {
+			exit(1);
+		}*/
 		oldClientRank = rank;
 		MPI_Comm_connect(port_name, MPI_INFO_NULL, 0, currentComm, &server);
 		MPI_Intercomm_merge(server, true, &currentComm);
@@ -221,6 +240,9 @@ void CloseLibraryComponents() {
 	// Close map controller
 	int to_map_message[2] = { exit, exit };
 	MPI_Isend(&to_map_message, 2, MPI_INT, rank, MAPCONTROLLER_TAG, currentComm, &s);	
+	/*if (numberOfConnection < countOfConnect) {
+		killServer();
+	}*/
 	
 	while (numberOfConnection < countOfConnect) {
 		int cond;

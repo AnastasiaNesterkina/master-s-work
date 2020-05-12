@@ -231,7 +231,7 @@ void StartWork(bool clientProgram) {
 	int cond = 1, message = 1;
 	int count = 0, countOfConnectedWorkers = 0;
 	bool connection = false;
-	int nConnect = 0;
+	//int nConnect = 0;
 	size_old = size;
 	std::vector<int> flags(size);
 	std::vector<int> globalFlags(size);
@@ -295,7 +295,7 @@ void StartWork(bool clientProgram) {
 					countOfConnectedWorkers = 0;
 					if (condition) MPI_Barrier(barrierComm);
 					size = size_new;
-					nConnect++;
+					//nConnect++;
 					flags.resize(size); globalFlags.resize(size);
 				}
 			}
@@ -354,7 +354,7 @@ void StartWork(bool clientProgram) {
 					//fprintf(stderr, "%d:: %d connected workers after calculations. sizeOld = %d\n", rank, countOfConnectedWorkers, size);
 					if (countOfConnectedWorkers == size * countOfWorkers) {
 						ChangeMainCommunicator();
-						nConnect++;
+						//nConnect++;
 						connection = false;
 						countOfConnectedWorkers = 0;		
 						//MPI_Barrier(barrierComm);
