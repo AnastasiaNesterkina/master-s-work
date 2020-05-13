@@ -40,6 +40,7 @@ int countOfWorkers = 1;
 // Count of all threads
 int countOfThreads = 3;
 int condition = 0;
+int closeDecreaseWalltime = false, closeServer = false;
 bool changeExist = false;
 std::vector<int> map;
 std::queue<ITask*> currentTasks, queueRecv;
@@ -243,10 +244,12 @@ void CloseLibraryComponents() {
 	/*if (numberOfConnection < countOfConnect) {
 		killServer();
 	}*/
-	
+	closeDecreaseWalltime = true;
 	while (numberOfConnection < countOfConnect) {
 		int cond;
+		bool close = false;
 		MPI_Recv(&cond, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm, &st);
+		if (cond == 0) close = true;
 		if (rank == 0) {
 			size_old = size;
 			MPI_Comm_size(newComm, &size_new);
@@ -255,6 +258,7 @@ void CloseLibraryComponents() {
 				MPI_Send(&cond, 1, MPI_INT, k, SIZEOFMAP_TAG, newComm);
 		}
 		MPI_Send(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, currentComm);
+		if (close) break;
 	}
 	
 	pthread_join(thrs[countOfWorkers], NULL);	

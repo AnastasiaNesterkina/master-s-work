@@ -18,9 +18,10 @@ void GenerateClientsList() {
 	fclose(fp);
 }
 void* walltimeController(void *me) {
-	std::fstream inOut, port;
+	std::fstream inOut;
+	bool close = false;
 	GenerateClientsList();
-	while(!clientsList.empty()) {		
+	while(!clientsList.empty()) {
 		sleep(timeDelta);
 		FILE *fp;
 		fp = fopen("port_name.txt", "r");		
@@ -42,6 +43,7 @@ void* walltimeController(void *me) {
 		int sec = walltime%60;
 		std::string qsub = "sh qsub_client.sh " + std::to_string(hour) + ":" + std::to_string(min) + ":" + std::to_string(sec);
 		const char *cqsub = qsub.c_str();
+		if (closeDecreaseWalltime) close = true;
 		for(int i = 0; i < clientsList.size(); i++) {
 			std::string qstat = "qstat -f -F json " + clientsList[i] + " > clientstat.json"; 
 			const char *cqstat = qstat.c_str();
@@ -54,11 +56,11 @@ void* walltimeController(void *me) {
 			if(status == "Q") {				
 				std::string qdel = "qdel " + clientsList[i]; 
 				const char *cqdel = qdel.c_str();
-				system(cqdel);
-				system(cqsub);
+				system(cqdel);		
+				if (!close) system(cqsub);
 			}			
 		}
-		port.close();
+		if (close) break;
 		// release lock
 		// lock is also released automatically when close() is called or process exits
 		if (flock(fd, LOCK_UN) == -1) {
@@ -67,5 +69,11 @@ void* walltimeController(void *me) {
 		fclose(fp);
 		clientsList.clear();
 		GenerateClientsList();
+	}
+	if (close) {
+		std::string qsub = "sh qsub_kill_server.sh";
+		const char *cqsub = qsub.c_str();
+		closeServer = true;
+		system(cqsub);
 	}
 }

@@ -48,6 +48,7 @@ extern int countOfWorkers;
 // Count of all threads
 extern int countOfThreads;
 extern int condition;
+extern int closeDecreaseWalltime, closeServer;
 
 void SendTask(MPI_Status &st, MPI_Comm &CommWorker, MPI_Comm &CommMap);
 bool GetTask(ITask **currTask);

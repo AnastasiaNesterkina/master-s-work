@@ -10,7 +10,7 @@ void* server(void *me) {
 	int cond;
 	char port_name[MPI_MAX_PORT_NAME];
 	int old_size, new_size;
-	bool blockConnection = false;
+	bool blockConnection = false, close = false;
 	newComm = currentComm;
 	// Open port
 	if (rank == 0) {
@@ -39,7 +39,7 @@ void* server(void *me) {
 			abort();
 		}
 		// Create dispatcher which is working in old communicator
-		if (0 != pthread_create(&thrs[countOfWorkers + 4], &attrs, walltimeController, &ids[countOfWorkers + 4])) {
+		if (0 != pthread_create(&thrs[countOfWorkers + 5], &attrs, walltimeController, &ids[countOfWorkers + 5])) {
 			perror("Cannot create a thread");
 			abort();
 		}
@@ -52,7 +52,8 @@ void* server(void *me) {
 		old_size = size;
 		// Waiting for new ranks
 		MPI_Comm_accept(port_name, MPI_INFO_NULL, 0, serverComm, &client);
-		if(kill) break;
+		if(closeServer) close = true;		
+		MPI_Bcast(&close, 1, MPI_C_BOOL, 0, serverComm);
 		#ifdef PROFILER
 		Profiler::AddEvent("start communication", Server);
 		#endif
@@ -63,12 +64,13 @@ void* server(void *me) {
 		MPI_Request req;
 		int message = 1;
 		numberOfConnection++;
+		if (close) message = 0;
 		// send to new ranks information about connections count
 		#ifdef PROFILER
 			if (rank == 0)
 				for (int k = old_size; k < new_size; k++) {
 					MPI_Send(&numberOfConnection, 1, MPI_INT, k, NUMBEROFCONNECTION_TAG, newComm, Server);
-					MPI_Send(folderName.c_str(), 20, MPI_CHAR, k, FOLDER_TAG,  newComm, Server);
+					MPI_Send(folderName.c_str(), 24, MPI_CHAR, k, FOLDER_TAG,  newComm, Server);
 				}
 			// Send to dispatcher message about new communicator
 			MPI_Send(&message, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm, Server);
@@ -78,13 +80,14 @@ void* server(void *me) {
 			if (rank == 0)
 				for (int k = old_size; k < new_size; k++){
 					MPI_Send(&numberOfConnection, 1, MPI_INT, k, NUMBEROFCONNECTION_TAG, newComm);
-					MPI_Send(folderName.c_str(), 20, MPI_CHAR, k, FOLDER_TAG, newComm);
+					MPI_Send(folderName.c_str(), 24, MPI_CHAR, k, FOLDER_TAG, newComm);
 				}
 			// Send to dispatcher message about new communicator
 			MPI_Send(&message, 1, MPI_INT, rank, DISPATCHER_TAG, currentComm);
 			// The previous connection must be finished
-			MPI_Recv(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, oldComm, &st);		
+			MPI_Recv(&cond, 1, MPI_INT, rank, CONNECTION_FINISH_TAG, oldComm, &st);	
 		#endif
+		if (close) break;
 	}
 	#ifdef PROFILER
 	Profiler::AddEvent("server is closed", Server);

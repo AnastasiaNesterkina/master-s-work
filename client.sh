@@ -1,2 +1,2 @@
 #!/bin/bash
-mpirun -np 1 ./client.exe 
+mpirun -np 4 ./client.exe 
