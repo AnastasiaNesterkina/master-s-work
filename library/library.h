@@ -14,10 +14,6 @@
 #include "profiler/pmpi.h"
 #define MAX_DATA 1000
 
-// walltime in seconds
-extern int walltime;
-extern int timeDelta;
-
 class ITask {
 public:
 	int blockNumber;
@@ -26,13 +22,12 @@ public:
 	void virtual GenerateRecv(int sender, MPI_Comm Comm) = 0;
 	void virtual GenerateSend(int reciever, MPI_Comm Comm) = 0;
 };
-extern std::string folderName;
-extern int numberOfConnection;
+
 extern int rank, size, size_old, oldClientRank;
-extern int countOfConnect;
+
 extern bool changeExist;
 extern std::vector<int> map;
-extern std::queue<ITask*> currentTasks, queueRecv;
+extern std::queue<ITask*> queueRecv;
 // Communicators
 extern MPI_Comm currentComm;
 

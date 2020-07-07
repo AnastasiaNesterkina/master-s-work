@@ -3,7 +3,7 @@ void* mapController(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("map controller run", MapController);
 	#endif
-	//fprintf(stderr, "%d:: map controller run.\n", rank);
+	fprintf(stderr, "%d:: map controller run.\n", rank);
 	MPI_Comm Comm = currentComm;
 	MPI_Status st;
 	MPI_Request s;
@@ -112,7 +112,7 @@ void* mapController(void* me) {
 	#ifdef PROFILER	
 		Profiler::AddEvent("map controller is closed", MapController);
 	#endif
-	//fprintf(stderr, "%d:: map controller is closed.\n", rank);
+	fprintf(stderr, "%d:: map controller is closed.\n", rank);
 	return 0;
 }
 
@@ -130,7 +130,7 @@ void* oldMapController(void* me) {
 	int oldMapMessageCount = mapMessageCount;		
 	int cond = -5;	
 	MPI_Send(&cond, 1, MPI_INT, rank, MAPCONTROLLER_CONNECTION_TAG, Comm);
-	//fprintf(stderr, "%d:: old map controller start work.\n", rank);
+	fprintf(stderr, "%d:: old map controller start work.\n", rank);
 	
 	while (!close || oldMapMessageCount > 0) {
 		#ifdef PROFILER
@@ -148,13 +148,13 @@ void* oldMapController(void* me) {
 	#ifdef PROFILER
 		Profiler::AddEvent("old map controller is closed", OldMapController);
 	#endif
-	//fprintf(stderr, "%d:: old map controller is closed.\n", rank);
+	fprintf(stderr, "%d:: old map controller is closed.\n", rank);
 	
 	// continue finish connection
 	MPI_Send(&cond, 1, MPI_INT, rank, START_WORK_RECV_TAG, Comm);
 	#ifdef PROFILER
 		Profiler::AddEvent("connection is done", StartWorker);
 	#endif
-	//fprintf(stderr, "%d:: connection is done.\n", rank);
+	fprintf(stderr, "%d:: connection is done.\n", rank);
 	return 0;
 }

@@ -9,6 +9,14 @@
 #define MPI_Comm_dup PROFILE_MPI_Comm_dup
 #endif
 
+// walltime in seconds
+extern int walltime;
+extern int timeDelta;
+extern int nodes, ncpus;
+extern int countOfConnect;
+extern int numberOfConnection;
+extern std::string memory;
+extern std::string folderName;
 extern int DISPATCHER_TAG;
 extern int DISPATCHER_TASK_INFO_TAG;
 extern int MAPCONTROLLER_TAG;
@@ -40,6 +48,7 @@ extern MPI_Comm reduceComm, oldComm, newComm, serverComm, barrierComm;
 extern int mapMessageCount;
 extern std::vector<std::string> clientsList;
 extern std::map<int, ITask*> sendedTasks;
+extern std::queue<ITask*> currentTasks;
 extern std::map<int, int> sendedTasksCounter;
 extern std::map<int, bool> sendedTasksSuccessfullyRecv;
 extern bool kill;

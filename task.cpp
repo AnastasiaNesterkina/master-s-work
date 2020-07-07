@@ -1,7 +1,4 @@
 #include "task.h"
-int countOfConnect = 1;
-int walltime = 3600; // 1 hour
-int timeDelta = 300; // 5 min
 int dim;
 // Шаги сетки
 double	hx = 0.05,

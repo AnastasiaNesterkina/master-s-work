@@ -13,4 +13,5 @@ mkdir ./src/source/$folderName/send
 mkdir ./src/source/$folderName/wait
 startTime=$prefix' '$suffix":: waiting..."
 echo $startTime >> ./src/source/$folderName/globalTime.txt
-qsub -v folderName=$folderName -l select=$1:ncpus=$2:mem=3000m,walltime=1:00:0,place=scatter:excl spoisson.sh
+qsub -v folderName=$folderName,countOfConnect=$5,nodes=$6,n_cpus=$7,memory=$8,time=$9 -l select=$1:ncpus=$2:mem=$3,walltime=$4,place=scatter:excl ./scripts/spoisson.sh
+ 

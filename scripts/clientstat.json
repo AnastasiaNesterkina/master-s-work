@@ -1,0 +1,68 @@
+{
+    "timestamp":1590581223,
+    "pbs_version":"19.2.1.20190417042339",
+    "pbs_server":"vm-pbs.hpc.nusc.ru",
+    "Jobs":{
+        "2339590.vm-pbs":{
+            "Job_Name":"cpoisson.sh",
+            "Job_Owner":"magorodnichev@cn201.hpc.nusc.ru",
+            "resources_used":{
+                "cpupercent":0,
+                "cput":"00:00:00",
+                "mem":"8896kb",
+                "ncpus":4,
+                "vmem":"48360kb",
+                "walltime":"00:01:50"
+            },
+            "job_state":"R",
+            "queue":"bl2x220g7_short",
+            "server":"vm-pbs",
+            "Checkpoint":"u",
+            "ctime":"Wed May 27 19:02:01 2020",
+            "Error_Path":"cn201.hpc.nusc.ru:/mnt/storage/home/magorodnichev/nestyorkina/dinamic_connection/cpoisson.sh.e2339590",
+            "exec_host":"cn287/0*4",
+            "exec_vnode":"(cn287:ncpus=4:mem=3072000kb)",
+            "Hold_Types":"n",
+            "Join_Path":"n",
+            "Keep_Files":"n",
+            "Mail_Points":"n",
+            "mtime":"Wed May 27 19:06:55 2020",
+            "Output_Path":"cn201.hpc.nusc.ru:/mnt/storage/home/magorodnichev/nestyorkina/dinamic_connection/cpoisson.sh.o2339590",
+            "Priority":0,
+            "qtime":"Wed May 27 19:02:01 2020",
+            "Rerunable":"False",
+            "Resource_List":{
+                "mem":"3000mb",
+                "ncpus":4,
+                "nodect":1,
+                "place":"scatter:excl",
+                "qlist":"bl2x220g7_short",
+                "select":"1:ncpus=4:mem=3000m",
+                "walltime":"01:00:00"
+            },
+            "stime":"Wed May 27 19:05:05 2020",
+            "session_id":19656,
+            "jobdir":"/mnt/storage/home/magorodnichev",
+            "substate":42,
+            "Variable_List":{
+                "PBS_O_SYSTEM":"Linux",
+                "nConnect":16,
+                "PBS_O_TZ":"Asia/Novosibirsk",
+                "PBS_O_HOME":"/mnt/storage/home/magorodnichev",
+                "PBS_O_LOGNAME":"magorodnichev",
+                "PBS_O_SHELL":"/bin/bash",
+                "PBS_O_LANG":"en_US.UTF-8",
+                "PBS_O_PATH":"/mnt/storage/home/magorodnichev/local/bin:/opt/shared/openmpi/4.0.1-gcc.sles12sp3/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:/opt/shared/bin:/opt/shared/pbs/default.sles12/bin",
+                "PBS_O_WORKDIR":"/mnt/storage/home/magorodnichev/nestyorkina/dinamic_connection",
+                "PBS_O_MAIL":"/var/spool/mail/magorodnichev",
+                "PBS_O_QUEUE":"defaultq",
+                "PBS_O_HOST":"cn201.hpc.nusc.ru"
+            },
+            "comment":"Job run at Wed May 27 at 19:05 on (cn287:ncpus=4:mem=3072000kb)",
+            "etime":"Wed May 27 19:02:01 2020",
+            "run_count":1,
+            "Submit_arguments":"-v nConnect=16 -l select=1:ncpus=4:mem=3000m,walltime=1:0:0,place=scatter:excl ./scripts/cpoisson.sh",
+            "project":"_pbs_project_default"
+        }
+    }
+}

@@ -14,6 +14,12 @@ int START_WORK_RECV_TAG = MPI_TAG_UB - 9;
 int WORKER_CALC_TAG = MPI_TAG_UB - 10;
 int WORKER_CHANGE_TAG = MPI_TAG_UB - 11;*/
 
+int walltime = 3600; // 1 hour
+int timeDelta = 300; // 5 min
+int countOfConnect;
+int nodes, ncpus;
+std::string memory = "";
+
 int DISPATCHER_TAG = 10000000;
 int DISPATCHER_TASK_INFO_TAG = 100000001;
 int MAPCONTROLLER_TAG = 100000002;
@@ -100,10 +106,20 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 	MPI_Comm_rank(currentComm, &rank);
 	MPI_Comm_size(currentComm, &size);
 	size_old = size;
-	if (argc > 1) {
-		folderName = argv[argc - 1];
-		folderName += "/";
-		//std::cout << folderName.size() << std::endl;
+	if (clientProgram) {		
+		countOfConnect = atoi(argv[1]);
+	} else {
+		if (argc > 1) {		
+			folderName = argv[1];
+			folderName += "/";
+			countOfConnect = atoi(argv[2]);
+			if (countOfConnect > 0) {
+				walltime = atoi(argv[3]);
+				nodes = atoi(argv[4]); 
+				ncpus = atoi(argv[5]);			
+				memory = argv[6];
+			}
+		}
 	}
 	
 	pthread_mutexattr_init(&attr_get_task);
@@ -162,54 +178,47 @@ void LibraryInitialize(int argc, char **argv, bool clientProgram) {
 		double buf[MAX_DATA];
 
 		char port_name[MPI_MAX_PORT_NAME];
-		/*FILE *fp;
-		fp = fopen("port_name.txt", "w");		
+		FILE *fp;
+		fp = fopen("port_name.txt", "r");		
 		int fd  = fileno(fp); 
-		// acquire shared lock
-		if (flock(fd, LOCK_SH) == -1) {
-			exit(1);
-		}
-
-		// non-atomically upgrade to exclusive lock
-		// do it in non-blocking mode, i.e. fail if can't upgrade immediately
-		if (flock(fd, LOCK_EX | LOCK_NB) == -1) {
-			exit(1);
-		}*/
+		// TO DO:: to handle errors
+		while (flock(fd, LOCK_SH) == -1);
 		std::ifstream fPort("port_name.txt");
 		for (int i = 0; i < MPI_MAX_PORT_NAME; i++)
 			fPort >> port_name[i];
 		fPort.close();
-		/*// release lock
+		// release lock
 		// lock is also released automatically when close() is called or process exits
-		if (flock(fd, LOCK_UN) == -1) {
-			exit(1);
-		}*/
+		while (flock(fd, LOCK_UN) == -1) {
+			//exit(1);
+		}
 		oldClientRank = rank;
 		MPI_Comm_connect(port_name, MPI_INFO_NULL, 0, currentComm, &server);
 		MPI_Intercomm_merge(server, true, &currentComm);
 		#ifdef PROFILER
 		Profiler::AddEvent("connect to server success", Main);
 		#endif
-		//fprintf(stderr, "%d:: connect to server success\n", rank);
+		
+		fprintf(stderr, "%d:: connect to server success\n", rank);
 
 		MPI_Comm_rank(currentComm, &rank);
 		MPI_Comm_size(currentComm, &size);
 		rank_old = rank;
 		size_old = size;
-		//fprintf(stderr, "%d:: new rank = %d, new_size = %d\n", rank_old, rank, size);
+		fprintf(stderr, "%d:: new rank = %d, new_size = %d\n", rank_old, rank, size);
 
 		int sizeOfMap;
 		MPI_Recv(&numberOfConnection, 1, MPI_INT, 0, NUMBEROFCONNECTION_TAG, currentComm, &st);
 		char b[20];
-		MPI_Recv(&b, 20, MPI_CHAR, 0, FOLDER_TAG, currentComm, &st); 
+		MPI_Recv(&b, 24, MPI_CHAR, 0, FOLDER_TAG, currentComm, &st); 
 		folderName = b;
-		//fprintf(stderr, "%d:: numberOfConnection = %d\n", rank, numberOfConnection);
+		fprintf(stderr, "%d:: numberOfConnection = %d\n", rank, numberOfConnection);
 		MPI_Recv(&sizeOfMap, 1, MPI_INT, 0, SIZEOFMAP_TAG, currentComm, &st);
 		if (sizeOfMap) {
 			map.resize(sizeOfMap);
 			MPI_Recv(map.data(), sizeOfMap, MPI_INT, 0, MAP_TAG, currentComm, &st);
 			MPI_Recv(&condition, 1, MPI_INT, 0, CONDITION_TAG, currentComm, &st);
-			//fprintf(stderr, "%d:: condition = %d\n", rank, condition);
+			fprintf(stderr, "%d:: condition = %d\n", rank, condition);
 			MPI_Comm_dup(currentComm, &serverComm);
 			MPI_Comm_dup(currentComm, &reduceComm);			
 			MPI_Comm_dup(currentComm, &barrierComm);

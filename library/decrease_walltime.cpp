@@ -5,7 +5,7 @@
 std::vector<std::string> clientsList;
 void GenerateClientsList() {
 	std::fstream inOut;
-	inOut.open("id_clients.txt", std::ios::in);
+	inOut.open("./scripts/id_clients.txt", std::ios::in);
 	while(!inOut.eof()){
 		std::string id, walltime;
 		inOut >> id;
@@ -14,7 +14,7 @@ void GenerateClientsList() {
 	}
 	inOut.close();
 	FILE *fp;
-	fp = fopen("id_clients.txt", "w");
+	fp = fopen("./scripts/id_clients.txt", "w");
 	fclose(fp);
 }
 void* walltimeController(void *me) {
@@ -26,30 +26,28 @@ void* walltimeController(void *me) {
 		FILE *fp;
 		fp = fopen("port_name.txt", "r");		
 		int fd = fileno(fp); 
-		// acquire shared lock
-		if (flock(fd, LOCK_SH) == -1) {
-			exit(1);
-		}
-
-		// non-atomically upgrade to exclusive lock
-		// do it in non-blocking mode, i.e. fail if can't upgrade immediately
-		if (flock(fd, LOCK_EX | LOCK_NB) == -1) {
-			exit(1);
-		}
-
+		// TO DO:: to handle errors
+		while (flock(fd, LOCK_EX) == -1);
 		walltime -= timeDelta;
 		int hour = walltime/60/60;
 		int min = walltime/60%60;
 		int sec = walltime%60;
-		std::string qsub = "sh qsub_client.sh " + std::to_string(hour) + ":" + std::to_string(min) + ":" + std::to_string(sec);
+		
+		std::string qsub = "sh ./scripts/qsub_client.sh " 
+		+  std::to_string(nodes) + " " 
+		+  std::to_string(ncpus) + " " 
+		+ memory + " " 
+		+ std::to_string(hour) + ":" + std::to_string(min) + ":" + std::to_string(sec) + " "		
+		+ std::to_string(countOfConnect);
+		
 		const char *cqsub = qsub.c_str();
 		if (closeDecreaseWalltime) close = true;
 		for(int i = 0; i < clientsList.size(); i++) {
-			std::string qstat = "qstat -f -F json " + clientsList[i] + " > clientstat.json"; 
+			std::string qstat = "qstat -f -F json " + clientsList[i] + " > ./scripts/clientstat.json"; 
 			const char *cqstat = qstat.c_str();
 			system(cqstat);
-			system("python detectStatus.py");
-			inOut.open("status.txt", std::ios::in);
+			system("python ./scripts/detectStatus.py");
+			inOut.open("./scripts/status.txt", std::ios::in);
 			std::string status;
 			inOut >> status;
 			inOut.close();
@@ -63,15 +61,15 @@ void* walltimeController(void *me) {
 		if (close) break;
 		// release lock
 		// lock is also released automatically when close() is called or process exits
-		if (flock(fd, LOCK_UN) == -1) {
-			exit(1);
+		while (flock(fd, LOCK_UN) == -1) {
+			//exit(1);
 		}
 		fclose(fp);
 		clientsList.clear();
 		GenerateClientsList();
 	}
 	if (close) {
-		std::string qsub = "sh qsub_kill_server.sh";
+		std::string qsub = "sh ./scripts/qsub_kill_server.sh";
 		const char *cqsub = qsub.c_str();
 		closeServer = true;
 		system(cqsub);
